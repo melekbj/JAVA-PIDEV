@@ -1,0 +1,80 @@
+
+.BtnAdd_Store
+{
+-fx-background-color : #393351;
+}
+.BtnAdd_Store:hover
+{
+-fx-background-color : #524A7B ;
+}
+.BtnAdd_Store:pressed
+{
+-fx-background-color : #2F2B43 ;
+}
+.mainFxmlClass {
+
+}
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+ -fx-background-color:#6b1eb3
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card:click {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.root{}
+
+.nav-button:hover{
+    -fx-background-color:#222D32;
+}
+.nav-button {
+    -fx-background-color:#2A3F54;
+}
+.nav-button:pressed {
+    -fx-background-color:#2A3F54;
+}
+.mprogress-bar>.track {
+	-fx-background-color: derive(rgb(200.0, 200.0, 200.0), 50.0%);
+	-fx-background-radius: 2.0;
+	-fx-padding: 0.0;
+}
+
+.mprogress-bar>.bar {
+	-fx-background-color: #26B99A;
+	-fx-background-radius: 2.0;
+	-fx-background-insets: 0.0;
+        -fx-pref-width:3;
+	-fx-border-width: 0.0;
+	-fx-effect: null;
+}
+
+.mprogress-bar:indeterminate>.bar {
+	-fx-background-color: derive(#26B99A, 50.0%);
+	-fx-background-radius: 2.0;
+	-fx-background-insets: 0.0;
+	-fx-border-width: 0.0;
+	-fx-effect: null;
+}
+
+.custom-progress-bar>.track {
+/*	-fx-background-color: derive(#D5D5D5, 50.0%);*/
+        -fx-background-color:#CDCDCD;
+	-fx-background-radius: 2.0;
+	-fx-padding: 0.0;
+}
+
+.custom-progress-bar>.bar {
+	-fx-background-color: #FFFFFF;
+	-fx-background-radius: 2.0;
+	-fx-background-insets: 0.0;
+        
+	-fx-border-width: 0.0;
+	-fx-effect: null;
+}
