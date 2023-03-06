@@ -441,7 +441,7 @@ public class AuthController implements Initializable {
                 + "    </form>\n"
                 + "  </body>\n"
                 + "</html>";
-        webView.getEngine().loadContent(html);
+//        webView.getEngine().loadContent(html);
         
          // Add listener to update TextField value with PasswordField value
          txt_pwd.setVisible(false);

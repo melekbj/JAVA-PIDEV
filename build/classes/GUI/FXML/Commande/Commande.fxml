@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="117.0" prefWidth="396.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Commande.CommandeController">
+     <children>
+      <Label layoutX="27.0" layoutY="24.0" text="REF" />
+      <Label fx:id="id" layoutX="63.0" layoutY="24.0" text="Id" />
+      <Label layoutX="20.0" layoutY="47.0" text="Date" />
+      <Label fx:id="date" layoutX="56.0" layoutY="47.0" text="Date" />
+      <Label layoutX="118.0" layoutY="24.0" text="Destination" />
+      <Label fx:id="destination" layoutX="190.0" layoutY="24.0" text="Destination" />
+      <Label layoutX="24.0" layoutY="6.0" text="Commande" />
+      <Label layoutX="139.0" layoutY="47.0" text="Prix" />
+      <Label fx:id="prix" layoutX="201.0" layoutY="47.0" text="Prix" />
+      <Button fx:id="detail" layoutX="268.0" layoutY="77.0" mnemonicParsing="false" onAction="#extraDetail" text="Détail" />
+      <Label layoutX="19.0" layoutY="81.0" text="Etat" />
+      <Label fx:id="etat" layoutX="59.0" layoutY="76.0" text="Etat">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding></Label>
+      <Button layoutX="261.0" layoutY="20.0" mnemonicParsing="false" onAction="#updatedestination" text="Modifier Destination" />
+      <Button fx:id="payer" layoutX="340.0" layoutY="77.0" mnemonicParsing="false" onAction="#payer" text="Payer" />
+   </children>
+</AnchorPane>

@@ -3,8 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Desktop/JAVA%20STORESHIP/PIDEV%20STORESHIP/src/GUI/Controllers/AuthController.java</file>
-            <file>file:/C:/Users/Admin/Desktop/JAVA%20STORESHIP/PIDEV%20STORESHIP/src/GUI/FXMain.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Util/QRCodeGenerator.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/PartnerMain.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/AuthController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Store.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/ShopController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/PaymentProcessor.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/ClientMain.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Detail_Commande.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Categorie.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/ClientContenuController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/ClientMainController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Auth.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Commande.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/Service_Commande.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/NavController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Produit.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXMain.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/ListeAllUsers.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/PaymentpageController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/Detail_commandeController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/CommandeController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/Service_Detail_Commande.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/ClientContenu.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/ServiceProduit.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/HistoriqueCommandeController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/ProduitController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="241.0" prefWidth="236.0" style="-fx-background-color: linear-gradient(to bottom, #ffcc99 0%, #ff6600 100%);;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Commande.Detail_commandeController">
+ 
+     <children>
+      <Label fx:id="ProduitNom" layoutX="77.0" layoutY="137.0" text="nom" textFill="#0a0a0a" />
+      <Label fx:id="quantite" layoutX="131.0" layoutY="199.0" text="Quantité" textFill="#0a0a0a" />
+      <Label fx:id="prix" layoutX="56.0" layoutY="165.0" text="Prix" textFill="#0a0a0a" />
+      <Label layoutX="144.0" layoutY="165.0" text="Etat" textFill="#0a0a0a" />
+      <Label fx:id="quantite1" layoutX="20.0" layoutY="199.0" text="Quantité::" textFill="#0a0a0a" />
+      <Label fx:id="prix1" layoutX="27.0" layoutY="165.0" text="Prix" textFill="#0a0a0a" />
+      <Label fx:id="etat" layoutX="181.0" layoutY="165.0" text="Etat" textFill="#0a0a0a" />
+      <Label fx:id="ProduitNom1" layoutX="27.0" layoutY="137.0" text="Produit" textFill="#0a0a0a" />
+      <Button fx:id="plusproduit" layoutX="191.0" layoutY="195.0" mnemonicParsing="false" onAction="#addamount" text="+1" />
+      <Button fx:id="minusproduit" layoutX="89.0" layoutY="195.0" mnemonicParsing="false" onAction="#reduceammount" text="-1" />
+      <ImageView fx:id="image" fitHeight="115.0" fitWidth="201.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

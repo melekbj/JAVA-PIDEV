@@ -4,6 +4,8 @@
  */
 package GUI.Controllers;
 
+import GUI.Controllers.Commande.HistoriqueCommandeController;
+import GUI.Controllers.Commande.ShopController;
 import controller.UserController;
 import entity.User;
 import entity.Util.QRCodeGenerator;
@@ -17,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -45,14 +48,8 @@ public class ClientContenuController implements Initializable {
     @FXML
     private Pane pane3;
     
-    @FXML
-    private TableView<User> tv_a;
-    @FXML
-    private TableColumn<User, String> coln;
-    @FXML
-    private TableColumn<User, String> colp;
-    @FXML
-    private TableColumn<User, Integer> agep;
+  
+    
     @FXML
     private Pane pane4;
     @FXML
@@ -87,6 +84,10 @@ public class ClientContenuController implements Initializable {
     private Button sub_btn;
     @FXML
     private ImageView qr_img;
+    @FXML
+    private Pane pane5;
+    @FXML
+    private Pane pane31;
    
     
     
@@ -99,14 +100,6 @@ public class ClientContenuController implements Initializable {
         return userList;
     }
     
-    public void showUsers(){
-        ObservableList<User> list = getUsersList();
-        coln.setCellValueFactory(new PropertyValueFactory<User, String>("nom"));
-        colp.setCellValueFactory(new PropertyValueFactory<User, String>("prenom"));
-        agep.setCellValueFactory(new PropertyValueFactory<User, Integer>("age"));
-        
-        tv_a.setItems(list);
-    }
     
     
     
@@ -117,7 +110,6 @@ public class ClientContenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        showUsers();
         instance=this;
         pane4.setVisible(false);
    
@@ -141,38 +133,64 @@ public class ClientContenuController implements Initializable {
 //
 //        int size = 250;
 //        qr_img.setImage(QRCodeGenerator.generateQRCode(data, size).getImage());
+loadshop();
+loadhistorique();
     }  
     
     public void   setPane1(){
         instance.pane1.setVisible(true);
                 instance.pane2.setVisible(false);
         instance.pane3.setVisible(false);
+           instance.pane4.setVisible(false);
+        instance.pane5.setVisible(false);
+        
+        openshop();
 
     }
       public void setPane2(){
         instance.pane1.setVisible(false);
         instance.pane2.setVisible(true);
         instance.pane3.setVisible(false);
+        instance.pane4.setVisible(false);
+        instance.pane5.setVisible(false);
 
     }
         public void   setPane3(){
         instance.pane1.setVisible(false);
         instance.pane2.setVisible(false);
         instance.pane3.setVisible(true);
+           instance.pane4.setVisible(false);
+        instance.pane5.setVisible(false);
+
+    }
+        public void   setPane4(){
+        instance.pane1.setVisible(false);
+        instance.pane2.setVisible(false);
+        instance.pane3.setVisible(false);
+           instance.pane4.setVisible(true);
+        instance.pane5.setVisible(false);
+
+    }
+        public void   setPane5(){
+        instance.pane1.setVisible(false);
+        instance.pane2.setVisible(false);
+        instance.pane3.setVisible(false);
+           instance.pane4.setVisible(false);
+        instance.pane5.setVisible(true);
 
     }
         
         
-        public void setPane4(){
-        instance.pane4.setVisible(true);
+        public void setPane31(){
+        instance.pane31.setVisible(true);
         
 
     }
 
     @FXML
-    private void load4(ActionEvent event) {
+    private void load31(ActionEvent event) {
         ClientContenuController c = new ClientContenuController();
-        c.setPane4();
+        c.setPane31();
     }
 
     @FXML
@@ -204,5 +222,33 @@ public class ClientContenuController implements Initializable {
     
     
     
-    
+     private void openshop(){
+       ShopController shopcontroller=new ShopController();
+       shopcontroller.populateshop();
+    }
+    private void loadshop(){
+                pane1.getChildren().clear();
+
+        FXMLLoader shoploader=new FXMLLoader(getClass().getResource("/GUI/FXML/Commande/Shop.fxml"));
+         try{
+        Node node=shoploader.load();
+             ShopController shopcontroller=new ShopController();
+        pane1.getChildren().add(node);
+         }
+         catch (IOException ex) {
+                System.out.println(ex);
+            }
+    }
+    private void loadhistorique(){
+        pane2.getChildren().clear();
+          FXMLLoader historiqueloader=new FXMLLoader(getClass().getResource("/GUI/FXML/Commande/HistoriqueCommande.fxml"));
+         try{
+        Node node=historiqueloader.load();
+             HistoriqueCommandeController hitoriquecontroller=new HistoriqueCommandeController();
+        pane2.getChildren().add(node);
+         }
+         catch (IOException ex) {
+                System.out.println(ex);
+            }
+    }
 }
