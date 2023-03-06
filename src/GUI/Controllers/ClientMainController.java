@@ -59,6 +59,8 @@ public class ClientMainController implements Initializable {
          try {
           FXMLLoader contenu = new FXMLLoader((getClass().getResource("/GUI/FXML/ClientContenu.fxml")));
           Node node1 = contenu.load();
+          ClientContenuController contenucontroller=contenu.getController();
+        //  contenucontroller.setPane1();
           
             pane_con.getChildren().add(node1);
         } catch (IOException ex) {

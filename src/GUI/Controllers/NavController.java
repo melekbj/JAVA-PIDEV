@@ -51,6 +51,17 @@ public class NavController implements Initializable {
         ClientContenuController c = new ClientContenuController();
         c.setPane3();
     }
+    private void load4(ActionEvent event) {
+         ClientContenuController c = new ClientContenuController();
+         
+        c.setPane4();
+    }
+
+    @FXML
+    private void load5(ActionEvent event) {
+         ClientContenuController c = new ClientContenuController();
+        c.setPane5();
+    }
 
     @FXML
     private void goBack(ActionEvent event) throws IOException {
@@ -64,5 +75,7 @@ public class NavController implements Initializable {
         primaryStage.show();
   
     }
+
+    
     
 }

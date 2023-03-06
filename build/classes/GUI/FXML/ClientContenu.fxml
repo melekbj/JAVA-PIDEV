@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,17 +15,7 @@
         <URL value="@/GUI/CSS/clientcontenu.css" />
     </stylesheets>
    <children>
-      <Pane fx:id="pane1" prefHeight="600.0" prefWidth="670.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <TableView fx:id="tv_a" layoutX="14.0" layoutY="28.0" prefHeight="305.0" prefWidth="227.0">
-              <columns>
-                <TableColumn fx:id="coln" prefWidth="75.0" text="nom" />
-                <TableColumn fx:id="colp" prefWidth="75.0" text="prenom" />
-                  <TableColumn fx:id="agep" prefWidth="75.0" text="age" />
-              </columns>
-            </TableView>
-         </children>
-      </Pane>
+      <Pane fx:id="pane1" prefHeight="600.0" prefWidth="670.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Pane fx:id="pane2" layoutX="-2.0" layoutY="-2.0" prefHeight="600.0" prefWidth="670.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label layoutX="312.0" layoutY="283.0" text="wachene" />
@@ -40,12 +27,11 @@
                <children>
                   <ImageView fx:id="re_img" fitHeight="232.0" fitWidth="244.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" />
                   <Label fx:id="lab_name" layoutX="22.0" layoutY="245.0" prefHeight="29.0" prefWidth="205.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #6a7d9a;" text="Dan Mlayah" />
-                  <Button layoutX="22.0" layoutY="285.0" onAction="#load4" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #03A6A6;" text="Edit Profile" textFill="WHITE">
+                  <Button layoutX="22.0" layoutY="285.0" onAction="#load31" prefHeight="31.0" prefWidth="149.0" style="-fx-background-color: #03A6A6;" text="Edit Profile" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                      <graphic>
-                        <FontAwesomeIconView fill="WHITE" glyphName="EXTERNAL_LINK" size="16" wrappingWidth="25.0" />
                      </graphic>
                   </Button>
                   <VBox layoutX="37.0" layoutY="414.0" spacing="10.0">
@@ -59,7 +45,7 @@
                   <ImageView fx:id="qr_img" fitHeight="150.0" fitWidth="200.0" layoutX="29.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
-            <Pane fx:id="pane4" layoutX="259.0" prefHeight="600.0" prefWidth="413.0" style="-fx-background-color: #F2EDDC;">
+            <Pane fx:id="pane31" layoutX="259.0" prefHeight="600.0" prefWidth="413.0" style="-fx-background-color: #F2EDDC;">
                <children>
                   <TextField fx:id="tf_nom" layoutX="178.0" layoutY="75.0" prefHeight="30.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" />
                   <TextField fx:id="tf_prenom" layoutX="178.0" layoutY="113.0" prefHeight="30.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" />
@@ -99,5 +85,15 @@
                </children>
             </Pane>
          </children></Pane>
+      <Pane fx:id="pane4" layoutX="8.0" layoutY="8.0" prefHeight="600.0" prefWidth="670.0" visible="false">
+         <children>
+            <Label layoutX="312.0" layoutY="283.0" text="wachene" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane5" layoutX="8.0" layoutY="8.0" prefHeight="600.0" prefWidth="670.0" visible="false">
+         <children>
+            <Label layoutX="312.0" layoutY="283.0" text="wachene" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
