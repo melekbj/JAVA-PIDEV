@@ -13,7 +13,7 @@ public class Produit {
     private String nom;
     private String description;
     private Categorie categorie;
-    private float prix;
+    private double prix;
     private int quantite;
     private String photo;
     private int etat;
@@ -79,11 +79,11 @@ public class Produit {
         this.categorie = categorie;
     }
 
-    public float getPrix() {
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(float prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 
@@ -115,7 +115,7 @@ public class Produit {
         this.id = id;
     }
 
-    public Produit(String nom, String description, Categorie categorie, float prix, int quantite, String photo, int etat) {
+    public Produit(String nom, String description, Categorie categorie, double prix, int quantite, String photo, int etat) {
         this.nom = nom;
         this.description = description;
         this.categorie = categorie;
@@ -125,7 +125,7 @@ public class Produit {
         this.etat = etat;
     }
 
-    public Produit(int id, String nom, String description, Categorie categorie, float prix, int quantite, String photo, int etat) {
+    public Produit(int id, String nom, String description, Categorie categorie, double prix, int quantite, String photo, int etat) {
         this.id = id;
         this.nom = nom;
         this.description = description;

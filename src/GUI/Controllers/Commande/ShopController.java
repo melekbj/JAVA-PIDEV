@@ -94,7 +94,7 @@ public void ajouterproduitpanierlist(Produit p,int quantite){
         {      
             if (detail.getProduit().getId()==p.getId()){
                 detail.setQuantite(detail.getQuantite()+quantite);
-                detail.setPrix_total(detail.getQuantite()*detail.getProduit().getPrix());
+                detail.setPrix_total(detail.getQuantite()*(float)detail.getProduit().getPrix());
                 added=true;
                 
             }
