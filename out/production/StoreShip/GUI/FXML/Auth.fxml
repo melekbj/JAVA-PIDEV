@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.AuthController">
+   <children>
+      <Pane prefHeight="75.0" prefWidth="1087.0" style="-fx-background-color: #3a0165;">
+         <children>
+            <Button layoutX="196.0" layoutY="11.0" mnemonicParsing="false" onAction="#LoginPaneShow" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: white; -fx-background-radius: 30;" text="Login" textFill="#3a0165">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="22.0" />
+               </font>
+            </Button>
+            <Button layoutX="737.0" layoutY="11.0" mnemonicParsing="false" onAction="#signupPaneShow" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: white; -fx-background-radius: 30;" text="Sign Up" textFill="#3a0165">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="pane_login" layoutX="-1.0" layoutY="75.0" prefHeight="425.0" prefWidth="800.0">
+         <children>
+            <HBox prefHeight="576.0" prefWidth="1087.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="576.0" prefWidth="570.0" style="-fx-background-color: #3a0165;">
+                     <children>
+                        <ImageView fitHeight="304.0" fitWidth="432.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/pngegg.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="576.0" prefWidth="705.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="400.0">
+                           <children>
+                              <ImageView fitHeight="57.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/preloader.gif" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="Login">
+                                 <font>
+                                    <Font name="Noto Serif Bold Italic" size="24.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <AnchorPane prefHeight="489.0" prefWidth="689.0">
+                           <children>
+                              <ComboBox fx:id="type_in" layoutX="411.0" layoutY="27.0" prefHeight="35.0" prefWidth="150.0" promptText="Choose Type :" />
+                              <TextField fx:id="txt_email" layoutX="125.0" layoutY="135.0" prefHeight="35.0" prefWidth="398.0" />
+                              <PasswordField fx:id="txt_pwd" layoutX="125.0" layoutY="210.0" prefHeight="35.0" prefWidth="398.0" />
+                              <FontAwesomeIconView glyphName="USER" layoutX="89.0" layoutY="163.0" size="30" />
+                              <FontAwesomeIconView glyphName="KEY" layoutX="85.0" layoutY="238.0" size="30" />
+                              <Button fx:id="btn_login" layoutX="250.0" layoutY="289.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="149.0" style="-fx-background-color: #3a0165;" text="Log in" textFill="WHITE">
+                                 <font>
+                                    <Font name="Noto Serif Bold Italic" size="18.0" />
+                                 </font></Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="pane_signup" layoutX="-1.0" layoutY="75.0" prefHeight="425.0" prefWidth="800.0" visible="false">
+         <children>
+            <HBox prefHeight="576.0" prefWidth="1087.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="576.0" prefWidth="637.0" style="-fx-background-color: #3a0165;">
+                     <children>
+                        <ImageView fitHeight="518.0" fitWidth="479.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/Store.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="576.0" prefWidth="765.0">
+                     <children>
+                        <AnchorPane prefHeight="576.0" prefWidth="764.0">
+                           <children>
+                              <TextField fx:id="txt_prenom_up" layoutX="333.0" layoutY="86.0" prefHeight="35.0" prefWidth="209.0" promptText="PRENOM" />
+                              <TextField fx:id="txt_nom_up" layoutX="88.0" layoutY="86.0" prefHeight="35.0" prefWidth="209.0" promptText="NOM" />
+                              <TextField fx:id="txt_age_up" layoutX="88.0" layoutY="131.0" prefHeight="35.0" prefWidth="209.0" promptText="AGE" />
+                              <TextField fx:id="txt_phone_up" layoutX="88.0" layoutY="178.0" prefHeight="35.0" prefWidth="209.0" promptText="PHONE" />
+                              <ComboBox fx:id="type_up" layoutX="427.0" layoutY="26.0" prefHeight="35.0" prefWidth="150.0" promptText="Choose type :" style="-fx-background-radius: 10;" />
+                              <Label layoutX="18.0" layoutY="14.0" text="Create your account">
+                                 <font>
+                                    <Font name="Noto Serif Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txt_email_up" layoutX="82.0" layoutY="384.0" prefHeight="35.0" prefWidth="466.0" promptText="EMAIL" />
+                              <PasswordField fx:id="txt_password_up" layoutX="81.0" layoutY="429.0" prefHeight="35.0" prefWidth="466.0" promptText="PASSWORD" />
+                              <Button layoutX="296.0" layoutY="526.0" mnemonicParsing="false" onAction="#signup" prefHeight="35.0" prefWidth="87.0" style="-fx-background-radius: 10; -fx-background-color: #3a0165;" text="Sign Up" textFill="WHITE">
+                                 <font>
+                                    <Font name="Noto Serif Bold Italic" size="15.0" />
+                                 </font></Button>
+                              <TextField fx:id="txt_adresse_up" layoutX="334.0" layoutY="178.0" prefHeight="35.0" prefWidth="209.0" promptText="ADRESSE" />
+                              <ComboBox fx:id="txt_genre_up" layoutX="333.0" layoutY="131.0" prefHeight="35.0" prefWidth="209.0" promptText="GENRE" />
+                              <Button fx:id="txt_image_up" layoutX="456.0" layoutY="300.0" mnemonicParsing="false" onAction="#browse" styleClass="mainFxmlClass" text="Upload Image" />
+                              <ImageView fx:id="ImageView" fitHeight="136.0" fitWidth="294.0" layoutX="86.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" />
+                              <PasswordField fx:id="txt_cpassword_up" layoutX="81.0" layoutY="473.0" prefHeight="35.0" prefWidth="466.0" promptText="CONFIRM PASSWORD" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

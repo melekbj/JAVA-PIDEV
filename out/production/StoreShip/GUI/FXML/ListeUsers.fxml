@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.ListeUsersController">
+   <children>
+      <Button fx:id="go_back_btn" layoutX="357.0" layoutY="583.0" mnemonicParsing="false" onAction="#goBack" text="GO BACK" />
+      <TableView fx:id="tv_Users" layoutX="59.0" layoutY="57.0" prefHeight="341.0" prefWidth="675.0">
+        <columns>
+          <TableColumn fx:id="colNom" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="colPrenom" prefWidth="75.0" text="Prenom" />
+            <TableColumn fx:id="colEmail" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="colRole" prefWidth="75.0" text="Role" />
+            <TableColumn fx:id="colAge" prefWidth="75.0" text="age" />
+            <TableColumn fx:id="colPhone" prefWidth="75.0" text="phone" />
+            <TableColumn fx:id="colAdresse" prefWidth="75.0" text="adresse" />
+            <TableColumn fx:id="colGenre" prefWidth="75.0" text="genre" />
+            <TableColumn fx:id="colEtat" prefWidth="75.0" text="etat" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_aprv" layoutX="164.0" layoutY="436.0" mnemonicParsing="false" onAction="#approve" text="Approve" />
+      <Button fx:id="btn_all" layoutX="518.0" layoutY="436.0" mnemonicParsing="false" onAction="#showAllUsers" text="Users list" />
+   </children>
+</AnchorPane>

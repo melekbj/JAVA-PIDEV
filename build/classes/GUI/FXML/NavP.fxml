@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="194.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.NavPController">
+    <stylesheets>
+        <URL value="@/GUI/CSS/navp.css" />
+    </stylesheets>
+   <children>
+      <VBox prefHeight="600.0" prefWidth="200.0" style="-fx-background-color: #03A6A6;">
+         <children>
+            <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#loadPane1" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #0e3d59;" styleClass="button3" text="Dashboard" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="110.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="DASHBOARD" size="23" />
+               </graphic>
+               <font>
+                  <Font name="Noto Serif" size="15.0" />
+               </font>
+            </Button>
+            <Button contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#loadPane2" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #0e3d59;" styleClass="button3" text="Consulter Store" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SHIELD" size="23" />
+               </graphic>
+               <font>
+                  <Font name="Noto Serif" size="15.0" />
+               </font>
+            </Button>
+            <Button contentDisplay="TOP" layoutX="10.0" layoutY="246.0" mnemonicParsing="false" onAction="#loadPane3" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #0e3d59;" styleClass="button3" text="Gérer Profil" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="USER" size="23" />
+               </graphic>
+               <font>
+                  <Font name="Noto Serif" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="go_back_btn" contentDisplay="TOP" layoutX="10.0" layoutY="142.0" mnemonicParsing="false" onAction="#goBack" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #0e3d59;" styleClass="button3" text="Se deconnecter" textFill="WHITE">
+               <VBox.margin>
+                  <Insets top="210.0" />
+               </VBox.margin>
+               <graphic>
+                  <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" size="23" />
+               </graphic>
+               <font>
+                  <Font name="Noto Serif" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Pane prefHeight="106.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="101.0" fitWidth="104.0" layoutX="29.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/logo2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="108.0" layoutY="27.0" prefHeight="28.0" prefWidth="112.0" text="Store">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="108.0" layoutY="53.0" prefHeight="28.0" prefWidth="106.0" text="Ship">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
