@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="182.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.NavController">
+   <children>
+      <VBox layoutX="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="175.0" style="-fx-background-color: #F2EDDC;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#load1" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #03A6A6;" text="Open Shop">
+               <VBox.margin>
+                  <Insets top="130.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="LAPTOP" size="22" />
+               </graphic>
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#load2" prefHeight="49.0" prefWidth="234.0" style="-fx-background-color: #03A6A6;" text="Liste Commandes">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="EDIT" size="22" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#load3" prefHeight="49.0" prefWidth="262.0" style="-fx-background-color: #03A6A6;" text="Gérer Profil">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="USER" size="22" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="234.0" style="-fx-background-color: #03A6A6;" text="Reclamation">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="EDIT" size="22" />
+               </graphic>
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#load5" prefHeight="49.0" prefWidth="234.0" style="-fx-background-color: #03A6A6;" text="Evenement">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="EDIT" size="22" />
+               </graphic>
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="go_back_btn" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="123.0" mnemonicParsing="false" onAction="#goBack" prefHeight="49.0" prefWidth="235.0" style="-fx-background-color: #03A6A6;" text="Sign out">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="SIGN_OUT" size="22" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="120.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Pane prefHeight="134.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="81.0" fitWidth="62.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/logo2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="95.0" layoutY="28.0" text="Store">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="94.0" layoutY="54.0" text="Ship">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
