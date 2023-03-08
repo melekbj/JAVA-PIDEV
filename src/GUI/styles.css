@@ -1,0 +1,21 @@
+.root{
+    -fx-background-color:"F2BE22";
+    -fx-color:"03A6A6";
+    -fx-text-fill: ladder(background, white 49%, black 50%);
+}
+.button{
+    -fx-color:"0E3D59";
+   
+    -fx-text-fill:white;
+}
+.Label{
+    -fx-text-fill:red;
+}
+.button:hover{
+    -fx-color:"03A6A6";
+     -fx-text-fill:black;
+}
+.button:pressed{
+        -fx-color:"f27405";
+     -fx-text-fill:black;
+}
