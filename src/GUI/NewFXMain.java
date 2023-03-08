@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 package GUI;
-import javafx.scene.Group; 
+import GUI.Controllers.Rayen.MainController;
+import GUI.Controllers.Rayen.StoreController;
+import javafx.scene.Group;
 import javafx.scene.paint.Color; 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,25 +21,17 @@ import javafx.stage.Stage;
 public class NewFXMain extends Application {    
    @Override     
    public void start(Stage primaryStage) throws Exception {      
-    //  FXMLLoader Fload2=new FXMLLoader(getClass().getResource("/GUI/FXML/ListProduit.fxml"));
-            FXMLLoader Fload2=new FXMLLoader(getClass().getResource("/GUI/FXML/formulaireProduit.fxml"));
-
-      //FXMLLoader Fload=new FXMLLoader(getClass().getResource("/GUI/FXML/FormulaireStore.fxml"));
-      System.out.println(Fload2.getLocation());
+      FXMLLoader Fload2=new FXMLLoader(getClass().getResource("/GUI/FXML/Main.fxml"));
+            //FXMLLoader Fload2=new FXMLLoader(getClass().getResource("/GUI/FXML/formulaireProduit.fxml"));
+      //FXMLLoader Fload2=new FXMLLoader(gtClass().getResource("/GUI/FXML/FormulaireStore.fxml"));
 //      Parent root=Fload.load();
-      Parent root2=Fload2.load();       
-         
+      Parent root2=Fload2.load(); 
+      MainController LPC=Fload2.getController();
+      LPC.ajouterlistproduit();
+      LPC.ajouterStore();
       Scene scene = new Scene(root2); 
-//      Scene scene2 = new Scene(root2); 
-
-       
-       primaryStage.setTitle("StoreShip"); 
-          //Button button = new Button("Forward");
-        //button.setOnAction(e -> primaryStage.setScene(scene2));
-         
-        //Button button2 = new Button("Backwards");
-        //button2.setOnAction(e -> primaryStage.setScene(scene));
-       
+//      Scene scene2 = new Scene(root2);        
+       primaryStage.setTitle("StoreShip");
       primaryStage.setScene(scene); 
       primaryStage.show(); 
    }    

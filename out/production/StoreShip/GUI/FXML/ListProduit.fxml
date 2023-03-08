@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="752.0" prefWidth="910.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.ListProduitController">
+    <stylesheets>
+        <URL value="@/GUI/store.css" />
+    </stylesheets>
+   <children>
+      <SplitPane dividerPositions="0.7442622950819672" layoutX="-3.0" layoutY="-1.0" prefHeight="752.0" prefWidth="917.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.3626666666666667" orientation="VERTICAL" prefHeight="752.0" prefWidth="683.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="269.0" prefWidth="662.0">
+                           <children>
+                              <Pane layoutX="2.0" prefHeight="269.0" prefWidth="662.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <ScrollPane prefHeight="475.0" prefWidth="681.0">
+                                 <content>
+                                    <VBox fx:id="listp" prefHeight="473.0" prefWidth="678.0" />
+                                 </content></ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <ScrollPane prefHeight="750.0" prefWidth="231.0">
+                     <content>
+                        <VBox prefHeight="748.0" prefWidth="229.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
