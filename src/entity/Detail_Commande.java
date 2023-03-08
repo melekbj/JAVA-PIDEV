@@ -110,7 +110,7 @@ public class Detail_Commande {
        dc.setProduit(p);
        dc.setCommande(c);
        dc.setQuantite(quantite);
-       dc.setPrix_total(p.getPrix()*quantite);
+       dc.setPrix_total((float)p.getPrix()*quantite);
        dc.setEtat("Pending");
        System.out.println("Conversion Terminée");
   }

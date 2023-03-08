@@ -4,67 +4,147 @@
  */
 package entity;
 
+import java.util.Objects;
+
 /**
  *
- * @author Plop
+ * @author Jmili
  */
 public class Store {
-    private int id;
-    private String address;
-    private String libelle;
-    private User user;
+    private int id ;
+    private String nameSt;
+    private String location;
+    private User owner;
+    private String photo;
+    private float rating;
 
+    public float getRating() {
+        return rating;
+    }
+
+    public Store(int id, String nameSt, String location, User owner, String photo, float rating) {
+        this.id = id;
+        this.nameSt = nameSt;
+        this.location = location;
+        this.owner = owner;
+        this.photo = photo;
+        this.rating = rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public Store(int id, String nameSt, String location, User owner, String photo) {
+        this.id = id;
+        this.nameSt = nameSt;
+        this.location = location;
+        this.owner = owner;
+        this.photo = photo;
+    }
+    public Store(String nameSt, String location, User owner, String photo) {
+        this.nameSt = nameSt;
+        this.location = location;
+        this.owner = owner;
+        this.photo = photo;
+    }
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
     public Store() {
     }
+    
+    public Store(int id,String nameSt, String location,User owner) {
+        this.id=id;
+        this.nameSt = nameSt;
+        this.location = location;
+        this.owner = owner;
+    }
+    public Store(String nameSt, String location,User owner) {
+        this.nameSt = nameSt;
+        this.location = location;
+        this.owner = owner;
+    }
+        public Store(String nameSt, String location) {
+        this.nameSt = nameSt;
+        this.location = location;
+    }
 
-    public Store(int id, String address, String libelle, User user) {
+    public Store(int id, String nameSt) {
         this.id = id;
-        this.address = address;
-        this.libelle = libelle;
-        this.user = user;
+        this.nameSt = nameSt;
+    }
+    
+        public Store(int id) {
+        this.id=id;
     }
 
-    public void setId(int aInt) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public String getLocation() {
+        return location;
     }
 
-    public Store(int id, String address, String libelle) {
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public void setNameSt(String nameSt) {
+        this.nameSt = nameSt;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public String getNameSt() {
+        return nameSt;
+    }
+    public void setId(int id) {
         this.id = id;
-        this.address = address;
-        this.libelle = libelle;
-    }
-
-    public Store(int id) {
-        this.id = id;
-    }
-
+}
     public int getId() {
         return id;
     }
-    
 
-    public String getAddress() {
-        return address;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Store other = (Store) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        if (!Objects.equals(this.nameSt, other.nameSt)) {
+            return false;
+        }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
+        if (!Objects.equals(this.photo, other.photo)) {
+            return false;
+        }
+        return Objects.equals(this.owner, other.owner);
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
-    public String getLibelle() {
-        return libelle;
-    }
 
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-    
+    @Override
+    public String toString() {
+        return "Store{" + "id=" + id + ", nameSt=" + nameSt + ", location=" + location + ", owner=" + owner + '}';
+    }   
 }

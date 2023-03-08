@@ -5,6 +5,7 @@
 package GUI.Controllers.Commande;
 
 import GUI.Controllers.ClientMainController;
+import GUI.FXML.Reclamation.ajouterReclamationProduitController;
 import controller.Service_Commande;
 import entity.Commande;
 import entity.Detail_Commande;
@@ -58,6 +59,8 @@ public class HistoriqueCommandeController implements Initializable {
     private Button applyfilter;
     @FXML
     private Pane Paymentholder;
+    @FXML
+    private Pane reclamationpane;
     /**
      * Initializes the controller class.
      */
@@ -66,6 +69,7 @@ public class HistoriqueCommandeController implements Initializable {
         // TODO
                 instance=this;
                 addCommandeNodes(getfromdataall());
+                reclamationpane.setVisible(false);
     }    
 
     public void updatedisplayhistorique(){
@@ -197,9 +201,10 @@ public class HistoriqueCommandeController implements Initializable {
     public void populatedetails(List<Detail_Commande> listproduit){
         // add list produit in produit_container  using the same instance as Commandepanier
        instance.detailcommande.getChildren().clear();
+        System.out.println("populating details");
         for (Detail_Commande c:listproduit) {
             try {
-                
+                System.out.println("items ===============");
                 FXMLLoader produitLoader = new FXMLLoader(getClass().getResource( "/GUI/FXML/Commande/Detail_commande.fxml"));
                 Node node = produitLoader.load();
               Detail_commandeController detail_commande=produitLoader.getController();
@@ -240,4 +245,26 @@ public class HistoriqueCommandeController implements Initializable {
         fade.setAutoReverse(true);
         fade.play();
     }
+      
+     public void reclamerDetail(Detail_Commande p){
+         System.out.println("historique detail_commande "+p);
+        try {    
+            reclamationpane.getChildren().clear();
+         reclamationpane.setVisible(true);         
+         FXMLLoader loadreclamation=new FXMLLoader(getClass().getResource("/GUI/FXML/Reclamation/ajouterReclamationProduit.fxml"));
+          Node  node = loadreclamation.load();
+              
+            ajouterReclamationProduitController reclamationControlelr=loadreclamation.getController();
+         reclamationControlelr.reclamerproduit(p);
+         reclamationpane.getChildren().add(node);
+        } catch (IOException ex) {
+            Logger.getLogger(HistoriqueCommandeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+         
+     }
+     
+     public void closereclamation(){
+         reclamationpane.setVisible(false);
+     }
 }

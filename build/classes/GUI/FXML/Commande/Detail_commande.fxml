@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="241.0" prefWidth="236.0" style="-fx-background-color: linear-gradient(to bottom, #ffcc99 0%, #ff6600 100%);;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Commande.Detail_commandeController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="302.0" prefWidth="236.0" style="-fx-background-color: linear-gradient(to bottom, #ffcc99 0%, #ff6600 100%);;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Commande.Detail_commandeController">
  
      <children>
       <Label fx:id="ProduitNom" layoutX="77.0" layoutY="137.0" text="nom" textFill="#0a0a0a" />
@@ -20,5 +19,6 @@
       <Button fx:id="plusproduit" layoutX="191.0" layoutY="195.0" mnemonicParsing="false" onAction="#addamount" text="+1" />
       <Button fx:id="minusproduit" layoutX="89.0" layoutY="195.0" mnemonicParsing="false" onAction="#reduceammount" text="-1" />
       <ImageView fx:id="image" fitHeight="115.0" fitWidth="201.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="reclamerd" layoutX="99.0" layoutY="242.0" mnemonicParsing="false" onAction="#reclamerdetail" text="Reclamer" />
    </children>
 </AnchorPane>

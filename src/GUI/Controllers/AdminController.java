@@ -36,6 +36,10 @@ public class AdminController implements Initializable {
     private Label usrlog;
     @FXML
     private Button listAll;
+    @FXML
+    private Button listAll1;
+    @FXML
+    private Button listAll11;
 
   
 
@@ -94,17 +98,38 @@ public class AdminController implements Initializable {
         primaryStage.show();
     }
 
-//    private static User localUser;
-//    public void setUser(User u) {
-//         localUser = u;
-//         
-//    }
-//    public User getUser() {
-//        return localUser;
-//    }
+    private static User localUser;
+    public void setUser(User u) {
+         localUser = u;
+         
+    }
+    public User getUser() {
+        return localUser;
+    }
+
+    @FXML
+    private void GestionEvenement(ActionEvent event)throws IOException {
+         Stage stage = (Stage) go_back_btn.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Evenement/PPanel.fxml"));
+        primaryStage.setTitle("hello again");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    @FXML
+    private void GestionReclamation(ActionEvent event) throws IOException {
+        Stage stage = (Stage) go_back_btn.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Reclamation/reclamationNav.fxml"));
+        primaryStage.setTitle("hello again");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
 
 
-  
 
     
 

@@ -6,6 +6,7 @@ package GUI.Controllers;
 
 import GUI.Controllers.Commande.HistoriqueCommandeController;
 import GUI.Controllers.Commande.ShopController;
+import GUI.FXML.Evenement.AllEventController;
 import controller.UserController;
 import entity.User;
 import entity.Util.QRCodeGenerator;
@@ -135,6 +136,7 @@ public class ClientContenuController implements Initializable {
 //        qr_img.setImage(QRCodeGenerator.generateQRCode(data, size).getImage());
 loadshop();
 loadhistorique();
+loadevenement();
     }  
     
     public void   setPane1(){
@@ -250,5 +252,20 @@ loadhistorique();
          catch (IOException ex) {
                 System.out.println(ex);
             }
+    }
+    public void loadevenement()
+    {
+            pane5.getChildren().clear();
+          FXMLLoader evenloader=new FXMLLoader(getClass().getResource("/GUI/FXML/Evenement/AllEvent.fxml"));
+         try{
+        Node node=evenloader.load();
+             AllEventController evencontroller=new AllEventController();
+        pane5.getChildren().add(node);
+         }
+         catch (IOException ex) {
+                System.out.println(ex);
+            }
+         
+         
     }
 }

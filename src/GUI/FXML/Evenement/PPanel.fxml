@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="584.0" prefWidth="745.0" style="-fx-background-color: white;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Evenement.PPanelController">
+    <stylesheets>
+        <URL value="@ppanel.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="584.0" fitWidth="791.0" pickOnBounds="true">
+         <image>
+            <Image url="@Images/istockphoto-1138288771-612x612.jpg" />
+         </image></ImageView>
+      <AnchorPane onMouseClicked="#handleMouseAction" prefHeight="584.0" prefWidth="791.0">
+         <children>
+            <Label layoutX="37.0" layoutY="61.0" text="date_debutEvenement">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="37.0" layoutY="105.0" text="date_finEvenement">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="34.0" layoutY="154.0" text="imageEvenement">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="441.0" layoutY="61.0" text="lieuEvenement">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="439.0" layoutY="110.0" text="titreEvenement">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="439.0" layoutY="158.0" text="descriptionEvenement">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <DatePicker fx:id="btn_fin" layoutX="189.0" layoutY="106.0" prefHeight="25.0" prefWidth="161.0" />
+            <DatePicker fx:id="btn_debut" layoutX="189.0" layoutY="59.0" prefHeight="25.0" prefWidth="161.0" />
+            <Label layoutX="439.0" layoutY="204.0" text="nb_placeMax">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <TextField fx:id="btnlieu" layoutX="595.0" layoutY="58.0" />
+            <TextField fx:id="btntitre" layoutX="595.0" layoutY="108.0" />
+            <TextField fx:id="btn_description" layoutX="595.0" layoutY="153.0" />
+            <TextField fx:id="btnNb_Max" layoutX="595.0" layoutY="202.0" />
+            <ButtonBar layoutX="80.0" layoutY="254.0" prefHeight="42.0" prefWidth="479.0">
+              <buttons>
+                <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#update" style="-fx-background-color: #dd17b2;" text="Update " textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <Button fx:id="btnreadall" mnemonicParsing="false" onAction="#readall" style="-fx-background-color: #dd17b2;" text="readall" textFill="#f2eff1">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <Button fx:id="btnInsert" minWidth="65.0" mnemonicParsing="false" onAction="#insert" prefHeight="25.0" prefWidth="148.0" style="-fx-background-color: #dd17b2;" text="Ajout" textFill="#fffefe">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <Button fx:id="btnDelete" minWidth="66.0" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" style="-fx-background-color: #dd17b2;" text="delete " textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+              </buttons>
+            </ButtonBar>
+            <TableView fx:id="tableEV" layoutX="24.0" layoutY="315.0" onMouseClicked="#handleMouseAction" prefHeight="261.0" prefWidth="747.0">
+              <columns>
+                <TableColumn fx:id="idEvenement" minWidth="0.0" prefWidth="96.0" text="idEvenement" />
+                <TableColumn fx:id="date_debutEvenement" minWidth="0.0" prefWidth="113.0" text="date_debutEvenement" />
+                  <TableColumn fx:id="date_finEvenement" minWidth="0.0" prefWidth="116.0" text="date_finEvenement" />
+                  <TableColumn fx:id="imageEvenement" minWidth="0.0" prefWidth="96.0" text="imageEvenement" />
+                  <TableColumn fx:id="lieuEvenement" minWidth="0.0" prefWidth="79.0" text="lieuEvenement" />
+                  <TableColumn fx:id="titreEvenement" minWidth="0.0" prefWidth="71.0" text="titreEvenement" />
+                  <TableColumn fx:id="descriptionEvenement" minWidth="0.0" prefWidth="82.0" text="descriptionEvenement" />
+                  <TableColumn fx:id="nbMax_place" minWidth="0.0" prefWidth="104.0" text="nb_placeMax" />
+              </columns>
+            </TableView>
+            <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/preloader.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="38.0" layoutX="736.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/preloader.gif" />
+               </image>
+            </ImageView>
+            <Text fx:id="errorMessage" fill="WHITE" layoutX="42.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="321.3367385864258">
+               <font>
+                  <Font name="Arial Bold Italic" size="16.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnimage" layoutX="189.0" layoutY="153.0" mnemonicParsing="false" onAction="#uploadimage" prefHeight="26.0" prefWidth="162.0" style="-fx-background-color: #ba5aeb;" text="Photo" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="go_back_btn" layoutX="439.0" layoutY="12.0" mnemonicParsing="false" onAction="#goback" text="Goback" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -20,7 +20,7 @@
          <font>
             <Font name="Noto Serif Bold Italic" size="15.0" />
          </font></Button>
-      <Button fx:id="go_back_btn" layoutX="14.0" layoutY="339.0" mnemonicParsing="false" onAction="#goBack" prefHeight="30.0" style="-fx-background-color: #F27405; -fx-background-radius: 15;" text="Se deconnecter" textFill="WHITE">
+      <Button fx:id="go_back_btn" layoutY="26.0" mnemonicParsing="false" onAction="#goBack" prefHeight="30.0" style="-fx-background-color: #F27405; -fx-background-radius: 15;" text="Se deconnecter" textFill="WHITE">
          <font>
             <Font name="Noto Serif Italic" size="13.0" />
          </font>
@@ -33,6 +33,16 @@
          </font>
       </Label>
       <Button fx:id="listAll" layoutX="101.0" layoutY="253.0" mnemonicParsing="false" onAction="#listeAllU" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: #03A6A6;" text="Liste des utlisateurs" textFill="WHITE" AnchorPane.leftAnchor="100.0">
+         <font>
+            <Font name="Noto Serif Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="listAll1" layoutX="100.0" layoutY="293.0" mnemonicParsing="false" onAction="#GestionEvenement" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: #03A6A6;" text="Gestion Evenement" textFill="WHITE">
+         <font>
+            <Font name="Noto Serif Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="listAll11" layoutX="100.0" layoutY="339.0" mnemonicParsing="false" onAction="#GestionReclamation" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: #03A6A6;" text="Gestion Reclamation" textFill="WHITE">
          <font>
             <Font name="Noto Serif Bold Italic" size="15.0" />
          </font>

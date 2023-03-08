@@ -1,22 +1,85 @@
- /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package entity;
 
 /**
  *
- * @author Plop
+ * @author SAFAA
  */
 public class Produit {
-    private int id;
+      private int id;
     private String nom;
-    private String description;
-    private Categorie categorie;
-    private float prix;
-    private int quantite;
+   
     private String photo;
+    private double prix;
+    private int quantite;
+    private Categorie categorie;
     private int etat;
+  //  private  User user;
+     
+    
+    
+    
+    
+ public  Produit() {
+    }
+
+
+    public Produit(int id, String nom, String photo, double prix, int quantite, Categorie categorie, int etat) {
+        this.id = id;
+        this.nom = nom;
+        this.photo = photo;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.categorie = categorie;
+        this.etat = etat;
+       // this.user = user;
+    }
+    public Produit(int id,String nom, String photo, double prix, int quantite,int etat) {
+        this.id=id;
+        this.nom = nom;
+        this.photo = photo;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.etat = etat;
+        //this.user = user;
+    }
+    public Produit(String nom, String photo, double prix, int quantite, Categorie categorie, int etat) {
+        this.nom = nom;
+        this.photo = photo;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.categorie = categorie;
+        this.etat = etat;
+        //this.user = user;
+    }
+    
+        public Produit(String nom, String photo, double prix, int quantite, Categorie categorie) {
+        this.nom = nom;
+        this.photo = photo;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.categorie = categorie;
+        this.etat = etat;
+        //this.user = user;
+    }
+
+    public Produit(String nom, String photo, double prix, int quantite, int etat) {
+        this.nom = nom;
+        this.photo = photo;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.etat = etat;
+    }
+
+
+    public Produit(int id) {
+        this.id = id;
+    }
+    
 
     public int getId() {
         return id;
@@ -30,60 +93,23 @@ public class Produit {
         return nom;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.id;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Produit other = (Produit) obj;
-        return true;
-    }
-    
     public void setNom(String nom) {
         this.nom = nom;
     }
 
-    public String getDescription() {
-        return description;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
-    @Override
-    public String toString() {
-        return "Produit{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", categorie=" + categorie + ", prix=" + prix + ", quantite=" + quantite + ", photo=" + photo + ", etat=" + etat + '}';
-    }
-
-   
-
-    public Categorie getCategorie() {
-        return categorie;
-    }
-
-    public void setCategorie(Categorie categorie) {
-        this.categorie = categorie;
-    }
-
-    public float getPrix() {
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(float prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 
@@ -95,12 +121,12 @@ public class Produit {
         this.quantite = quantite;
     }
 
-    public String getPhoto() {
-        return photo;
+    public Categorie getCategorie() {
+        return categorie;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 
     public int getEtat() {
@@ -111,29 +137,32 @@ public class Produit {
         this.etat = etat;
     }
 
-    public Produit(int id) {
-        this.id = id;
+    
+    
+
+   
+
+   /* public User getUser() {
+        return user;
     }
 
-    public Produit(String nom, String description, Categorie categorie, float prix, int quantite, String photo, int etat) {
-        this.nom = nom;
-        this.description = description;
-        this.categorie = categorie;
-        this.prix = prix;
-        this.quantite = quantite;
-        this.photo = photo;
-        this.etat = etat;
-    }
+    public void setUser(User user) {
+        this.user = user;
+    }*/
 
-    public Produit(int id, String nom, String description, Categorie categorie, float prix, int quantite, String photo, int etat) {
-        this.id = id;
-        this.nom = nom;
-        this.description = description;
-        this.categorie = categorie;
-        this.prix = prix;
-        this.quantite = quantite;
-        this.photo = photo;
-        this.etat = etat;
+    @Override
+    public String toString() {
+        return "Produit{" + "id=" + id + ", nom=" + nom + ", photo=" + photo + ", prix=" + prix + ", quantite=" + quantite + ", categorie=" + categorie + ", etat=" + etat + ", user=" +  '}';
     }
     
+
+    
+
+
+  
+ 
+
+   
+  
+   
 }

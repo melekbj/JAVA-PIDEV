@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Commande.ShopController">
@@ -36,4 +37,5 @@
          <Button layoutX="480.0" layoutY="19.0" mnemonicParsing="false" onAction="#confirmerpanier" text="Confirmer Panier" />
          </children>
       </AnchorPane>
+   <Pane fx:id="visiterstore" layoutX="36.0" layoutY="24.0" prefHeight="535.0" prefWidth="616.0" />
 </AnchorPane>

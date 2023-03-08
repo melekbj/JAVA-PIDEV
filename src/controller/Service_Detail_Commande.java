@@ -167,7 +167,7 @@ public class Service_Detail_Commande {
                         rs.getInt(1),
                         commande,
                         new Store(rs.getInt(3)),  // a replace par store a l'integration    integre
-                        new Produit(rs.getInt(4)),  // a replace par Produit a l'integeration  integre
+                        new Produit(rs.getInt(4)),  // a replace par Produiet a l'integeration  integre
                         rs.getInt(5),
                         rs.getFloat(6),
                         rs.getString(7));
