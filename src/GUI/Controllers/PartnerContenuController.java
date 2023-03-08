@@ -4,13 +4,18 @@
  */
 package GUI.Controllers;
 
+import GUI.FXML.Evenement.AllEventController;
+import GUI.FXML.Store.MainController;
 import controller.UserController;
 import entity.User;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -29,7 +34,7 @@ public class PartnerContenuController implements Initializable {
 
     private static PartnerContenuController instance;
     
-    private static PartnerContenuController getInstance(){
+    public static PartnerContenuController getInstance(){
         return instance;
     }
     
@@ -38,14 +43,7 @@ public class PartnerContenuController implements Initializable {
     @FXML
     private Pane pane2;
     private ImageView iv_img;
-    @FXML
-    private TableView<?> tv_a;
-    @FXML
-    private TableColumn<?, ?> coln;
-    @FXML
-    private TableColumn<?, ?> colp;
-    @FXML
-    private TableColumn<?, ?> agep;
+   
     @FXML
     private Pane pane3;
     @FXML
@@ -64,7 +62,7 @@ public class PartnerContenuController implements Initializable {
     private TextField tf_adr;
     @FXML
     private TextField tf_email;
-    
+    private User localuser;
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
 
 
@@ -86,8 +84,9 @@ public class PartnerContenuController implements Initializable {
         tf_email.setText(PartnerMainController.getInstance().getUser().getEmail());
         tf_email.setEditable(false);
 
+        localuser=PartnerMainController.getInstance().getUser();
         
-         
+
     }    
    
     
@@ -101,7 +100,8 @@ public class PartnerContenuController implements Initializable {
         instance.pane1.setVisible(false);
         instance.pane2.setVisible(true);
         instance.pane3.setVisible(false);
-        
+                loadstore();
+
     }
     
      public void setPane3() {
@@ -139,7 +139,19 @@ public class PartnerContenuController implements Initializable {
         
     }
     
-    
+    public void loadstore(){
+            instance.pane2.getChildren().clear();
+          FXMLLoader evenloader=new FXMLLoader(getClass().getResource("/GUI/FXML/Store/Main.fxml"));
+         try{
+        Node node=evenloader.load();
+             MainController maincontroller=new MainController();
+             maincontroller.ajouterStore();
+        instance.pane2.getChildren().add(node);
+         }
+         catch (IOException ex) {
+                System.out.println(ex);
+            }
+    }
     
 }
 

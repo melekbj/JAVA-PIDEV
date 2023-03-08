@@ -3,32 +3,78 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/AdminController.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Util/QRCodeGenerator.java</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/PartnerMain.fxml</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/AuthController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/PPanelController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/DetailEventsController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/reservationEventUser.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Reclamation/AdminReclamationController.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Store.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/ShopController.java</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/PaymentProcessor.java</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/ClientMain.fxml</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Detail_Commande.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Commande/Shop.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/auth.css</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/connexion/ConnexionSource.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/nbrPlacerserve.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Commande/Produit.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/QRcodeGenerator.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/PPanel2.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/AllEvent.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Reclamation.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Categorie.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/ClientContenuController.java</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/ClientMainController.java</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Auth.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Evenement_entite.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/TicketController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Reclamation/ReclamationNavController.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Commande.java</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/Service_Commande.java</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/NavController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/NbrPlacerserveController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Reservation_entite.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Upload.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Produit.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/ServiceReclamation.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXMain.java</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/ListeAllUsers.fxml</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/PaymentpageController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Commande/Detail_commande.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Commande/Commande.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/Reservation_Service.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/Detail_commandeController.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/CommandeController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Commande/HistoriqueCommande.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/OneEventController.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/Service_Detail_Commande.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/ClientContenu.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Reclamation/reclamationNav.fxml</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/ServiceProduit.java</file>
-            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/HistoriqueCommandeController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/AuthController.java</file>
             <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/ProduitController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Reclamation/statReclamatinEtat.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Reclamation/adminReclamation.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/Auth.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/ServiceTypeReclamation.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/PPanel.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Commande/paymentpage.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/AuthController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/OneEvent.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/PaymentProcessor.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/Detail_Commande.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/Iservice.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/ClientMainController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/AllEventController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Auth.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/PPanel2Controller.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/TypeReclamation.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/ListeAllUsersController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/Service_Commande.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/NavController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/detailEvents.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Reclamation/StatReclamationTypeController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/PaymentpageController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/Ticket.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/NavC.fxml</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/entity/reservationEventUser.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/controller/Evenement_Service.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Evenement/ppanel.css</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Reclamation/StatReclamatinEtatController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/Controllers/Commande/HistoriqueCommandeController.java</file>
+            <file>file:/C:/Users/Plop/Desktop/Nouveau%20dossier%20(2)/JAVA-PIDEV/src/GUI/FXML/Reclamation/statReclamationType.fxml</file>
         </group>
     </open-files>
 </project-private>

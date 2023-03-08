@@ -24,8 +24,6 @@ import javafx.scene.layout.VBox;
 public class ProduitController implements Initializable {
 
     @FXML
-    private VBox produit;
-    @FXML
     private ImageView imageP;
     @FXML
     private Label nameP;
@@ -65,14 +63,21 @@ public class ProduitController implements Initializable {
     }
     
     public void setDetail_Produit(Produit p){
+       // ImageP.setImage("file:"+p.getImage());
           localproduit=p;
           System.out.println("local produit this is main "+p);
           System.out.println("this is the localproduit"+localproduit);
           nameP.setText(String.valueOf(p.getNom()));
         prix.setText(String.valueOf(p.getPrix()));
-        descP.setText(p.getDescription());
         quantitedispo.setText(String.valueOf(p.getQuantite()));
     }
 
+    @FXML
+    private void visitstore(ActionEvent event) {
+
+        ShopController.getInstance().visitestore(localproduit);
+    }
+
+  
     
 }

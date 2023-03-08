@@ -423,7 +423,7 @@ public class AuthController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        type_up.getItems().addAll("Client","Partenaire");
+        type_up.getItems().addAll("Client","Partenaire","Admin");
         type_in.getItems().addAll("Admin","Client","Partenaire");
         txt_genre_up.getItems().addAll("Homme","Femme","Autre");
         

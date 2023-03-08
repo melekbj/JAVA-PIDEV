@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="374.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Evenement.DetailEventsController">
+   <children>
+      <ImageView fitHeight="388.0" fitWidth="713.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/istockphoto-1138288771-612x612.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="84.0" layoutX="23.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/preloader.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="66.0" layoutX="603.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/preloader.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="95.0" layoutY="106.0" text="Titre Evenement :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="96.0" layoutY="148.0" text="Lieu evenement :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="96.0" layoutY="192.0" text="Date Debut Evenement :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="96.0" layoutY="236.0" text="Date Fin Evenement :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="96.0" layoutY="279.0" text="Nombre de place maximale :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Text fx:id="titreev" layoutX="363.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TitreText" wrappingWidth="123.20000000000005">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text fx:id="lieuev" layoutX="364.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LieuuText">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text fx:id="dtdbev" layoutX="362.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dtdbText">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text fx:id="datefev" layoutX="362.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DateFinText">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Text fx:id="nbrplev" layoutX="360.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nbrplacetext">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <ImageView fx:id="imgev" fitHeight="150.0" fitWidth="200.0" layoutX="465.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="354.0" layoutY="337.0" mnemonicParsing="false" onAction="#Reserver" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: #7f099f;" text="Reserver" />
+      <Text fill="WHITE" layoutX="165.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detail Event" wrappingWidth="242.39999999999998">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Text>
+      <Pane fx:id="reserverpane" layoutX="143.0" prefHeight="275.0" prefWidth="418.0" />
+     
+   </children>
+</AnchorPane>

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -40,6 +41,11 @@ public class Detail_commandeController implements Initializable {
     private Button plusproduit;
     @FXML
     private Button minusproduit;
+    @FXML
+    private ImageView image;
+    @FXML
+    private Button reclamerd;
+    private Detail_Commande localDetail;
     /**
      * Initializes the controller class.
      */
@@ -49,6 +55,9 @@ public class Detail_commandeController implements Initializable {
     }    
       public void setDetail_Produit(Detail_Commande p){
           localproduit=p.getProduit();
+          localDetail=p;
+                    reclamerd.setVisible(false);
+
         System.out.println("Detail _ commande "+p);
           ProduitNom.setText(String.valueOf(p.getId()));
         prix.setText(String.valueOf(p.getPrix_total()));
@@ -60,6 +69,11 @@ public class Detail_commandeController implements Initializable {
           minusproduit.setVisible(false);
           plusproduit.setDisable(true);
           plusproduit.setVisible(false);
+          reclamerd.setVisible(true);
+          
+          System.out.println("Detail commande card   where Product === "+p);
+                    localDetail=p;
+
              localproduit=p.getProduit();
         System.out.println("Detail _ commande "+p);
           ProduitNom.setText(String.valueOf(p.getId()));
@@ -79,6 +93,12 @@ public class Detail_commandeController implements Initializable {
     private void reduceammount(ActionEvent event) {
         ShopController shopcontroller=new ShopController();
         shopcontroller.ajouterproduitpanierlist(localproduit, -1);
+    }
+
+    @FXML
+    private void reclamerdetail(ActionEvent event) {
+        System.out.println("sending this detail_commande "+localDetail);
+        HistoriqueCommandeController.getInstance().reclamerDetail(localDetail);
     }
     
     

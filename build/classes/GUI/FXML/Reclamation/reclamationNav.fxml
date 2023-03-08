@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Reclamation.ReclamationNavController">
+   <children>
+      <Pane fx:id="statsetatpan" layoutX="24.0" layoutY="20.0" prefHeight="330.0" prefWidth="553.0" />
+      <Pane fx:id="statstypepane" layoutX="27.0" layoutY="17.0" prefHeight="330.0" prefWidth="553.0" />
+      <Pane fx:id="afficherlist" layoutX="14.0" layoutY="27.0" prefHeight="330.0" prefWidth="576.0" />
+      <Button layoutX="24.0" layoutY="406.0" mnemonicParsing="false" onAction="#loadstatsetat" text="StatsEtat" />
+      <Button layoutX="102.0" layoutY="406.0" mnemonicParsing="false" onAction="#loadstatstype" text="StatsType" />
+      <Button layoutX="391.0" layoutY="406.0" mnemonicParsing="false" onAction="#loadaffichage" text="Afficher" />
+      <Button layoutX="515.0" layoutY="406.0" mnemonicParsing="false" onAction="#closepanel" text="close" />
+      <Pane fx:id="ajoutertype" layoutX="24.0" layoutY="37.0" prefHeight="330.0" prefWidth="576.0" />
+      <Button layoutX="209.0" layoutY="406.0" mnemonicParsing="false" onAction="#ajoutertyperec" text="Ajouter Type Reclamation" />
+   </children>
+</AnchorPane>

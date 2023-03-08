@@ -5,6 +5,9 @@
 package GUI.Controllers.Commande;
 
 import GUI.Controllers.ClientMainController;
+import GUI.FXML.Store.MainController;
+import GUI.FXML.Store.StoreController;
+import controller.ProduitStoreService;
 import controller.ServiceProduit;
 import controller.Service_Commande;
 import controller.Service_Detail_Commande;
@@ -28,6 +31,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -50,9 +54,11 @@ public class ShopController implements Initializable {
     private ScrollPane panierdisplay;
     private static boolean  panierdisplaystate=false;
     private static ShopController instance;
-    private static ShopController getInstance(){
+    public static ShopController getInstance(){
         return instance;
     }
+    @FXML
+    private Pane visiterstore;
     /**
      * Initializes the controller class.
      */
@@ -61,6 +67,7 @@ public class ShopController implements Initializable {
         // TODO
         instance=this;
         instance.panierdisplay.setVisible(panierdisplaystate);
+        instance.visiterstore.setVisible(false);
     }    
 
     @FXML
@@ -73,7 +80,8 @@ public void ajouterproduitpanierlist(Produit p,int quantite){
         //intiliating services
         Detail_Commande dc=new Detail_Commande();
         //testing phase integre  must change User to automatique getter
-        Store store=new Store(1,"Tunis","aaaaa");
+        ProduitStoreService pss=new ProduitStoreService();
+        Store store=pss.readStoreById(p);
           User user=ClientMainController.getInstance().getUser();
         // setting user on commande
         commande.setUser(user);
@@ -137,19 +145,16 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
     }
             
      public void populateshop(){
-         System.out.println("started populating");
         instance.shopproduit.getChildren().clear();
-         System.out.println("first break");
         ServiceProduit produit=new ServiceProduit();
         List<Produit> list=produit.readAll();
         HBox hbox=new HBox();
         hbox.setSpacing(10);
         hbox.setPrefWidth(400);
         hbox.setPrefHeight(50);
-         System.out.println("current list "+list);
         int counter=0;
          for (Produit p:list) {
-             if (counter==3)
+             if (counter==2)
              {
                  instance.shopproduit.getChildren().add(hbox);
                  counter=0;
@@ -208,5 +213,28 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
        // reseting current panier
        paniercourrant.clear();
     }
+    }
+    
+    
+    public void visitestore(Produit p)
+    {
+        visiterstore.setVisible(true);
+        visiterstore.getChildren().clear();
+        
+          try {                 System.out.println("counter break");
+
+                FXMLLoader produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/Main.fxml"));
+                Node node = produitLoader.load();
+              MainController cc=produitLoader.getController();
+                    cc.ajouterStoreparProduit(p);
+                      visiterstore.getChildren().add(node);
+
+            } catch (IOException ex) {
+            Logger.getLogger(ShopController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    public void closestore(){
+        visiterstore.setVisible(false);
     }
 }
