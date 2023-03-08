@@ -11,13 +11,13 @@ package entity.Util;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
 import javafx.scene.image.ImageView;
-/*import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.common.BitMatrix;
-*/
+
 public class QRCodeGenerator {
 
     public static ImageView generateQRCode(String data, int size) {
-    /*    QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
         try {
             BitMatrix bitMatrix = qrCodeWriter.encode(data, com.google.zxing.BarcodeFormat.QR_CODE, size, size);
             WritableImage qrCodeImage = new WritableImage(size, size);
@@ -31,8 +31,7 @@ public class QRCodeGenerator {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        }*/
-    return null;
+        }
     }
 }
 

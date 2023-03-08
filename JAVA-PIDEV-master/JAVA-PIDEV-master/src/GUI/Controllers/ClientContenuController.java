@@ -125,14 +125,14 @@ public class ClientContenuController implements Initializable {
         tf_email.setEditable(false);
         
         // Generate the QR code image using the QRCodeGenerator utility class
-//        String data = 
-//              "Full Name:"+ClientMainController.getInstance().getUser().getNom()+" "+
-//                ClientMainController.getInstance().getUser().getPrenom()+"\n" +
-//              "TEL:"+ClientMainController.getInstance().getUser().getPhone()+"\n"+
-//              "EMAIL:"+ClientMainController.getInstance().getUser().getEmail();
-//
-//        int size = 250;
-//        qr_img.setImage(QRCodeGenerator.generateQRCode(data, size).getImage());
+        String data = 
+              "Full Name:"+ClientMainController.getInstance().getUser().getNom()+" "+
+                ClientMainController.getInstance().getUser().getPrenom()+"\n" +
+              "TEL:"+ClientMainController.getInstance().getUser().getPhone()+"\n"+
+              "EMAIL:"+ClientMainController.getInstance().getUser().getEmail();
+
+        int size = 250;
+        qr_img.setImage(QRCodeGenerator.generateQRCode(data, size).getImage());
 loadshop();
 loadhistorique();
 pane31.setVisible(false);
