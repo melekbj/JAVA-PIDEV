@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="298.0" prefWidth="600.0" style="-fx-background-color: #F2EDDC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Reclamation.AjouterTypeReclamationController">
+   <children>
+      <Button fx:id="inserttype" layoutX="188.0" layoutY="164.0" mnemonicParsing="false" onAction="#insertingtype" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #0E3D59;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="Noto Serif Bold" size="13.0" />
+         </font></Button>
+      <Label layoutX="41.0" layoutY="85.0" text="Type de réclamation : ">
+         <font>
+            <Font name="Noto Serif" size="14.0" />
+         </font></Label>
+      <TextField fx:id="typerecl_textfield" layoutX="41.0" layoutY="120.0" prefHeight="30.0" prefWidth="216.0" />
+      <TableView fx:id="tabletype" layoutX="300.0" layoutY="53.0" prefHeight="200.0" prefWidth="274.0" style="-fx-background-radius: 5; -fx-background-color: #F2EDDC;">
+        <columns>
+          <TableColumn fx:id="type" prefWidth="185.0" text="Type reclamation" />
+          <TableColumn fx:id="id" prefWidth="88.0" text="Nombre" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

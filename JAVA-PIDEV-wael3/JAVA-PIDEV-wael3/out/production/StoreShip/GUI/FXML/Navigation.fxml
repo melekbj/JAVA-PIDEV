@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="649.0" prefWidth="200.0" style="-fx-background-color: #FA2C56;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.NavigationController">
+   <children>
+      <VBox layoutX="-2.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="665.0" prefWidth="200.0">
+         <children>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#load1" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../../../../../../Downloads/javafx-sample-dashboard-master/javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Consulter Store">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="USER" size="22" />
+               </graphic>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#load2" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../../../../../../Downloads/javafx-sample-dashboard-master/javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Consulter Commandes">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="EDIT" size="22" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#load3" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../../../../../../Downloads/javafx-sample-dashboard-master/javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Gerer Profil">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="LAPTOP" size="22" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="go_back_btn" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="10.0" layoutY="123.0" mnemonicParsing="false" onAction="#goBack" prefHeight="49.0" prefWidth="262.0" styleClass="button1" stylesheets="@../../../../../../Downloads/javafx-sample-dashboard-master/javafx-sample-dashboard-master/src/css/fullpackstyling.css" text="Sign out">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+               <graphic>
+                  <FontAwesomeIconView glyphName="SIGN_OUT" size="22" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="280.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
