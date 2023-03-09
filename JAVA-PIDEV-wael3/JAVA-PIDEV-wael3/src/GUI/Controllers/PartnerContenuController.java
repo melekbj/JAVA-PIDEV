@@ -8,6 +8,7 @@ import GUI.FXML.Evenement.AllEventController;
 import GUI.FXML.Store.MainController;
 import controller.UserController;
 import entity.User;
+import entity.Util.QRCodeGenerator;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,7 +39,6 @@ public class PartnerContenuController implements Initializable {
         return instance;
     }
     
-    @FXML
     private Pane pane1;
     @FXML
     private Pane pane2;
@@ -64,6 +64,10 @@ public class PartnerContenuController implements Initializable {
     private TextField tf_email;
     private User localuser;
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    @FXML
+    private ImageView qr_image;
+    @FXML
+    private TextField tf_num;
 
 
     /**
@@ -83,21 +87,30 @@ public class PartnerContenuController implements Initializable {
         tf_adr.setText(PartnerMainController.getInstance().getUser().getAdresse());
         tf_email.setText(PartnerMainController.getInstance().getUser().getEmail());
         tf_email.setEditable(false);
+        tf_num.setText(PartnerMainController.getInstance().getUser().getPhone());
+        tf_num.setEditable(false);
 
         localuser=PartnerMainController.getInstance().getUser();
-        
+        // Generate the QR code image using the QRCodeGenerator utility class
+//        String data = 
+//              "Full Name:"+PartnerMainController.getInstance().getUser().getNom()+" "+
+//                PartnerMainController.getInstance().getUser().getPrenom()+"\n" +
+//              "TEL:"+PartnerMainController.getInstance().getUser().getPhone()+"\n"+
+//              "EMAIL:"+PartnerMainController.getInstance().getUser().getEmail();
+//
+//        int size = 250;
+//        qr_image.setImage(QRCodeGenerator.generateQRCode(data, size).getImage());
 
     }    
    
     
     public void setPane1() {
-        instance.pane1.setVisible(true);
+     
         instance.pane2.setVisible(false);
         instance.pane3.setVisible(false);
     }
     
     public void setPane2() {
-        instance.pane1.setVisible(false);
         instance.pane2.setVisible(true);
         instance.pane3.setVisible(false);
                 loadstore();
@@ -105,7 +118,6 @@ public class PartnerContenuController implements Initializable {
     }
     
      public void setPane3() {
-        instance.pane1.setVisible(false);
         instance.pane2.setVisible(false);
         instance.pane3.setVisible(true);
         
@@ -125,6 +137,7 @@ public class PartnerContenuController implements Initializable {
         u.setNom(tf_nom.getText());
         u.setPrenom(tf_prenom.getText());
         u.setAge(Integer.parseInt(tf_age.getText()));
+        u.setAdresse(tf_adr.getText());
         u.setAdresse(tf_adr.getText());
         
         uc.UpdateUser(u);

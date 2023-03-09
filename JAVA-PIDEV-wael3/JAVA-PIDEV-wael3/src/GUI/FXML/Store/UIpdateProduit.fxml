@@ -1,36 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitMenuButton?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="752.0" prefWidth="914.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.UIpdateProduitController">
+<AnchorPane id="AnchorPane" prefHeight="489.0" prefWidth="634.0" style="-fx-background-color: #F2EDDC;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.UIpdateProduitController">
    <children>
-      <TextField fx:id="quantite" layoutX="39.0" layoutY="175.0" prefHeight="37.0" prefWidth="149.0" promptText="quantite" />
-      <TextField fx:id="price" layoutX="235.0" layoutY="90.0" prefHeight="37.0" prefWidth="149.0" promptText="suggested price" />
-      <TextField fx:id="productname" layoutX="39.0" layoutY="90.0" prefHeight="37.0" prefWidth="149.0" promptText="Product name" />
-      <SplitMenuButton fx:id="choixCategorie" layoutX="235.0" layoutY="181.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" text="Categorie">
+      <TextField fx:id="quantite" layoutX="39.0" layoutY="145.0" prefHeight="38.0" prefWidth="149.0" promptText="Quantité" />
+      <TextField fx:id="price" layoutX="235.0" layoutY="90.0" prefHeight="38.0" prefWidth="149.0" promptText="Price" />
+      <TextField fx:id="productname" layoutX="39.0" layoutY="90.0" prefHeight="38.0" prefWidth="149.0" promptText="Product name" />
+      <SplitMenuButton fx:id="choixCategorie" layoutX="235.0" layoutY="176.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="149.0" style="-fx-background-color: #03A6A6;" text="Catégorie">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
-      </SplitMenuButton>
-      <Text layoutX="369.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="update this product ">
          <font>
-            <Font size="18.0" />
+            <Font name="Noto Serif" size="15.0" />
+         </font>
+      </SplitMenuButton>
+      <Text fill="#03a6a6" layoutX="202.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update this product ">
+         <font>
+            <Font name="Noto Serif Bold Italic" size="22.0" />
          </font>
       </Text>
-      <Button layoutX="524.0" layoutY="678.0" mnemonicParsing="false" onAction="#modifierProduit" prefHeight="45.0" prefWidth="143.0" styleClass="btn" text="Confirme" />
-      <TextArea fx:id="product_desc" layoutX="38.0" layoutY="265.0" prefHeight="222.0" prefWidth="394.0" promptText="Product description" />
-      <Button fx:id="btn_img" layoutX="589.0" layoutY="127.0" mnemonicParsing="false" onAction="#insertimage" prefHeight="57.0" prefWidth="149.0" text="image" />
-      <ImageView fx:id="image" fitHeight="300.0" fitWidth="300.0" layoutX="524.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="annuler_btn" layoutX="226.0" layoutY="678.0" mnemonicParsing="false" onAction="#go_back" prefHeight="45.0" prefWidth="143.0" styleClass="btn" text="annuler" />
+      <Button layoutX="349.0" layoutY="422.0" mnemonicParsing="false" onAction="#modifierProduit" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #03A6A6;" styleClass="btn" text="Confirme" textFill="WHITE">
+         <font>
+            <Font name="Noto Serif" size="15.0" />
+         </font></Button>
+      <Button fx:id="btn_img" layoutX="465.0" layoutY="134.0" mnemonicParsing="false" onAction="#insertimage" prefHeight="20.0" prefWidth="100.0" style="-fx-background-color: #03A6A6;" text="Parcourir" textFill="WHITE">
+         <font>
+            <Font name="Noto Serif" size="15.0" />
+         </font></Button>
+      <ImageView fx:id="image" fitHeight="222.0" fitWidth="222.0" layoutX="404.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="annuler_btn" layoutX="117.0" layoutY="422.0" mnemonicParsing="false" onAction="#go_back" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #03A6A6;" styleClass="btn" text="annuler" textFill="WHITE">
+         <font>
+            <Font name="Noto Serif" size="15.0" />
+         </font></Button>
    </children>
 </AnchorPane>

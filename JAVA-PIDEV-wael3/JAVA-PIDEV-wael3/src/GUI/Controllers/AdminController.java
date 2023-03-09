@@ -28,7 +28,6 @@ public class AdminController implements Initializable {
 
     @FXML
     private Button listeU;
-    @FXML
     private Button listeC;
     @FXML
     private Button go_back_btn;
@@ -40,6 +39,8 @@ public class AdminController implements Initializable {
     private Button listAll1;
     @FXML
     private Button listAll11;
+    @FXML
+    private Button listAll1111;
 
   
 
@@ -62,17 +63,16 @@ public class AdminController implements Initializable {
         primaryStage.show();
     }
 
-    @FXML
-    private void listeComms(ActionEvent event) throws IOException {
-        
-        Stage stage = (Stage) listeC.getScene().getWindow();
-        stage.close();
-        Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/ListeCommandes.fxml"));
-        primaryStage.setTitle("liset commandes");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-    }
+//    private void listeComms(ActionEvent event) throws IOException {
+//        
+//        Stage stage = (Stage) listeC.getScene().getWindow();
+//        stage.close();
+//        Stage primaryStage = new Stage();
+//        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/ListeCommandes.fxml"));
+//        primaryStage.setTitle("liset commandes");
+//        primaryStage.setScene(new Scene(root));
+//        primaryStage.show();
+//    }
 
     @FXML
     private void goBack(ActionEvent event) throws IOException {
@@ -89,7 +89,7 @@ public class AdminController implements Initializable {
     @FXML
     private void listeAllU(ActionEvent event) throws IOException {
         
-        Stage stage = (Stage) listeC.getScene().getWindow();
+        Stage stage = (Stage) listAll.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/ListeAllUsers.fxml"));
@@ -124,6 +124,28 @@ public class AdminController implements Initializable {
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Reclamation/reclamationNav.fxml"));
+        primaryStage.setTitle("hello again");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    @FXML
+    private void gestionProduit(ActionEvent event)throws IOException {
+        Stage stage = (Stage) go_back_btn.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Store/AdminProduit.fxml"));
+        primaryStage.setTitle("hello again");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    @FXML
+    private void gestioncategorie(ActionEvent event)throws IOException {
+         Stage stage = (Stage) go_back_btn.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Store/PPanel2.fxml"));
         primaryStage.setTitle("hello again");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

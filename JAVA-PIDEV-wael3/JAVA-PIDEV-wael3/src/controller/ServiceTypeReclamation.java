@@ -119,7 +119,7 @@ public class ServiceTypeReclamation  {
               try {
     String sql = "SELECT T.nom, COUNT(*) AS count " +
                  "FROM type_reclamation T " +
-                 "INNER JOIN Reclamation R ON T.id = R.type_id " +
+                 "RIGHT JOIN Reclamation R ON T.id = R.type_id " +
                  "GROUP BY T.nom";
             PreparedStatement statement = conn.prepareStatement(sql);
     ResultSet result = statement.executeQuery();

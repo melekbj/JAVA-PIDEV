@@ -4,6 +4,8 @@
  */
 package GUI.Controllers;
 
+import GUI.Controllers.Commande.ProduitController;
+import GUI.Controllers.Commande.ShopController;
 import org.mindrot.jbcrypt.BCrypt;
 import javafx.scene.web.WebEngine;
 import java.net.URL;
@@ -16,9 +18,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import connexion.ConnexionSource;
+import controller.ServiceProduit;
 import controller.UserController;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import entity.Produit;
 import entity.User;
 import entity.Util.State;
 import entity.Util.TunisieMap;
@@ -33,9 +37,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -45,6 +51,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 /**
  * FXML Controller class
@@ -119,13 +127,16 @@ public class AuthController implements Initializable {
       
     public static boolean containsOnlyNumbers(String str) 
     {
-        return str.matches("\\d+");
+       return str.matches("[+]?\\d+");
+
     }
     
     public static boolean PasswordStrength(String str) 
     {
         return str.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=_])(?=\\S+$).{8,}$");
     }
+    @FXML
+    private VBox homeshowproduit;
     
     
  
@@ -148,6 +159,7 @@ public class AuthController implements Initializable {
         pane_login.setVisible(false);
         pane_signup.setVisible(false);
         Home_pane.setVisible(true);
+        loadhome();
     }
 
      
@@ -425,6 +437,7 @@ public class AuthController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        pane_login.setVisible(true);
         type_up.getItems().addAll("Client","Partenaire","Admin");
         type_in.getItems().addAll("Admin","Client","Partenaire");
         txt_genre_up.getItems().addAll("Homme","Femme","Autre");
@@ -455,8 +468,10 @@ public class AuthController implements Initializable {
         {
             state.getItems().add(s.getKey());
         }
+         
+         
         
-        
+
     }
 
     @FXML
@@ -507,7 +522,41 @@ public class AuthController implements Initializable {
 
     
     
-  
+  private void loadhome()
+  { homeshowproduit.getChildren().clear();
+        ServiceProduit produit=new ServiceProduit();
+        List<Produit> list=produit.readAllActive();
+        HBox hbox=new HBox();
+        hbox.setSpacing(10);
+        hbox.setPrefWidth(400);
+        hbox.setPrefHeight(50);
+        int counter=0;
+         for (Produit p:list) {
+             if (counter==4)
+             {
+                homeshowproduit.getChildren().add(hbox);
+                 counter=0;
+                 hbox=new HBox();
+                hbox.setPrefWidth(400);
+                hbox.setPrefHeight(50);
+
+             }
+            try {                 System.out.println("counter break");
+
+                FXMLLoader produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Commande/Produit.fxml"));
+                Node node = produitLoader.load();
+             ProduitController cc=produitLoader.getController();
+               cc.setProduit(p);
+              hbox.getChildren().add(node);
+              counter++;
+            } catch (IOException ex) {
+            Logger.getLogger(ShopController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+                     homeshowproduit.getChildren().add(hbox);
+      }
+      
+  }
 
    
 
@@ -519,4 +568,3 @@ public class AuthController implements Initializable {
     
     
     
-}

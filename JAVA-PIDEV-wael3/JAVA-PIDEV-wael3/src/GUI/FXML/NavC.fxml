@@ -57,7 +57,7 @@
                   <Font name="Noto Serif Bold Italic" size="12.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="234.0" style="-fx-background-color: #03A6A6; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" text="Reclamation" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#load4" prefHeight="49.0" prefWidth="234.0" style="-fx-background-color: #03A6A6; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" text="Reclamation" textFill="WHITE">
                <padding>
                   <Insets left="40.0" />
                </padding>

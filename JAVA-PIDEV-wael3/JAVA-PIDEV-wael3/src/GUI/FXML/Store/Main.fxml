@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,24 +13,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="752.0" prefWidth="910.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.MainController">
+<AnchorPane id="AnchorPane" prefHeight="752.0" prefWidth="910.0" style="-fx-background-color: #F2EDDC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.MainController">
    <children>
-      <SplitPane fx:id="SplitPane" dividerPositions="0.7442622950819672" layoutX="-3.0" layoutY="-1.0" prefHeight="752.0" prefWidth="917.0">
+      <SplitPane fx:id="SplitPane" dividerPositions="0.8262295081967214" layoutX="-3.0" layoutY="-1.0" prefHeight="752.0" prefWidth="917.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <SplitPane dividerPositions="0.3626666666666667" orientation="VERTICAL" prefHeight="752.0" prefWidth="683.0">
+                  <SplitPane dividerPositions="0.3626666666666667" orientation="VERTICAL" prefHeight="752.0" prefWidth="753.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="269.0" prefWidth="662.0">
                            <children>
-                              <Pane fx:id="STORE" layoutX="2.0" prefHeight="269.0" prefWidth="678.0" />
+                              <Pane fx:id="STORE" layoutX="2.0" prefHeight="269.0" prefWidth="753.0" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <ScrollPane prefHeight="475.0" prefWidth="681.0">
+                              <ScrollPane prefHeight="475.0" prefWidth="751.0">
                                  <content>
-                                    <VBox fx:id="listp" prefHeight="473.0" prefWidth="678.0" />
+                                    <VBox fx:id="listp" prefHeight="473.0" prefWidth="746.0" />
                                  </content></ScrollPane>
                            </children>
                         </AnchorPane>
@@ -64,7 +63,7 @@
                      <children>
                         <Label text="Name:">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Noto Serif Bold" size="13.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -72,16 +71,16 @@
                         </Label>
                         <Label fx:id="nameP" text="name">
                            <HBox.margin>
-                              <Insets left="15.0" />
+                              <Insets left="15.0" top="2.0" />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
                   <HBox layoutX="43.0" layoutY="259.0" prefHeight="35.0" prefWidth="200.0">
                      <children>
-                        <Label text="prix:">
+                        <Label text="Prix:">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Noto Serif Bold" size="13.0" />
                            </font>
                            <HBox.margin>
                               <Insets left="15.0" />
@@ -100,32 +99,41 @@
                            <HBox.margin>
                               <Insets left="15.0" right="15.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Noto Serif Bold" size="13.0" />
+                           </font>
                         </Label>
                         <Label fx:id="categorie" text="categorie">
                            <HBox.margin>
-                              <Insets left="15.0" right="15.0" />
+                              <Insets left="15.0" right="15.0" top="0.5" />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" layoutX="35.0" layoutY="337.0" prefHeight="41.0" prefWidth="215.0">
+                  <HBox alignment="CENTER" layoutX="35.0" layoutY="337.0" prefHeight="49.0" prefWidth="283.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#cancelupdate" prefHeight="25.0" prefWidth="95.0" styleClass="btn" text="cancel update">
+                        <Button mnemonicParsing="false" onAction="#cancelupdate" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: #0E3D59;" styleClass="btn" text="Cancel update" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="5.0" right="5.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Noto Serif Bold" size="14.0" />
+                           </font>
                         </Button>
-                        <Button fx:id="btn_Stock" mnemonicParsing="false" onAction="#updateStock" prefHeight="25.0" prefWidth="92.0" styleClass="btn" text="update Stock">
+                        <Button fx:id="btn_Stock" mnemonicParsing="false" onAction="#updateStock" prefHeight="35.0" prefWidth="150.0" style="-fx-background-radius: 20; -fx-background-color: #0E3D59;" styleClass="btn" text="Update Stock" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Noto Serif Bold" size="14.0" />
+                           </font>
                         </Button>
                      </children>
                   </HBox>
                   <TextField fx:id="quantite" layoutX="134.0" layoutY="298.0" prefHeight="25.0" prefWidth="67.0" />
-                  <Label layoutX="55.0" layoutY="300.0" text="quantite:">
+                  <Label layoutX="55.0" layoutY="300.0" text="Quantite:">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Noto Serif Bold" size="13.0" />
                      </font>
                   </Label>
                </children>

@@ -7,6 +7,7 @@ package GUI.Controllers;
 import controller.UserController;
 import entity.Util.EmailService;
 import entity.User;
+import entity.Util.SMSService;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -58,13 +59,12 @@ public class ListeAllUsersController implements Initializable {
     private TableColumn<User, String> colGenre;
     @FXML
     private TableColumn<User, Integer> colEtat;
-    
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-    
-    private User user;
     @FXML
     private Button btn_block;
+    
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+    private User user;
+    
     
     public ObservableList<User> getAllUsersList(){
         
@@ -99,15 +99,7 @@ public class ListeAllUsersController implements Initializable {
         showAllUsers();
     }    
 
-    private void goBack(ActionEvent event) throws IOException {
-         Stage stage = (Stage) go_back_btn.getScene().getWindow();
-        stage.close();
-        Stage primaryStage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Admin.fxml"));
-        primaryStage.setTitle("hello again");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-    }
+
 
     @FXML
     private void block(ActionEvent event) throws UnsupportedEncodingException {
@@ -120,7 +112,7 @@ public class ListeAllUsersController implements Initializable {
                             alert.setHeaderText(null);
                             alert.setContentText("User blocked");
                             alert.showAndWait(); 
-        
+                        
         
         // Send an email to the user
         String recipientEmail = us.getEmail();
@@ -136,10 +128,16 @@ public class ListeAllUsersController implements Initializable {
         String subject = "Account Restricted";
         EmailService emailService = new EmailService();
         emailService.sendEmail(recipientEmail, subject, messageContent); // Handle the exception appropriately
-            
+        
+         // Send an sms to the user
+          SMSService smsService = new SMSService();
+          String recipientPhoneNumber = us.getPhone();
+          System.out.println(us.getPhone());// replace with the desired phone number
+          smsService.sendSMS(recipientPhoneNumber,messageContent);
+        
                             alert.setTitle("Information");
                             alert.setHeaderText(null);
-                            alert.setContentText("Mail envoye avec succés");
+                            alert.setContentText("Mail and SMS envoye avec succés");
                             alert.showAndWait(); 
 
         showAllUsers();
@@ -148,7 +146,7 @@ public class ListeAllUsersController implements Initializable {
 
     @FXML
     private void goBack(MouseEvent event) throws IOException {
-        Stage stage = (Stage) go_back_btn.getScene().getWindow();
+            Stage stage = (Stage) go_back_btn.getScene().getWindow();
         stage.close();
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Admin.fxml"));
@@ -156,6 +154,9 @@ public class ListeAllUsersController implements Initializable {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+
+   
     
     
 }
+

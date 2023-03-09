@@ -18,7 +18,7 @@
          <font>
             <Font name="Noto Serif Bold" size="12.0" />
          </font></Button>
-      <VBox layoutX="1.0" layoutY="109.0" prefHeight="144.0" prefWidth="94.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="118.0">
+      <VBox layoutY="120.0" prefHeight="144.0" prefWidth="94.0" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="118.0">
          <children>
             <Label text="Nom :" textFill="#0a0a0a">
                <VBox.margin>
@@ -35,14 +35,9 @@
                   <Insets bottom="8.0" left="20.0" right="8.0" top="8.0" />
                </VBox.margin>
             </Label>
-            <Label text="Quantité :" textFill="#0a0a0a">
-               <VBox.margin>
-                  <Insets bottom="8.0" left="20.0" right="8.0" top="8.0" />
-               </VBox.margin>
-            </Label>
          </children>
       </VBox>
-      <VBox layoutX="147.0" layoutY="109.0" prefHeight="144.0" prefWidth="65.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="118.0" AnchorPane.rightAnchor="0.0">
+      <VBox layoutX="119.0" layoutY="120.0" prefHeight="144.0" prefWidth="65.0" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="-1.0">
          <children>
             <Label fx:id="ProduitNom" text="nom" textFill="#0a0a0a">
                <VBox.margin>
@@ -59,12 +54,9 @@
                   <Insets bottom="8.0" left="20.0" right="8.0" top="8.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="quantite" text="Quantité" textFill="#0a0a0a">
-               <VBox.margin>
-                  <Insets bottom="8.0" left="20.0" right="8.0" top="8.0" />
-               </VBox.margin>
-            </Label>
          </children>
       </VBox>
+      <Label layoutX="18.0" layoutY="262.0" text="Quantité :" textFill="#0a0a0a" />
+      <Label fx:id="quantite" layoutX="138.0" layoutY="262.0" text="Quantité" textFill="#0a0a0a" />
    </children>
 </AnchorPane>

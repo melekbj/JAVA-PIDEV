@@ -20,5 +20,6 @@
       <Label fx:id="avgrating" layoutX="72.0" layoutY="208.0" text="Rating" />
       <Button fx:id="submit" layoutX="258.0" layoutY="240.0" mnemonicParsing="false" onAction="#RateStore" text="Submit Rating" />
       <Rating fx:id="StoreRating" layoutX="19.0" layoutY="237.0" />
+      <Button fx:id="closestore" layoutX="278.0" layoutY="185.0" mnemonicParsing="false" onAction="#closestore" text="Button" />
    </children>
 </AnchorPane>

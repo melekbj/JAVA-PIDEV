@@ -108,7 +108,7 @@ public void ajouterStore() {
         StoreController storeController = storeLoader.getController();
         storeController.setLocalstore(localStore);
         instance.STORE.getChildren().add(storeNode);
-        ajouterlistproduit();
+     
         }
        
     } }catch (IOException ex) {
@@ -148,12 +148,30 @@ public void ajouterStoreparProduit(Produit p) {
         {
             return localuser;
         }
+     public Store getStore()
+        {
+            return localStore;
+        }
 
 //load des produit tout en depant de user role
  public void ajouterlistproduit(){
+     
          UserController  userC=new UserController();
-         setLocaluser(ClientMainController.getInstance().getUser());
-        listp.getChildren().clear();
+       User user = null;
+ClientMainController clientController = ClientMainController.getInstance();
+if (clientController != null) {
+    user = clientController.getUser();
+}
+if (user == null) {
+    PartnerMainController partnerController = PartnerMainController.getInstance();
+    if (partnerController != null) {
+        user = partnerController.getUser();
+    }
+}
+if (user != null) {
+    setLocaluser(user);
+}
+        instance.listp.getChildren().clear();
         ProduitStoreService ListProduit=new ProduitStoreService();
         // intgre recuperate store
         
@@ -207,7 +225,7 @@ public void ajouterStoreparProduit(Produit p) {
                 Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        listp.getChildren().add(hbox);
+        instance.listp.getChildren().add(hbox);
 
    }
 /*public void ajouterCommande() {
@@ -274,11 +292,12 @@ instance.APANE.getChildren().add(node);
         instance.APANE.getChildren().clear();
                     instance.SplitPane.setVisible(false);
     instance.APANE.setVisible(true);
-            FXMLLoader root =new FXMLLoader(getClass().getResource("/GUI/FXML/PPanel.fxml"));
+            FXMLLoader root =new FXMLLoader(getClass().getResource("/GUI/FXML/Store/PPanel.fxml"));
                 
             Node node=root.load();
  
-instance.APANE.getChildren().add(node);
+       instance.APANE.getChildren().add(node);
+       ajouterlistproduit();
     }
         public void noupdateinfoStore(){
             instance.SplitPane.setVisible(true);

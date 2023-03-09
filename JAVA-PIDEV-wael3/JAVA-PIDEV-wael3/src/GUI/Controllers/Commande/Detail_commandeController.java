@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 /**
@@ -29,13 +30,7 @@ public class Detail_commandeController implements Initializable {
     @FXML
     private Label prix;
     @FXML
-    private Label quantite1;
-    @FXML
-    private Label prix1;
-    @FXML
     private Label etat;
-    @FXML
-    private Label ProduitNom1;
     private Produit localproduit;
     @FXML
     private Button plusproduit;
@@ -63,6 +58,7 @@ public class Detail_commandeController implements Initializable {
         prix.setText(String.valueOf(p.getPrix_total()));
         quantite.setText(String.valueOf(p.getQuantite()));
         etat.setText(String.valueOf(p.getEtat()));      
+        image.setImage(new Image(p.getProduit().getPhoto()));
     }
       public void setDetail_Produit_display(Detail_Commande p){
           minusproduit.setDisable(true);
@@ -76,10 +72,11 @@ public class Detail_commandeController implements Initializable {
 
              localproduit=p.getProduit();
         System.out.println("Detail _ commande "+p);
-          ProduitNom.setText(String.valueOf(p.getId()));
+          ProduitNom.setText(String.valueOf(p.getProduit().getNom()));
         prix.setText(String.valueOf(p.getPrix_total()));
         quantite.setText(String.valueOf(p.getQuantite()));
         etat.setText(String.valueOf(p.getEtat()));   
+         image.setImage(new Image(p.getProduit().getPhoto()));
       }
       
 

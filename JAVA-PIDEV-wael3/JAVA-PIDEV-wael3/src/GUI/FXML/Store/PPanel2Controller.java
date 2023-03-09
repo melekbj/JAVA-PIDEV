@@ -47,12 +47,9 @@ import tray.notification.TrayNotification;
 public class PPanel2Controller implements Initializable {
 
     @FXML
-    private Label fxid;
-    @FXML
     private Label fxnom;
     @FXML
     private Label fxdescription;
-    @FXML
     private TextField txtid;
     @FXML
     private TextField txtnom;
@@ -60,8 +57,6 @@ public class PPanel2Controller implements Initializable {
     private TextField txtdescription;
     @FXML
     private TableView<Categorie> tablev;
-    @FXML
-    private TableColumn<Categorie, Integer> idcolumn;
     @FXML
     private TableColumn<Categorie, String> nomcolumn;
     @FXML
@@ -75,13 +70,16 @@ public class PPanel2Controller implements Initializable {
     @FXML
     private Button btnreadall;
     @FXML
-    private Button produit;
-    @FXML
     private Button search;
     @FXML
     private TextField txtsearch;
     ObservableList<Categorie> CategorieListSearch;
     private static List<Categorie> CategorieList;
+    private Categorie per;
+    @FXML
+    private Label fxnom1;
+    @FXML
+    private Button go_back_btn;
 
     /**
      * Initializes the controller class.
@@ -89,7 +87,6 @@ public class PPanel2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-          idcolumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nomcolumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
         columndescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         readall();
@@ -213,7 +210,7 @@ tray.showAndDismiss(Duration.millis(3000));
 
          int n=Integer.parseInt(txtid.getText());
         ServiceCategorie  es=new ServiceCategorie ();
-        Categorie e=new Categorie (Integer.parseInt(txtid.getText()));
+        Categorie e=new Categorie (per.getId());
         es.delete(e);
       //  JOptionPane.showMessageDialog(null, "Categorie deleted Successfully");
     }
@@ -231,7 +228,7 @@ tray.setNotificationType(NotificationType.SUCCESS);
 tray.showAndDismiss(Duration.millis(3000));
         System.out.println("starting");
         ServiceCategorie es=new ServiceCategorie();
-        Categorie e=new Categorie(Integer.parseInt(txtid.getText()),
+        Categorie e=new Categorie(per.getId(),
                txtnom.getText(),
                 txtdescription.getText()
                 );
@@ -254,12 +251,11 @@ tray.showAndDismiss(Duration.millis(3000));
 
         
             ObservableList<Categorie> ez=FXCollections.observableArrayList(CategorieList);
-            System.out.println(ez);
+        
                tablev.setItems(ez);
         
     }
 
-    @FXML
     private void produit(ActionEvent event) {
          try {
                 Parent page = FXMLLoader.load(getClass().getResource("PPanel.fxml"));
@@ -275,7 +271,7 @@ tray.showAndDismiss(Duration.millis(3000));
 
     @FXML
     private void handleMouseAction(MouseEvent event) {
-       Categorie per = tablev.getSelectionModel().getSelectedItem();
+        per = tablev.getSelectionModel().getSelectedItem();
     txtid.setText(String.valueOf(per.getId()));
     txtnom.setText(String.valueOf(per.getNom()));
     txtdescription.setText(String.valueOf(per.getDescription()));
@@ -287,6 +283,17 @@ tray.showAndDismiss(Duration.millis(3000));
          ServiceCategorie st= new  ServiceCategorie();
         CategorieListSearch = st.likeByCategorie(txtsearch.getText());
         tablev.setItems(CategorieListSearch);
+    }
+
+    @FXML
+    private void goBack(ActionEvent event) throws IOException {
+             Stage stage = (Stage) go_back_btn.getScene().getWindow();
+        stage.close();
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/FXML/Admin.fxml"));
+        primaryStage.setTitle("hello again");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
     
 }

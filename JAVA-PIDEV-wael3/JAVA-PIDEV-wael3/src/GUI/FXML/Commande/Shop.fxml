@@ -42,7 +42,7 @@
             <font>
                <Font name="Noto Serif Bold Italic" size="15.0" />
             </font></Button>
-         <Pane fx:id="visiterstore" layoutX="156.0" layoutY="99.0" prefHeight="416.0" prefWidth="514.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" />
+         <Pane fx:id="visiterstore" layoutX="156.0" layoutY="99.0" prefHeight="416.0" prefWidth="514.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" visible="false" />
          <Button layoutX="670.0" layoutY="31.0" mnemonicParsing="false" onAction="#displaypanier" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #F2EDDC; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-border-color: #03A6A6;" text="Panier" textFill="#03a6a6">
             <graphic>
                <FontAwesomeIconView fill="#0e3d59" glyphName="SHOPPING_CART" size="25" />

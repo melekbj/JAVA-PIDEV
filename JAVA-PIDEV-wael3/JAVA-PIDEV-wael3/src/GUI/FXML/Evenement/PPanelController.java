@@ -108,7 +108,7 @@ public class PPanelController implements Initializable {
     private Label go_back_btn;
     @FXML
     private ImageView img_ev;
-    
+    private Evenement_entite localEven;
     /**
      * Initializes the controller class.
      */
@@ -185,11 +185,10 @@ public class PPanelController implements Initializable {
 
     @FXML
     private void update(ActionEvent event) {
-        Evenement_entite ev = tableEV.getSelectionModel().getSelectedItem();
         System.out.println(btn_debut.getValue().getClass());
         System.out.println("starting");
         Evenement_Service es=new Evenement_Service();
-        Evenement_entite e=new Evenement_entite(Integer.parseInt(fnid.getText()),
+        Evenement_entite e=new Evenement_entite(localEven.getIdEvenement(),
                 btn_debut.getValue(),
                 btn_fin.getValue(),
                 btnimage.getText(),
@@ -209,7 +208,7 @@ public class PPanelController implements Initializable {
          Evenement_entite ev = tableEV.getSelectionModel().getSelectedItem();
         int n=Integer.parseInt(fnid.getText());
         Evenement_Service es=new Evenement_Service();
-        Evenement_entite e=new Evenement_entite(Integer.parseInt(fnid.getText()));
+        Evenement_entite e=new Evenement_entite(ev.getIdEvenement());
         es.delete(e);
         JOptionPane.showMessageDialog(null, "Event deleted");
     }
@@ -281,10 +280,10 @@ public class PPanelController implements Initializable {
     private void handleMouseAction(MouseEvent event) {
          
     Evenement_entite per = tableEV.getSelectionModel().getSelectedItem();
-    fnid.setText(String.valueOf(per.getIdEvenement()));
+    localEven=per;
     btn_debut.setValue(per.getDate_debutEvenement());
     btn_fin.setValue(per.getDate_finEvenement());
-    btnimage.setText(String.valueOf(per.getImageEvenement()));
+    img_ev.setImage(new Image("file:"+per.getImageEvenement()));
     btnlieu.setText(String.valueOf(per.getLieuEvenement()));
     btntitre.setText(String.valueOf(per.getTitreEvenement()));
     btn_description.setText(String.valueOf(per.getDescriptionEvenement()));
@@ -314,6 +313,7 @@ public class PPanelController implements Initializable {
         reroutetoupdate();
     }
        private void reroutetoupdate(){
+           
            btnUpdate.getScene().getWindow().hide();
         try {
              Parent root;

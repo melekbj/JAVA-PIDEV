@@ -48,11 +48,7 @@ private Store localStore=new Store();
         return instance;
     }
     @FXML
-    private Button AddProduit;
-    @FXML
-    private Button updateSt;
-    @FXML
-    private Button closestore;
+    private Button submit;
     /**
      * Initializes the controller class.
      */
@@ -77,7 +73,6 @@ private Store localStore=new Store();
 //            Logger.getLogger(StoreController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
     }
-
     @FXML
     private void updateStore(ActionEvent event) throws IOException {
                // Stage stage = (Stage) updateSt.getScene().getWindow();
@@ -119,19 +114,18 @@ private Store localStore=new Store();
         }
     
 
+    @FXML
     private void RateStore(ActionEvent event) throws SQLException {
         RatingService RS=new RatingService();
         System.out.println("rating this store"+localStore);
     //    RS.updateRating(localStore.getId(),StoreRating.getRating(),1);
     }
 
-
-    @FXML
+        @FXML
     private void ajouteProduit(ActionEvent event) throws IOException{
            MainController LPC=new MainController();
         LPC.AjoutProduit();
     }
-
     @FXML
     private void closestore(ActionEvent event) {
         ShopController.getInstance().closestore();

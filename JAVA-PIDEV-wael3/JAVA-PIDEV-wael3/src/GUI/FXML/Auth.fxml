@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -152,6 +153,13 @@
             </Button>
          </children>
       </Pane>
-      <AnchorPane fx:id="Home_pane" prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane fx:id="Home_pane" layoutY="107.0" prefHeight="544.0" prefWidth="1000.0" visible="false">
+         <children>
+            <ScrollPane prefHeight="544.0" prefWidth="1000.0">
+               <content>
+                  <VBox fx:id="homeshowproduit" prefHeight="542.0" prefWidth="991.0" />
+               </content>
+            </ScrollPane>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

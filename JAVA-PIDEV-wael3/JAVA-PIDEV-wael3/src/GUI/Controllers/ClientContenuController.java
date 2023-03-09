@@ -7,6 +7,7 @@ package GUI.Controllers;
 import GUI.Controllers.Commande.HistoriqueCommandeController;
 import GUI.Controllers.Commande.ShopController;
 import GUI.FXML.Evenement.AllEventController;
+import GUI.FXML.Reclamation.historiquereclamationController;
 import controller.UserController;
 import entity.User;
 import entity.Util.QRCodeGenerator;
@@ -89,6 +90,8 @@ public class ClientContenuController implements Initializable {
     private Pane pane5;
     @FXML
     private Pane pane31;
+    @FXML
+    private TextField tf_num;
    
     
     
@@ -105,13 +108,20 @@ public class ClientContenuController implements Initializable {
     
     
     
-    
+    private String data;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         instance=this;
+                data = 
+              "Full Name:"+ClientMainController.getInstance().getUser().getNom()+" "+
+                ClientMainController.getInstance().getUser().getPrenom()+"\n" +
+              "TEL:"+ClientMainController.getInstance().getUser().getPhone()+"\n"+
+              "EMAIL:"+ClientMainController.getInstance().getUser().getEmail();
+
+     
         pane4.setVisible(false);
    
         re_img.setImage(new Image("file:" + ClientMainController.getInstance().getUser().getImage()));
@@ -124,19 +134,14 @@ public class ClientContenuController implements Initializable {
         tf_adr.setText(ClientMainController.getInstance().getUser().getAdresse());
         tf_email.setText(ClientMainController.getInstance().getUser().getEmail());
         tf_email.setEditable(false);
+        tf_num.setText(ClientMainController.getInstance().getUser().getPhone());
+        tf_num.setEditable(false);
         
-        // Generate the QR code image using the QRCodeGenerator utility class
-//        String data = 
-//              "Full Name:"+ClientMainController.getInstance().getUser().getNom()+" "+
-//                ClientMainController.getInstance().getUser().getPrenom()+"\n" +
-//              "TEL:"+ClientMainController.getInstance().getUser().getPhone()+"\n"+
-//              "EMAIL:"+ClientMainController.getInstance().getUser().getEmail();
-//
-//        int size = 250;
-//        qr_img.setImage(QRCodeGenerator.generateQRCode(data, size).getImage());
-loadshop();
-loadhistorique();
-loadevenement();
+        
+        loadshop();
+        loadhistorique();
+        loadevenement();
+        
     }  
     
     public void   setPane1(){
@@ -163,6 +168,9 @@ loadevenement();
         instance.pane3.setVisible(true);
            instance.pane4.setVisible(false);
         instance.pane5.setVisible(false);
+      
+        // Generate the QR code image using the QRCodeGenerator utility class
+
 
     }
         public void   setPane4(){
@@ -171,7 +179,7 @@ loadevenement();
         instance.pane3.setVisible(false);
            instance.pane4.setVisible(true);
         instance.pane5.setVisible(false);
-
+loadhistoriquereclamation();
     }
         public void   setPane5(){
         instance.pane1.setVisible(false);
@@ -267,5 +275,18 @@ loadevenement();
             }
          
          
+    }
+    public void loadhistoriquereclamation(){
+        
+        instance.pane4.getChildren().clear();
+          FXMLLoader evenloader=new FXMLLoader(getClass().getResource("/GUI/FXML/Reclamation/historiquereclamation.fxml"));
+         try{
+             Node node=evenloader.load();
+             historiquereclamationController evencontroller=new historiquereclamationController();
+        instance.pane4.getChildren().add(node);
+         }
+         catch (IOException ex) {
+                System.out.println(ex);
+            }
     }
 }

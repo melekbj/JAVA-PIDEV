@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="703.0" style="-fx-background-color: #03A6A6;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Reclamation.historiquereclamationController">
+    <stylesheets>
+        <URL value="@/GUI/CSS/listeallusers.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tv_Users" layoutX="9.0" layoutY="67.0" prefHeight="341.0" prefWidth="602.0" style="-fx-background-color: #F2EDDC;" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="67.0">
+         <columns>
+            <TableColumn fx:id="commande" prefWidth="105.0" text="Commande" />
+            <TableColumn fx:id="produit" prefWidth="105.0" text="Produit" />
+            <TableColumn fx:id="description" prefWidth="329.0" text="Desciption" />
+            <TableColumn fx:id="etat" minWidth="0.0" prefWidth="62.0" text="Etat" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

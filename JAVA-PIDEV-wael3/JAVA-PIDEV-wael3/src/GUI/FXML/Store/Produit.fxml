@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -10,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="207.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.StoreProduitController">
+<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="207.0" style="-fx-background-color: #F2EDDC;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.ProduitController">
    <children>
       <VBox fx:id="produit" prefHeight="303.0" prefWidth="221.0">
          <children>
@@ -19,7 +18,7 @@
                <children>
                   <Label text="Name:">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Noto Serif" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="15.0" />
@@ -27,15 +26,18 @@
                   </Label>
                   <Label fx:id="nameP" text="name">
                      <HBox.margin>
-                        <Insets left="15.0" />
-                     </HBox.margin></Label>
+                        <Insets left="32.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="quantite:">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Noto Serif" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="15.0" />
@@ -44,14 +46,17 @@
                   <Label fx:id="quantite" text="quantite">
                      <HBox.margin>
                         <Insets left="15.0" />
-                     </HBox.margin></Label>
+                     </HBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="prix:">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="Noto Serif" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="15.0" />
@@ -59,8 +64,11 @@
                   </Label>
                   <Label fx:id="prix" text="prix">
                      <HBox.margin>
-                        <Insets left="15.0" />
-                     </HBox.margin></Label>
+                        <Insets left="45.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -69,11 +77,17 @@
                      <HBox.margin>
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin>
+                     <font>
+                        <Font name="Noto Serif" size="14.0" />
+                     </font>
                   </Label>
                   <Label fx:id="categorie" text="categorie">
                      <HBox.margin>
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
                   </Label>
                </children>
             </HBox>
@@ -81,15 +95,21 @@
       </VBox>
       <HBox alignment="CENTER" layoutX="6.0" layoutY="303.0" prefHeight="41.0" prefWidth="215.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#deleteproduit" prefHeight="25.0" prefWidth="95.0" styleClass="btn" text="delete produit">
+            <Button mnemonicParsing="false" onAction="#deleteproduit" prefHeight="30.0" prefWidth="95.0" styleClass="btn" text="Delete" textFill="#0e3d59">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Noto Serif Bold" size="15.0" />
+               </font>
             </Button>
-            <Button fx:id="btn_Stock" mnemonicParsing="false" onAction="#updateStock" prefHeight="25.0" prefWidth="92.0" styleClass="btn" text="update Stock">
+            <Button fx:id="btn_Stock" mnemonicParsing="false" onAction="#updateStock" prefHeight="30.0" prefWidth="92.0" styleClass="btn" text="Update" textFill="#0e3d59">
                <HBox.margin>
                   <Insets left="10.0" right="10.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Noto Serif Bold" size="15.0" />
+               </font>
             </Button>
          </children>
       </HBox>

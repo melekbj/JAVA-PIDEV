@@ -56,6 +56,11 @@ public class AjouterTypeReclamationController implements Initializable {
         ServiceTypeReclamation str=new ServiceTypeReclamation();
         str.insert(new TypeReclamation(typerecl_textfield.getText()));
         loadtypeinformations();
+          Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                              alert.setTitle("Information");
+                                alert.setHeaderText(null);
+                                alert.setContentText("Insertion Terminée."); 
+                                alert.showAndWait();
     }
 
     public void loadtypeinformations(){
@@ -64,12 +69,7 @@ public class AjouterTypeReclamationController implements Initializable {
         System.out.println("listcourrant===="+listcourrant);
      ObservableList<TypeReclamation> list = FXCollections.observableArrayList(listcourrant);
         tabletype.setItems(list);
-           Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                              alert.setTitle("Information");
-                                alert.setHeaderText(null);
-                                alert.setContentText("Thank you for signing up!\n Your account is currently pending admin approval.\n"
-                                        + " Please check your email for further instructions."); 
-                                alert.showAndWait();
+         
 
         
     }

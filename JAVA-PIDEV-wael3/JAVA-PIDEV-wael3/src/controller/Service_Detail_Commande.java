@@ -151,23 +151,26 @@ public class Service_Detail_Commande {
             Statement st=connection.createStatement();
             ResultSet rs=st.executeQuery(requete);
             while(rs.next()){
-                /*integre Rayen       readByid(Store) ServiceStore
-                ServiceStore ss=new ServiceStore();
-                Store store=ss.readById(rs.getInt(3));
+                /* Rayen       readByid(Store) ServiceStore
+               
                 
                 */
-                /*integre Safa       readByid(produit) Serviceproduit
+                /* Safa       readByid(produit) Serviceproduit
                 ServiceProduit sp=new ServiceProduit();
                 Produit produit=sp.readById(rs.getInt(4));
                 
                 */
+                 StoreService ss=new StoreService();
+                Store store=ss.readByStoreId(rs.getInt(3));
                 Service_Commande sc=new Service_Commande();
                 Commande commande=sc.readById(rs.getInt(2));
+                 ServiceProduit sp=new ServiceProduit();
+                Produit produit=sp.readById(rs.getInt(4));
                 Detail_Commande detail_commande=new Detail_Commande(
                         rs.getInt(1),
                         commande,
-                        new Store(rs.getInt(3)),  // a replace par store a l'integration    integre
-                        new Produit(rs.getInt(4)),  // a replace par Produiet a l'integeration  integre
+                     store ,  // a replace par store a l'    
+                        produit,  // a replace par Produiet a l'  
                         rs.getInt(5),
                         rs.getFloat(6),
                         rs.getString(7));
@@ -188,23 +191,25 @@ public class Service_Detail_Commande {
             PreparedStatement st=connection.prepareStatement(requete);
             ResultSet rs=st.executeQuery(requete);
             if(rs.next()){
-                 /*integre Rayen       readByid(Store) ServiceStore
-                ServiceStore ss=new ServiceStore();
+                 /* Rayen       readByid(Store) ServiceStore
+                
+                
+                */
+                /* Safa       readByid(produit) Serviceproduit
+              
+                
+                */
+                StoreService ss=new StoreService();
                 Store store=ss.readById(rs.getInt(3));
-                
-                */
-                /*integre Safa       readByid(produit) Serviceproduit
-                ServiceProduit sp=new ServiceProduit();
+                  ServiceProduit sp=new ServiceProduit();
                 Produit produit=sp.readById(rs.getInt(4));
-                
-                */
                 Service_Commande sc=new Service_Commande();
                 Commande commande=sc.readById(rs.getInt(2));
-                detail_comande=new Detail_Commande(
+               Detail_Commande detail_commande=new Detail_Commande(
                         rs.getInt(1),
                         commande,
-                        new Store(rs.getInt(3)),  // a replace par store a l'integration    integre
-                        new Produit(rs.getInt(4)),  // a replace par Produit a l'integeration  integre
+                     store ,  // a replace par store a l'    
+                        produit,  // a replace par Produiet a l'  
                         rs.getInt(5),
                         rs.getFloat(6),
                         rs.getString(7));
@@ -223,23 +228,24 @@ public class Service_Detail_Commande {
             Statement st=connection.createStatement();
             ResultSet rs=st.executeQuery(requete);
             while(rs.next()){
-                /*integre Rayen       readByid(Store) ServiceStore
-                ServiceStore ss=new ServiceStore();
-                Store store=ss.readById(rs.getInt(3));
+                /* Rayen       readByid(Store) ServiceStore
+              
                 
                 */
-                /*integre Safa       readByid(produit) Serviceproduit
-                ServiceProduit sp=new ServiceProduit();
+                /* Safa       readByid(produit) Serviceproduit
+              
+                
+                */
+                  ServiceProduit sp=new ServiceProduit();
                 Produit produit=sp.readById(rs.getInt(4));
-                
-                */
+           
                 Service_Commande sc=new Service_Commande();
                 Commande commande=sc.readById(rs.getInt(2));
                 Detail_Commande detail_commande=new Detail_Commande(
                         rs.getInt(1),
                         commande,
-                        new Store(rs.getInt(3)),  // a replace par store a l'integration    integre
-                        new Produit(rs.getInt(4)),  // a replace par Produit a l'integeration  integre
+                       store,  // a replace par store a l'    
+                       produit,  // a replace par Produit a l'  
                         rs.getInt(5),
                         rs.getFloat(6),
                         rs.getString(7));
@@ -264,23 +270,24 @@ public class Service_Detail_Commande {
             Statement st=connection.createStatement();
             ResultSet rs=st.executeQuery(requete);
             while(rs.next()){
-                /*integre Rayen       readByid(Store) ServiceStore
-                ServiceStore ss=new ServiceStore();
-                Store store=ss.readById(rs.getInt(3));
+                /* Rayen       readByid(Store) ServiceStore
+             
                 
                 */
-                /*integre Safa       readByid(produit) Serviceproduit
-                ServiceProduit sp=new ServiceProduit();
+                /* Safa       readByid(produit) Serviceproduit
+              
+                
+                */
+                  ServiceProduit sp=new ServiceProduit();
                 Produit produit=sp.readById(rs.getInt(4));
-                
-                */
+              
                 Service_Commande sc=new Service_Commande();
                 Commande commande=sc.readById(rs.getInt(2));
                 Detail_Commande detail_commande=new Detail_Commande(
                         rs.getInt(1),
                         commande,
-                        new Store(rs.getInt(3)),  // a replace par store a l'integration    integre
-                        new Produit(rs.getInt(4)),  // a replace par Produit a l'integeration  integre
+                      store,  // a replace par store a l'    
+                     produit,  // a replace par Produit a l'  
                         rs.getInt(5),
                         rs.getFloat(6),
                         rs.getString(7));
@@ -371,23 +378,25 @@ public class Service_Detail_Commande {
             ResultSet rs=st.executeQuery(requete);
             while(rs.next()){ /*a revisiter le concept d'integeration ici*/
                 /*integre Rayen       readByid(Store) ServiceStore
-                ServiceStore ss=new ServiceStore();
-                Store store=ss.readById(rs.getInt(3));
+             
                 
                 */
                 /*integre Safa       readByid(produit) Serviceproduit
-                ServiceProduit sp=new ServiceProduit();
-                Produit produit=sp.readById(rs.getInt(4));
+               
                 
                 */
+                   StoreService ss=new StoreService();
+                Store store=ss.readById(rs.getInt(3));
+                 ServiceProduit sp=new ServiceProduit();
+                Produit produit=sp.readById(rs.getInt(4));
                 System.out.println("adding a Detail_Commande to ListDetail "+rs.getString(1));
                 Service_Commande sc=new Service_Commande();
                 Commande commande=sc.readById(intcommande);
                 Detail_Commande detail_commande=new Detail_Commande(
                         rs.getInt(1),
                         commande,
-                        new Store(rs.getInt(3)),  // a replace par store a l'integration    integre
-                        new Produit(rs.getInt(4)),  // a replace par Produit a l'integeration  integre
+                     store,  // a replace par store a l'    
+                      produit,  // a replace par Produit a l'  
                         rs.getInt(5),
                         rs.getFloat(6),
                         rs.getString(7));

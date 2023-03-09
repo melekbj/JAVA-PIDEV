@@ -4,6 +4,8 @@
  */
 package GUI.FXML.Store;
 
+import GUI.Controllers.PartnerContenuController;
+import GUI.Controllers.PartnerMainController;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
@@ -63,8 +65,6 @@ import tray.notification.TrayNotification;
 public class PPanelController implements Initializable {
 
     @FXML
-    private Label fxid;
-    @FXML
     private Label fxnom;
     @FXML
     private Label fxphoto;
@@ -72,9 +72,6 @@ public class PPanelController implements Initializable {
     private Label fxprix;
     @FXML
     private Label fxquantite;
-    @FXML
-    private Label fxetat;
-    @FXML
     private TextField txtid;
     @FXML
     private TextField txtnom;
@@ -84,15 +81,12 @@ public class PPanelController implements Initializable {
     private TextField txtprix;
     @FXML
     private TextField txtquantite;
-    @FXML
     private TextField txtetat;
     @FXML
     private TableView<Produit> table;
-    @FXML
     private TableColumn<Produit, Integer> idcolumn;
     @FXML
     private TableColumn<Produit, String> nomcolumn;
-    @FXML
     private TableColumn<Produit, String> photocolumn;
     @FXML
     private TableColumn<Produit, Float> prixcolumn;
@@ -122,6 +116,7 @@ public class PPanelController implements Initializable {
     ObservableList<Produit> ProduitListSearch;
     @FXML
     private ComboBox<String> combo;
+    private Store localStore;
     private static PPanelController instance;
     public static PPanelController getINSTANCE(){
     return instance;
@@ -138,9 +133,7 @@ public class PPanelController implements Initializable {
         {
             fxprix.setText(String.valueOf(p.getPrix()));
         }*/
-        idcolumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nomcolumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        photocolumn.setCellValueFactory(new PropertyValueFactory<>("photo"));
         prixcolumn.setCellValueFactory(new PropertyValueFactory<>("prix"));
         quantitecolumn.setCellValueFactory(new PropertyValueFactory<>("quantite"));
          etatcolumn.setCellValueFactory(new PropertyValueFactory<>("etat"));
@@ -152,7 +145,7 @@ public class PPanelController implements Initializable {
         List<String> list2=list.stream().map(e->e.getNom()).collect(Collectors.toList());
         System.out.println(list2);
         combo.setItems(FXCollections.observableArrayList(list2));
-        
+        localStore=MainController.getINSTANCE().getStore();
     }    
 
     @FXML
@@ -261,10 +254,13 @@ tray.showAndDismiss(Duration.millis(3000));}
         ServiceCategorie sc=new ServiceCategorie();
         String categorienom=combo.getValue();
         e.setCategorie(new Categorie(sc.getCategorieByName(categorienom)));
-        es.insert(e);
+       
         StoreService SS=new StoreService();
-        Store st=SS.readById(MainController.getINSTANCE().getlocaluser().getId());
-PSS.insertProduitStore(e ,st);
+            System.out.println("MainController.getINSTANCE().getlocaluser().getId()"+PartnerMainController.getInstance().getUser().getId());
+        Store st=SS.readById(PartnerMainController.getInstance().getUser().getId());
+        
+//PSS.insertProduitStore(e ,st);
+ es.insert(e,st);
 MainController.getINSTANCE().ajouterlistproduit();
 
  /* JOptionPane.showMessageDialog(null, "Produit Added Successfully");*/
@@ -561,17 +557,17 @@ tray.showAndDismiss(Duration.millis(3000));
         table.setItems(ProduitListSearch);
     }
 
-    @FXML
-    private void go_back(ActionEvent event) throws IOException  {
-        MainController LPC=new MainController();
-        LPC.noupdateinfoStore();
-    }
 
     @FXML
     private void categorie(ActionEvent event) {
     }
+
+    @FXML
+    private void go_back(MouseEvent event) {
     
-    }
+    MainController LPC=new MainController();
+        LPC.noupdateinfoStore();
+    }}
     
 
 

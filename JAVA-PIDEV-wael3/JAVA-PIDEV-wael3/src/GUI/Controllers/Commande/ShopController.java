@@ -147,7 +147,7 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
      public void populateshop(){
         instance.shopproduit.getChildren().clear();
         ServiceProduit produit=new ServiceProduit();
-        List<Produit> list=produit.readAll();
+        List<Produit> list=produit.readAllActive();
         HBox hbox=new HBox();
         hbox.setSpacing(10);
         hbox.setPrefWidth(400);
@@ -200,10 +200,10 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
        // looping over paniercourrant to insert all detail_concerning them intoDB
        for (Detail_Commande dc:paniercourrant)
        {    
+           System.out.println("commande courrant a ainserer0"+commande);
            dc.setCommande(commande);
            // calcule store depends du store    integre rayen
-           Store store=new Store(1);
-           dc.setStore(store);
+           
            sdc.insert(dc);
        }
       

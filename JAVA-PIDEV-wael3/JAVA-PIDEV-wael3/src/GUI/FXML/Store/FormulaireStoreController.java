@@ -68,7 +68,7 @@ choose_state.getItems().add(s);
     private void createStore(ActionEvent event) throws IOException {
         StoreService SS=new StoreService();
         User u=PartnerMainController.getInstance().getUser();
-        Store st=new Store(STName.getText(),STAdresse.getText(),u);
+        Store st=new Store(STName.getText(),STAdresse.getText(),u,selectedFile.getAbsolutePath());
         SS.insert(st);
         
         PartnerContenuController.getInstance().loadstore();

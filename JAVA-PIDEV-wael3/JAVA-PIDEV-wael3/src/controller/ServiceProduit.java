@@ -8,7 +8,11 @@ package controller;
 import connexion.ConnexionSource;
 import entity.Categorie;
 import entity.Produit;
+import entity.Reclamation;
+import entity.Store;
 import entity.User;
+import entity.Util.EmailService;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 
 import java.sql.*;
@@ -40,7 +44,7 @@ public class ServiceProduit {
     //private int id_store;
 
  
-    public void insert(Produit t) {
+    public void insert(Produit t,Store s) {
 
         
         //       String requete = "insert into produit(nom,photo,prix,quantite,categorie_id,etat,user_id)VALUES ('"+t.getNom()+"','"+t.getPhoto()+"','"+t.getPrix()+"', '"+t.getQuantite()+"','"+t.getCategorie().getId()+"', '"+t.getEtat()+"','"+t.getUser().getId()+"')";
@@ -58,15 +62,17 @@ public class ServiceProduit {
                        + ""+t.getCategorie().getId()+", "
                        + "'"+t.getEtat()+"')";
         try {
-            PreparedStatement pst = conn.prepareStatement(requete);
-         /*  pst.setString(1, t.getNom_produit()); 
-           pst.setString(2, t.getPhoto_produit());
-            pst.setFloat(3, t.getPrix_produit());
-            pst.setInt(4, t.getQuantité_produit());
-            pst.setInt(5, t.getId_catégorie());
-             pst.setInt(6, t.getId_store()); */
+            PreparedStatement pst = conn.prepareStatement(requete,Statement.RETURN_GENERATED_KEYS);
+        
             pst.executeUpdate();
-            System.out.println("Produit ajouté!");
+               ResultSet rs = pst.getGeneratedKeys();
+    if (rs.next()) {
+        int insertedId = rs.getInt(1);
+            ProduitStoreService pss=new ProduitStoreService();
+            t.setId(insertedId);
+                pss.insertProduitStore(t, s);
+        
+    }
 
         } catch (SQLException ex) {
             Logger.getLogger(ServiceProduit.class.getName()).log(Level.SEVERE, null, ex);
@@ -183,6 +189,33 @@ public class ServiceProduit {
         } catch (SQLException ex) {
             Logger.getLogger(ServiceProduit.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println("============current ITEM LIST ========="+list);
+        return list;     
+       
+    }
+     public List<Produit> readAllActive() {
+             List<Produit> list=new ArrayList<>();
+            String requete="select * from produit where etat=1 ";
+        try {
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery(requete);
+            while(rs.next()){
+                ServiceCategorie sg =new ServiceCategorie();
+            Categorie C =new Categorie();
+            C=sg.readById(rs.getInt("categorie_id"));
+
+            
+              Produit t=new Produit(rs.getInt("id"), rs.getString("nom"),rs.getString("photo"),
+                      rs.getDouble("prix"),rs.getInt("quantite"), C ,
+                      rs.getInt("etat"));
+
+               list.add(t);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceProduit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("============current ITEM LIST ========="+list);
         return list;     
        
     }
@@ -241,4 +274,24 @@ public class ServiceProduit {
         }
         return listData;
     }
+     public void accepter(Produit produit)  throws UnsupportedEncodingException  {
+		String requete = "UPDATE produit SET etat = 1  where id =  " + produit.getId();
+		 try {
+	            Statement st=conn.createStatement();
+	            st.executeUpdate(requete);
+                    // Send an email to the user
+	        } catch (SQLException ex) {
+	            Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
+	        }
+	}
+     public void refuser(Produit produit)  throws UnsupportedEncodingException  {
+		String requete = "UPDATE produit SET etat = '-1'  where id =  " + produit.getId();
+		 try {
+	            Statement st=conn.createStatement();
+	            st.executeUpdate(requete);
+                    // Send an email to the user
+	        } catch (SQLException ex) {
+	            Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
+	        }
+	}
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="186.0" prefWidth="244.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: #F2EDDC;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.CommandeController">
+<AnchorPane id="AnchorPane" prefHeight="153.0" prefWidth="244.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: #F2EDDC;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.CommandeController">
    <children>
       <VBox prefHeight="186.0" prefWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -15,7 +15,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
             <Label text="User:">
@@ -23,7 +23,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
             <Label text="Destination:">
@@ -31,7 +31,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
             <Label text="quantite:">
@@ -39,7 +39,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
             <Label text="Product Name :">
@@ -47,7 +47,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
          </children>
@@ -59,7 +59,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
             <Label fx:id="usr" text="User:">
@@ -67,7 +67,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
             <Label fx:id="destination" text="Destination:">
@@ -75,7 +75,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
             <Label fx:id="quantite" text="quantite:">
@@ -83,7 +83,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
             <Label fx:id="Pname" text="Product Name:">
@@ -91,7 +91,7 @@
                   <Font name="Noto Serif" size="12.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
                </VBox.margin>
             </Label>
          </children>

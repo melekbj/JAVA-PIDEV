@@ -11,104 +11,86 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="748.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.PPanelController">
+<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="748.0" style="-fx-background-color: #F2EDDC;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.PPanelController">
    <children>
       <AnchorPane prefHeight="752.0" prefWidth="914.0">
          <children>
-            <Label fx:id="fxid" layoutX="43.0" layoutY="42.0" prefHeight="21.0" prefWidth="0.0" text="id">
+            <Label fx:id="fxnom" layoutX="40.0" layoutY="42.0" text="Nom">
                <font>
-                  <Font name="Arial" size="18.0" />
+                  <Font name="Noto Serif" size="14.0" />
                </font></Label>
-            <Label fx:id="fxnom" layoutX="142.0" layoutY="42.0" text="nom">
+            <Label fx:id="fxprix" layoutX="38.0" layoutY="82.0" text="Prix">
                <font>
-                  <Font name="Arial" size="16.0" />
+                  <Font name="Noto Serif" size="14.0" />
                </font></Label>
-            <Label fx:id="fxprix" layoutX="334.0" layoutY="42.0" text="prix">
+            <Label fx:id="fxquantite" layoutX="38.0" layoutY="118.0" prefHeight="19.0" prefWidth="63.0" text="Quantite">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Noto Serif" size="14.0" />
                </font></Label>
-            <Label fx:id="fxquantite" layoutX="321.0" layoutY="82.0" prefHeight="19.0" prefWidth="63.0" text="quantite">
+            <Button fx:id="btnInsert" layoutX="231.0" layoutY="292.0" mnemonicParsing="false" onAction="#insert" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0E3D59; -fx-background-radius: 10;" text="Ajouter" textFill="WHITE">
                <font>
-                  <Font size="15.0" />
-               </font></Label>
-            <Label fx:id="fxetat" layoutX="145.0" layoutY="82.0" text="etat">
-               <font>
-                  <Font size="15.0" />
-               </font></Label>
-            <Button fx:id="btnInsert" layoutX="554.0" layoutY="210.0" mnemonicParsing="false" onAction="#insert" prefHeight="32.0" prefWidth="83.0" style="-fx-background-color: #4B0082;" text="insert" textFill="WHITE">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
+                  <Font name="Noto Serif" size="14.0" />
                </font></Button>
-            <Button fx:id="btnDelete" layoutX="171.0" layoutY="664.0" mnemonicParsing="false" onAction="#delete" prefHeight="35.0" prefWidth="83.0" style="-fx-background-color: #4B0082;" text="delete" textFill="WHITE">
+            <Button fx:id="btnDelete" layoutX="446.0" layoutY="292.0" mnemonicParsing="false" onAction="#delete" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0E3D59; -fx-background-radius: 10;" text="Supprimer" textFill="WHITE">
                <font>
-                  <Font name="Arial Black" size="13.0" />
+                  <Font name="Noto Serif" size="14.0" />
                </font></Button>
-            <Button fx:id="btnUpdate" layoutX="648.0" layoutY="664.0" mnemonicParsing="false" onAction="#update" prefHeight="35.0" prefWidth="76.0" style="-fx-background-color: #4B0082;" text="update" textFill="WHITE">
+            <Button fx:id="btnUpdate" layoutX="337.0" layoutY="292.0" mnemonicParsing="false" onAction="#update" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0E3D59; -fx-background-radius: 10;" text="Modifier" textFill="WHITE">
                <font>
-                  <Font name="Arial Black" size="12.0" />
+                  <Font name="Noto Serif" size="14.0" />
                </font></Button>
-            <TableView fx:id="table" layoutX="332.0" layoutY="280.0" onMouseClicked="#handleMouseAction" prefHeight="299.0" prefWidth="578.0">
+            <TableView fx:id="table" layoutX="213.0" layoutY="358.0" onMouseClicked="#handleMouseAction" prefHeight="299.0" prefWidth="494.0">
               <columns>
-                <TableColumn fx:id="idcolumn" prefWidth="75.0" text="id" />
-                <TableColumn fx:id="nomcolumn" prefWidth="75.0" text="nom" />
-                  <TableColumn fx:id="photocolumn" prefWidth="75.0" text="photo" />
-                  <TableColumn fx:id="prixcolumn" prefWidth="75.0" text="prix" />
-                  <TableColumn fx:id="quantitecolumn" prefWidth="75.0" text="quantite" />
-                  <TableColumn fx:id="etatcolumn" prefWidth="75.0" text="etat" />
+                <TableColumn fx:id="nomcolumn" prefWidth="204.0" text="Nom" />
+                  <TableColumn fx:id="prixcolumn" prefWidth="99.0" text="Prix" />
+                  <TableColumn fx:id="quantitecolumn" prefWidth="101.0" text="Quantite" />
+                  <TableColumn fx:id="etatcolumn" prefWidth="89.0" text="Etat" />
               </columns>
             </TableView>
-            <TextField fx:id="txtid" disable="true" layoutX="60.0" layoutY="40.0" prefHeight="10.0" prefWidth="25.0" />
-            <TextField fx:id="txtnom" layoutX="196.0" layoutY="40.0" prefHeight="25.0" prefWidth="105.0" />
-            <TextField fx:id="txtprix" layoutX="384.0" layoutY="40.0" prefHeight="25.0" prefWidth="83.0" />
-            <TextField fx:id="txtquantite" layoutX="391.0" layoutY="80.0" prefHeight="25.0" prefWidth="89.0" />
-            <TextField fx:id="txtetat" layoutX="196.0" layoutY="80.0" prefHeight="25.0" prefWidth="76.0" />
-            <Button fx:id="btnReadAll" layoutX="672.0" layoutY="209.0" mnemonicParsing="false" onAction="#readAll" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #4B0082;" text="readAll" textFill="#fffdfd">
+            <TextField fx:id="txtnom" layoutX="123.0" layoutY="40.0" prefHeight="30.0" prefWidth="214.0" />
+            <TextField fx:id="txtprix" layoutX="123.0" layoutY="80.0" prefHeight="30.0" prefWidth="105.0" />
+            <TextField fx:id="txtquantite" layoutX="123.0" layoutY="116.0" prefHeight="30.0" prefWidth="105.0" />
+            <Button fx:id="btnReadAll" layoutX="603.0" layoutY="292.0" mnemonicParsing="false" onAction="#readAll" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #0E3D59; -fx-background-radius: 10;" text="Afficher " textFill="#fffdfd">
                <font>
-                  <Font name="Arial Black" size="13.0" />
+                  <Font name="Noto Serif" size="14.0" />
                </font></Button>
-            <Label fx:id="fxphoto" layoutX="4.0" layoutY="239.0" prefHeight="22.0" prefWidth="51.0" text="photo">
+            <Label fx:id="fxphoto" layoutX="38.0" layoutY="201.0" prefHeight="22.0" prefWidth="51.0" text="Photo">
                <font>
-                  <Font name="Arial Black" size="14.0" />
+                  <Font name="Noto Serif" size="14.0" />
                </font></Label>
-            <ImageView fitHeight="88.0" fitWidth="95.0" layoutX="16.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/preloader.gif" />
-               </image>
-            </ImageView>
-            <Label layoutX="338.0" layoutY="248.0" prefHeight="25.0" prefWidth="105.0" text="Liste de produit" textFill="#300a5e">
-               <font>
-                  <Font name="Arial Black" size="12.0" />
-               </font>
-            </Label>
             <ImageView fitHeight="114.0" fitWidth="132.0" layoutX="554.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/pngegg.png" />
                </image>
             </ImageView>
-            <Button fx:id="txtphoto" layoutX="59.0" layoutY="234.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #4B0082;" text="image" textFill="#fcfafa">
+            <Button fx:id="txtphoto" layoutX="122.0" layoutY="196.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #03A6A6;" text="Parcourir" textFill="#fcfafa">
                <font>
-                  <Font name="Arial Black" size="14.0" />
+                  <Font name="Noto Serif" size="15.0" />
                </font></Button>
-            <ImageView fx:id="photo" fitHeight="262.0" fitWidth="259.0" layoutX="50.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="pdf" layoutX="443.0" layoutY="210.0" mnemonicParsing="false" onAction="#pdf" prefHeight="32.0" prefWidth="89.0" style="-fx-background-color: #4B0082;" text="pdf" textFill="WHITE">
+            <ImageView fx:id="photo" fitHeight="168.0" fitWidth="196.0" layoutX="50.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="pdf" layoutX="563.0" layoutY="672.0" mnemonicParsing="false" onAction="#pdf" prefHeight="35.0" prefWidth="112.0" style="-fx-background-color: #03A6A6;" text="Telecharger" textFill="WHITE">
                <font>
-                  <Font name="Arial Black" size="14.0" />
+                  <Font name="Noto Serif" size="15.0" />
                </font></Button>
-            <Button fx:id="categorie" layoutX="516.0" layoutY="14.0" mnemonicParsing="false" onAction="#categorie" prefHeight="25.0" prefWidth="208.0" style="-fx-background-color: #4B0082;" text="categorie" textFill="#fffefe">
+            <Button fx:id="categorie" layoutX="554.0" layoutY="106.0" mnemonicParsing="false" onAction="#categorie" prefHeight="25.0" prefWidth="208.0" style="-fx-background-color: #4B0082;" text="categorie" textFill="#fffefe">
                <font>
                   <Font name="Arial Black" size="11.0" />
                </font></Button>
-            <Button fx:id="Search" layoutX="346.0" layoutY="156.0" mnemonicParsing="false" onAction="#Search" prefHeight="35.0" prefWidth="89.0" style="-fx-background-color: #4B0082;" text="Search" textFill="#fcf9f9">
+            <Button fx:id="Search" layoutX="778.0" layoutY="52.0" mnemonicParsing="false" onAction="#Search" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #03A6A6; -fx-background-radius: 20;" text="Search" textFill="#fcf9f9">
                <font>
-                  <Font name="Arial Black" size="15.0" />
+                  <Font name="Noto Serif" size="16.0" />
                </font></Button>
-            <TextField fx:id="txtsearch" layoutX="467.0" layoutY="161.0" prefHeight="25.0" prefWidth="279.0" />
-            <ComboBox fx:id="combo" layoutX="78.0" layoutY="180.0" prefWidth="150.0" />
-            <Label layoutX="4.0" layoutY="182.0" text="categorie">
+            <TextField fx:id="txtsearch" layoutX="485.0" layoutY="51.0" prefHeight="35.0" prefWidth="279.0" style="-fx-background-radius: 25;" />
+            <ComboBox fx:id="combo" layoutX="122.0" layoutY="156.0" prefHeight="30.0" prefWidth="150.0" />
+            <Label layoutX="38.0" layoutY="158.0" text="Categorie">
                <font>
-                  <Font name="Arial Black" size="13.0" />
+                  <Font name="Noto Serif" size="14.0" />
                </font></Label>
-            <Button layoutX="417.0" layoutY="669.0" mnemonicParsing="false" onAction="#go_back" text="annuler" />
+            <Label layoutX="891.0" layoutY="3.0" onMouseClicked="#go_back" text="X" textFill="#0e3d59">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

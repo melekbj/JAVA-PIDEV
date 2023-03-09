@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
@@ -38,6 +39,10 @@ public class ProduitController implements Initializable {
     private Produit localproduit;
     @FXML
     private Label quantitedispo;
+    @FXML
+    private Label categorie;
+    @FXML
+    private Button btn_link;
 
     /**
      * Initializes the controller class.
@@ -70,12 +75,31 @@ public class ProduitController implements Initializable {
           nameP.setText(String.valueOf(p.getNom()));
         prix.setText(String.valueOf(p.getPrix()));
         quantitedispo.setText(String.valueOf(p.getQuantite()));
+                imageP.setImage(new Image(p.getPhoto()));
+
     }
 
     @FXML
     private void visitstore(ActionEvent event) {
 
         ShopController.getInstance().visitestore(localproduit);
+    }
+    
+    public void setProduit(Produit p)
+    {
+        
+        localproduit=p;
+        System.out.println("dzakdzkadnkzafnoezaFNOEZomgorzqmngrqz"+localproduit);
+          nameP.setText(String.valueOf(p.getNom()));
+        prix.setText(String.valueOf(p.getPrix()));
+        quantitedispo.setText(String.valueOf(p.getQuantite()));
+        System.out.println("borkent 1");
+        imageP.setImage(new Image(p.getPhoto()));
+        System.out.println("borken 2");
+        btn_Stock.setVisible(false);
+        btn_link.setVisible(false);
+        quantite.setVisible(false);
+        
     }
 
   

@@ -51,6 +51,7 @@ public class NavController implements Initializable {
         ClientContenuController c = new ClientContenuController();
         c.setPane3();
     }
+    @FXML
     private void load4(ActionEvent event) {
          ClientContenuController c = new ClientContenuController();
          
