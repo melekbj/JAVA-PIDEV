@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="400.0" style="-fx-background-color: #F2EDDC; -fx-background-radius: 400;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.AdminController">
+   <children>
+      <Label layoutX="151.0" layoutY="58.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" text="NAVIGATE">
+         <font>
+            <Font name="Noto Serif" size="19.0" />
+         </font></Label>
+      <Button fx:id="go_back_btn" layoutX="14.0" layoutY="397.0" mnemonicParsing="false" onAction="#goBack" prefHeight="30.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: #03A6A6;" textFill="WHITE">
+         <font>
+            <Font name="Noto Serif Italic" size="13.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="SIGN_OUT" rotate="180.0" />
+         </graphic></Button>
+      <Label fx:id="usrlog" layoutX="328.0" layoutY="14.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" text="Welcome">
+         <font>
+            <Font name="Noto Serif" size="13.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER" layoutX="87.0" layoutY="98.0" prefHeight="205.0" prefWidth="228.0">
+         <children>
+            <Button fx:id="listeU" mnemonicParsing="false" onAction="#listeUsers" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: #03A6A6;" text="Lise des partenaires" textFill="WHITE">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="listAll" mnemonicParsing="false" onAction="#listeAllU" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: #03A6A6;" text="Liste des utlisateurs" textFill="WHITE">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="listAll1" mnemonicParsing="false" onAction="#GestionEvenement" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: #03A6A6;" text="Gestion Evenement" textFill="WHITE">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="listAll11" mnemonicParsing="false" onAction="#GestionReclamation" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: #03A6A6;" text="Gestion Reclamation" textFill="WHITE">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#gestionProduit" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: #03A6A6;" text="Gestion Produit" textFill="WHITE">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="listAll1111" mnemonicParsing="false" onAction="#gestioncategorie" prefHeight="20.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: #03A6A6;" text="Gestion Categorie" textFill="WHITE">
+               <font>
+                  <Font name="Noto Serif Bold Italic" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

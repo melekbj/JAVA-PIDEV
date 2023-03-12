@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="386.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Evenement.DetailEventsController">
+   <children>
+      <Button layoutX="273.0" layoutY="318.0" mnemonicParsing="false" onAction="#Reserver" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: #03A6A6; -fx-border-radius: 20; -fx-background-radius: 15;" text="Réserver" textFill="WHITE">
+         <font>
+            <Font name="Noto Serif Bold" size="16.0" />
+         </font></Button>
+      <Text fill="#0e3d59" layoutX="231.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detail Event" textAlignment="CENTER" wrappingWidth="242.39999999999998">
+         <font>
+            <Font name="Noto Serif Bold Italic" size="19.0" />
+         </font>
+      </Text>
+      <Pane fx:id="reserverpane" layoutX="214.0" layoutY="118.0" prefHeight="142.0" prefWidth="258.0" style="-fx-background-color: #F2EDDC; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" />
+      <VBox alignment="CENTER" layoutX="124.0" layoutY="89.0" prefHeight="200.0" prefWidth="215.0">
+         <children>
+            <Label text="Titre Evenement :">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Lieu evenement :">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Date Debut Evenement :">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Date Fin Evenement :">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label text="Nombre de place maximale :">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="412.0" layoutY="84.0" prefHeight="200.0" prefWidth="113.0">
+         <children>
+            <Text fx:id="titreev" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="TitreText">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="lieuev" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="LieuuText">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="dtdbev" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="dtdbText">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="datefev" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="DateFinText">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+            <Text fx:id="nbrplev" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="nbrplacetext">
+               <font>
+                  <Font name="Noto Serif Bold" size="13.0" />
+               </font>
+            </Text>
+         </children>
+      </VBox>
+     
+   </children>
+</AnchorPane>

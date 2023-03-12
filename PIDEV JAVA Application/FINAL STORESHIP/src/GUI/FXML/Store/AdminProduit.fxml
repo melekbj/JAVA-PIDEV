@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="650.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.AdminProduitController">
+   <children>
+      <Label fx:id="label" layoutX="251.0" layoutY="14.0" text="List Produit">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font></Label>
+      <Button fx:id="acceptButton" layoutX="175.0" layoutY="550.0" mnemonicParsing="false" onAction="#acceptproduit" style="-fx-background-color: #F2EDDC; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" text="Accepter" textFill="#03a6a6">
+         <font>
+            <Font name="Noto Serif Bold Italic" size="15.0" />
+         </font></Button>
+      <Button fx:id="refuseButton" layoutX="395.0" layoutY="550.0" mnemonicParsing="false" onAction="#refuseproduit" style="-fx-background-color: #F2EDDC; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" text="Refuser" textFill="#03a6a6">
+         <font>
+            <Font name="Noto Serif Bold Italic" size="15.0" />
+         </font></Button>
+      <TableView fx:id="TableView" layoutX="11.0" layoutY="81.0" prefHeight="438.0" prefWidth="668.0" AnchorPane.bottomAnchor="131.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="81.0">
+        <columns>
+            <TableColumn fx:id="produitnon" prefWidth="150.0" text="Nom Produit" />
+            <TableColumn fx:id="etat" prefWidth="92.0" text="Etat" />
+            <TableColumn fx:id="prix" prefWidth="137.0" text="Prix" />
+            <TableColumn fx:id="quantite" prefWidth="142.0" text="Quantite" />
+            <TableColumn fx:id="Categorie" minWidth="0.0" prefWidth="146.0" text="Categorie" />
+        </columns>
+      </TableView>
+      <Button fx:id="go_back_btn" layoutX="598.0" layoutY="18.0" mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: #F27405;" text="Back" textFill="#0e3d59">
+         <font>
+            <Font name="Noto Serif Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

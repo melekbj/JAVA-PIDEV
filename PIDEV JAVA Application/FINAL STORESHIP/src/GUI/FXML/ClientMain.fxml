@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1000.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.ClientMainController">
+    <stylesheets>
+        <URL value="@/GUI/CSS/clientmain.css" />
+    </stylesheets>
+   <children>
+      <Pane fx:id="pane_nav" prefHeight="650.0" prefWidth="200.0" />
+      <Pane fx:id="pane_con" layoutX="200.0" prefHeight="650.0" prefWidth="800.0" />
+   </children>
+</AnchorPane>
