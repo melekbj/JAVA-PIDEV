@@ -57,8 +57,14 @@ public class Detail_commandeController implements Initializable {
           ProduitNom.setText(String.valueOf(p.getProduit().getNom()));
         prix.setText(String.valueOf(p.getPrix_total()));
         quantite.setText(String.valueOf(p.getQuantite()));
-        etat.setText(String.valueOf(p.getEtat()));      
-        image.setImage(new Image(p.getProduit().getPhoto()));
+        etat.setText(String.valueOf(p.getEtat()));    
+          try {
+              System.out.println("Line 62 Detail_CommandeController");
+                      image.setImage(new Image("file:///"+p.getProduit().getPhoto()));
+
+          } catch (Exception e) {
+              System.out.println("error image");
+          }
     }
       public void setDetail_Produit_display(Detail_Commande p){
           minusproduit.setDisable(true);
@@ -76,7 +82,14 @@ public class Detail_commandeController implements Initializable {
         prix.setText(String.valueOf(p.getPrix_total()));
         quantite.setText(String.valueOf(p.getQuantite()));
         etat.setText(String.valueOf(p.getEtat()));   
-         image.setImage(new Image(p.getProduit().getPhoto()));
+          try {
+              System.out.println("Line 86 Detail_CommandeController");
+                          image.setImage(new Image("file:///"+p.getProduit().getPhoto()));
+
+          } catch (Exception e) {
+              System.out.println("error image detail Commande line 88 Detail_CommandeControler");
+          }
+        
       }
       
 

@@ -35,20 +35,21 @@ public class StoreController implements Initializable {
     private Label adresse;
     @FXML
     private Label contact;
-private Store localStore=new Store();
     @FXML
     private org.controlsfx.control.Rating StoreRating;
     @FXML
     private Label avgrating;
+      @FXML
+    private Button submit;
     private static StoreController instance;
     
-    
+    private Store localStore=new Store();
+
     public static  StoreController getInstance()
     {
         return instance;
     }
-    @FXML
-    private Button submit;
+  
     /**
      * Initializes the controller class.
      */
@@ -100,7 +101,12 @@ private Store localStore=new Store();
     Stname.setText(localStore.getNameSt());
     adresse.setText(localStore.getLocation());
     contact.setText(localStore.getOwner().getEmail());
-    imageSt.setImage(new Image("file:" + localStore.getPhoto()));
+            try {
+                    imageSt.setImage(new Image("file:///" + localStore.getPhoto()));
+
+            } catch (Exception e) {
+                System.out.println("error image localStore");
+            }
    // StoreRating.setRating(localStore.getRating());
     avgrating.setText(String.valueOf(localStore.getRating()));
 //        } catch (SQLException ex) {

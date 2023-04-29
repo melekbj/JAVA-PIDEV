@@ -3,14 +3,20 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="root" prefHeight="386.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Evenement.DetailEventsController">
+<AnchorPane id="AnchorPane" fx:id="root" prefHeight="386.0" prefWidth="670.0" style="-fx-background-color: #F2EDDC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Evenement.DetailEventsController">
    <children>
+      <Button layoutX="609.0" layoutY="17.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #03A6A6;" text="Close" textFill="#5b0000">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
       <Button layoutX="273.0" layoutY="318.0" mnemonicParsing="false" onAction="#Reserver" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: #03A6A6; -fx-border-radius: 20; -fx-background-radius: 15;" text="Réserver" textFill="WHITE">
          <font>
             <Font name="Noto Serif Bold" size="16.0" />
@@ -20,8 +26,8 @@
             <Font name="Noto Serif Bold Italic" size="19.0" />
          </font>
       </Text>
-      <Pane fx:id="reserverpane" layoutX="214.0" layoutY="118.0" prefHeight="142.0" prefWidth="258.0" style="-fx-background-color: #F2EDDC; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" />
-      <VBox alignment="CENTER" layoutX="124.0" layoutY="89.0" prefHeight="200.0" prefWidth="215.0">
+      <Pane fx:id="reserverpane" layoutX="14.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="349.0" prefWidth="643.0" style="-fx-background-color: #F2EDDC; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" />
+      <VBox fx:id="virtuelbox" alignment="CENTER" layoutX="245.0" layoutY="84.0" prefHeight="200.0" prefWidth="215.0">
          <children>
             <Label text="Titre Evenement :">
                <font>
@@ -65,7 +71,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox alignment="CENTER" layoutX="412.0" layoutY="84.0" prefHeight="200.0" prefWidth="113.0">
+      <VBox fx:id="virtuel2box" alignment="CENTER" layoutX="461.0" layoutY="84.0" prefHeight="200.0" prefWidth="113.0">
          <children>
             <Text fx:id="titreev" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="TitreText">
                <font>
@@ -106,6 +112,7 @@
             </Text>
          </children>
       </VBox>
+      <ImageView fx:id="imgev" fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" />
      
    </children>
 </AnchorPane>

@@ -46,7 +46,7 @@ public class ServiceProduit {
  
     public void insert(Produit t,Store s) {
 
-        
+        t.setEtat(1);
         //       String requete = "insert into produit(nom,photo,prix,quantite,categorie_id,etat,user_id)VALUES ('"+t.getNom()+"','"+t.getPhoto()+"','"+t.getPrix()+"', '"+t.getQuantite()+"','"+t.getCategorie().getId()+"', '"+t.getEtat()+"','"+t.getUser().getId()+"')";
                String requete = "insert into produit("
                        + "nom,"

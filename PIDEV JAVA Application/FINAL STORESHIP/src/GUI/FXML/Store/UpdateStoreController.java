@@ -11,6 +11,9 @@ import entity.Util.TunisieMap;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -75,10 +78,21 @@ choose_state.getItems().add(s);
     private void modifyStore(ActionEvent event) throws IOException {
         StoreService SS=new StoreService();
      
+           // save the image inside htdoc
+         String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
+ String newFileName = "image_" + System.currentTimeMillis() + extension;
+        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Files.copy(selectedFile.toPath(), destination);
+// Get the new file name
+String newFilePath = destination.toString();
+
+        
+        
+        
 //        Store st=new Store(STName.getText(),STAdresse.getText(),u);
         localstore.setNameSt(STName.getText());
         localstore.setLocation(STAdresse.getText()+" "+choose_state.getSelectionModel().getSelectedItem());
-        localstore.setPhoto(selectedFile.getAbsolutePath());
+        localstore.setPhoto(newFilePath);
         SS.update(localstore);
         StoreController.getInstance().setLocalstore(localstore);
 
@@ -102,7 +116,12 @@ choose_state.getItems().add(s);
         if (selectedFile != null)
         {
             imageSt.setText(selectedFile.getName());
-            image_St.setImage(new Image("file:" + selectedFile));
+            try {
+                            image_St.setImage(new Image("file:" + selectedFile));
+
+            } catch (Exception e) {
+                System.out.println("error image update Stroe Controller ");
+            }
               //ImageView.setImage(new Image("file:" + selectedFile));
         }
     }

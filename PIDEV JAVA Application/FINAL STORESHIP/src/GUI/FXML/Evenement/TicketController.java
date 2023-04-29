@@ -145,7 +145,12 @@ public class TicketController implements Initializable {
                 //set image
                         String path = "file:///"+filePath;
         Image image = new Image(path);
-        qrcode.setImage(image);
+                try {
+                            qrcode.setImage(image);
+
+                } catch (Exception e) {
+                    System.out.println("error image QRCode");
+                }
  
 
 

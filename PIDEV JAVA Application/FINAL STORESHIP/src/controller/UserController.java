@@ -49,7 +49,7 @@ public class UserController implements UController<User> {
         pst.setString(8, t.getImage());
         pst.setString(9, t.getGenre());
         pst.setString(10, t.getPhone());
-        if (t.getRoles().equals("Partenaire")) {
+        if (t.getRoles().equals("ROLE_PARTNER")) {
             pst.setInt(11, -1); // set etat to -1 for partner users
         } else {
             pst.setInt(11, 0); // set etat to 0 for other users

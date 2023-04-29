@@ -129,19 +129,14 @@ public class AllEventController implements Initializable {
 
          }
        public void showreservation(Evenement_entite ev){
-           System.out.println("first");
            instance.oneventreservations.getChildren().clear();
-           System.out.println("clear");
              instance.oneventreservations.setVisible(true);
-             System.out.println("instance");
              
              FXMLLoader localloader =new FXMLLoader(getClass().getResource("detailEvents.fxml"));
         try {
-            System.out.println("start");
             Node node=localloader.load();
-            System.out.println("second");
             DetailEventsController controler=localloader.getController();
-            System.out.println("third");
+            System.out.println("Sending out this Event +++++ "+ev);
             controler.loadData(ev);
             instance.oneventreservations.getChildren().add(node);
             

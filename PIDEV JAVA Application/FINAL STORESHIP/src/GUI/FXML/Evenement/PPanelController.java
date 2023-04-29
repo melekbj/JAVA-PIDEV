@@ -16,6 +16,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -160,12 +163,24 @@ public class PPanelController implements Initializable {
     private void insert(ActionEvent event) throws IOException {
          LocalDate n=btn_debut.getValue();
             LocalDate n1=btn_fin.getValue();
+            
+            // save the image inside htdoc
+         String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
          
+         
+String newFileName = "image_" + System.currentTimeMillis() + extension;
+        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Files.copy(selectedFile.toPath(), destination);
+
+// Get the new file name
+String newFilePath = destination.toString();
+            
+            
         Evenement_Service es=new Evenement_Service();
         Evenement_entite e=new Evenement_entite(
                 n,
                 n1,
-                selectedFile.getAbsolutePath(),
+                newFilePath,
                 btnlieu.getText(),
                 btntitre.getText(),
                 btn_description.getText(),
@@ -188,6 +203,8 @@ public class PPanelController implements Initializable {
         System.out.println(btn_debut.getValue().getClass());
         System.out.println("starting");
         Evenement_Service es=new Evenement_Service();
+      
+
         Evenement_entite e=new Evenement_entite(localEven.getIdEvenement(),
                 btn_debut.getValue(),
                 btn_fin.getValue(),
@@ -283,7 +300,12 @@ public class PPanelController implements Initializable {
     localEven=per;
     btn_debut.setValue(per.getDate_debutEvenement());
     btn_fin.setValue(per.getDate_finEvenement());
-    img_ev.setImage(new Image("file:"+per.getImageEvenement()));
+        try {
+                img_ev.setImage(new Image("file:///"+per.getImageEvenement()));
+
+        } catch (Exception e) {
+            System.out.println("image");
+        }
     btnlieu.setText(String.valueOf(per.getLieuEvenement()));
     btntitre.setText(String.valueOf(per.getTitreEvenement()));
     btn_description.setText(String.valueOf(per.getDescriptionEvenement()));
@@ -352,7 +374,12 @@ public class PPanelController implements Initializable {
             if (selectedFile != null) 
             {
                 btnimage.setText(selectedFile.getName());
-                img_ev.setImage(new Image("file:" + selectedFile));
+                try {
+                                    img_ev.setImage(new Image("file:" + selectedFile));
+
+                } catch (Exception e) {
+                    System.out.println("error image");
+                }
 
             }else{
                 btnimage.setText(selectedFile.getName());

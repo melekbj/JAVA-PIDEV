@@ -13,6 +13,9 @@ import entity.Util.TunisieMap;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -68,7 +71,15 @@ choose_state.getItems().add(s);
     private void createStore(ActionEvent event) throws IOException {
         StoreService SS=new StoreService();
         User u=PartnerMainController.getInstance().getUser();
-        Store st=new Store(STName.getText(),STAdresse.getText(),u,selectedFile.getAbsolutePath());
+        
+             // save the image inside htdoc
+         String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
+ String newFileName = "image_" + System.currentTimeMillis() + extension;
+        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Files.copy(selectedFile.toPath(), destination);
+// Get the new file name
+String newFilePath = destination.toString();
+        Store st=new Store(STName.getText(),STAdresse.getText(),u,newFilePath);
         SS.insert(st);
         
         PartnerContenuController.getInstance().loadstore();
@@ -84,7 +95,12 @@ choose_state.getItems().add(s);
         if (selectedFile != null)
         {
             imageSt.setText(selectedFile.getName());
-            image_St.setImage(new Image("file:" + selectedFile));
+            try {
+                            image_St.setImage(new Image("file:" + selectedFile));
+
+            } catch (Exception e) {
+                System.out.println("error image");
+            }
               //ImageView.setImage(new Image("file:" + selectedFile));
         }
     }

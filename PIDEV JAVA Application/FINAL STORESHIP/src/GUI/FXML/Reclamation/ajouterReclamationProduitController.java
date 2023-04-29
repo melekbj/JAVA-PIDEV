@@ -81,7 +81,8 @@ public class ajouterReclamationProduitController implements Initializable {
                 ,descriptionReclamation.getText()
                 ,LocalDate.now()
                 ,"Pending"
-                ,str.readByName(state.getValue().toString()));
+                ,str.readByName(state.getValue().toString())
+       );
                 
         ServiceReclamation sr = new ServiceReclamation();
         if(!descriptionReclamation.getText().equals(""))

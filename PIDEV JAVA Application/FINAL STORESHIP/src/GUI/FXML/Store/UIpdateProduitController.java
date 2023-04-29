@@ -21,6 +21,9 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -66,7 +69,12 @@ public class UIpdateProduitController implements Initializable {
         if (selectedFile != null)
         {
             btn_img.setText(selectedFile.getName());
-            image.setImage(new Image("file:" + selectedFile));
+            try {
+                            image.setImage(new Image("file:" + selectedFile));
+
+            } catch (Exception e) {
+                System.out.println("error image update Produit Controller");
+            }
               //ImageView.setImage(new Image("file:" + selectedFile));
         }
     }
@@ -77,7 +85,22 @@ public class UIpdateProduitController implements Initializable {
         Categorie CT=new Categorie();
         Produit st;
         
-        st = new Produit(productname.getText(),selectedFile.getAbsolutePath(),Double.parseDouble(price.getText()),Integer.parseInt(quantite.getText()),CT);
+        String newFilePath="";
+        try {
+            
+       
+           // save the image inside htdoc
+         String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
+ String newFileName = "image_" + System.currentTimeMillis() + extension;
+        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Files.copy(selectedFile.toPath(), destination);
+// Get the new file name
+ newFilePath = destination.toString();
+ } catch (Exception e) {
+        }
+        
+        
+        st = new Produit(productname.getText(),newFilePath,Double.parseDouble(price.getText()),Integer.parseInt(quantite.getText()),CT);
         SS.update(st);
         
 

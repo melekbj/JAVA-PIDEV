@@ -83,4 +83,5 @@ public class CommandeController implements Initializable {
         
         HistoriqueCommandeController.getInstance().processpayment(commande);
     }
+    
 }

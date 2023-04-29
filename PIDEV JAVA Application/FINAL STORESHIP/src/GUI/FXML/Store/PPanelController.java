@@ -27,6 +27,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -56,7 +59,7 @@ import static jdk.nashorn.internal.runtime.Debug.id;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
-
+import javafx.scene.image.ImageView;
 /**
  * FXML Controller class
  *
@@ -76,7 +79,7 @@ public class PPanelController implements Initializable {
     @FXML
     private TextField txtnom;
      @FXML
-    private Button txtphoto;
+    private Button imageSt;
     @FXML
     private TextField txtprix;
     @FXML
@@ -103,7 +106,7 @@ public class PPanelController implements Initializable {
     @FXML
     private Button btnReadAll;
     @FXML
-    private ImageView photo;
+    private ImageView image_St;
     @FXML
     private Button pdf;
     @FXML
@@ -112,7 +115,8 @@ public class PPanelController implements Initializable {
     private Button Search;
     @FXML
     private TextField txtsearch;
-    
+            private File selectedFile = null;
+
     ObservableList<Produit> ProduitListSearch;
     @FXML
     private ComboBox<String> combo;
@@ -126,13 +130,7 @@ public class PPanelController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        /*ServiceProduit sp=new ServiceProduit();
-        List<Produit> list=sp.readAll();
-        for (Produit p:list)
-        {
-            fxprix.setText(String.valueOf(p.getPrix()));
-        }*/
+    
         nomcolumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prixcolumn.setCellValueFactory(new PropertyValueFactory<>("prix"));
         quantitecolumn.setCellValueFactory(new PropertyValueFactory<>("quantite"));
@@ -161,7 +159,7 @@ public class PPanelController implements Initializable {
         
         //controle de saisie
  
-         if (txtnom.getText().isEmpty() || txtphoto.getText().isEmpty() || txtprix.getText().isEmpty() || txtquantite.getText().isEmpty() || txtetat.getText().isEmpty() ) {
+         if (txtnom.getText().isEmpty() || imageSt.getText().isEmpty() || txtprix.getText().isEmpty() || txtquantite.getText().isEmpty() || txtetat.getText().isEmpty() ) {
                   String titre="Error";
 String message = "required fields are empty";
 TrayNotification tray = new TrayNotification();
@@ -172,37 +170,6 @@ tray.setMessage(message);
 tray.setNotificationType(NotificationType.ERROR);
 tray.showAndDismiss(Duration.millis(3000));
     }
-         
-           /* else
-           
-            if ( txtnom.getText().matches(".*[0-9].*")
-//                
-                    )
-            {
-               // txtnom.setStyle("-fx-border-color:red ; -fx-border-width:2px ;");
-      //  new .animation.Shake(Txt_titre).play();
-                        String titre="Error";
-String message = "Please enter only letters !";
-TrayNotification tray = new TrayNotification();
-AnimationType type = AnimationType.POPUP;
-tray.setAnimationType(type);
-tray.setTitle(titre);
-tray.setMessage(message);
-tray.setNotificationType(NotificationType.ERROR);
-tray.showAndDismiss(Duration.millis(3000));
-
-        }
-            else{txtnom.setStyle(null);}
-
-       // if (Galerie.get.equals( Txt_titre.getText()) { }
-       
-        String name = txtnom.getText();*/
-
-           
-        /* else if ( txtnom.getText().matches(".*[0-9].*")|| txtnom.getText().matches(".*[%-@-.-/-!-;-,-_].*") ||
-               txtetat.getText().matches(".*[0-9].*")||txtetat.getText().matches(".*[%-@-.-/-!-;-,-_].*") ) {*/ 
-
-        
          else if ( txtnom.getText().matches(".*[0-9].*")) {
                                String titre="Error";
 String message = "Please enter only letters";
@@ -213,7 +180,6 @@ tray.setTitle(titre);
 tray.setMessage(message);
 tray.setNotificationType(NotificationType.ERROR);
 tray.showAndDismiss(Duration.millis(3000));
-         
         }
         else if ( txtprix.getText().matches(".*[a-z].*")||txtquantite.getText().matches(".*[a-z].*")||  txtetat.getText().matches(".*[a-z].*"))
             {
@@ -226,10 +192,7 @@ tray.setTitle(titre);
 tray.setMessage(message);
 tray.setNotificationType(NotificationType.ERROR);
 tray.showAndDismiss(Duration.millis(3000));
-
         }
-      
-        
         else { String titre="Produit Added Successfully";
 String message = txtnom.getText();
 TrayNotification tray = new TrayNotification();
@@ -239,12 +202,24 @@ tray.setTitle(titre);
 tray.setMessage(message);
 tray.setNotificationType(NotificationType.SUCCESS);
 tray.showAndDismiss(Duration.millis(3000));}
-           
         ServiceProduit es=new ServiceProduit();
+        
+        String newFilePath="";
+        try {
+            
+       
+           // save the image inside htdoc
+         String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
+ String newFileName = "image_" + System.currentTimeMillis() + extension;
+        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Files.copy(selectedFile.toPath(), destination);
+// Get the new file name
+ newFilePath = destination.toString();
+ } catch (Exception e) {
+        }
         Produit e=new Produit(
-               
                 txtnom.getText(),
-                txtphoto.getText(),
+                newFilePath,
                  Double.parseDouble(txtprix.getText()),
                 Integer.parseInt(txtquantite.getText()),
                  Integer.parseInt(txtetat.getText()) 
@@ -254,32 +229,15 @@ tray.showAndDismiss(Duration.millis(3000));}
         ServiceCategorie sc=new ServiceCategorie();
         String categorienom=combo.getValue();
         e.setCategorie(new Categorie(sc.getCategorieByName(categorienom)));
-       
         StoreService SS=new StoreService();
             System.out.println("MainController.getINSTANCE().getlocaluser().getId()"+PartnerMainController.getInstance().getUser().getId());
         Store st=SS.readById(PartnerMainController.getInstance().getUser().getId());
-        
-//PSS.insertProduitStore(e ,st);
  es.insert(e,st);
 MainController.getINSTANCE().ajouterlistproduit();
-
- /* JOptionPane.showMessageDialog(null, "Produit Added Successfully");*/
-      /* String titre="Produit Added Successfully";
-String message = txtnom.getText();
-TrayNotification tray = new TrayNotification();
-AnimationType type = AnimationType.POPUP;
-tray.setAnimationType(type);
-tray.setTitle(titre);
-tray.setMessage(message);
-tray.setNotificationType(NotificationType.SUCCESS);
-tray.showAndDismiss(Duration.millis(3000));*/
-    
     }
 
     @FXML
     private void delete(ActionEvent event) {
-           
-        
         int n=Integer.parseInt(txtid.getText());
         ServiceProduit  es=new ServiceProduit ();
         Produit e=new Produit(Integer.parseInt(txtid.getText()));
@@ -293,18 +251,13 @@ tray.setTitle(titre);
 tray.setMessage(message);
 tray.setNotificationType(NotificationType.SUCCESS);
 tray.showAndDismiss(Duration.millis(3000));
-      //JOptionPane.showMessageDialog(null, "Produit deleted Successfully");
         MainController.getINSTANCE().ajouterlistproduit();
-
     }
-    
-    //JOptionPane.showMessageDialog(null, "Produit deleted Successfully");
-    
-
+ 
     @FXML
     private void update(ActionEvent event) {
         
-         if (txtnom.getText().isEmpty() || txtphoto.getText().isEmpty() || txtprix.getText().isEmpty() || txtquantite.getText().isEmpty() /*|| txtetat.getText().isEmpty()*/ ) {
+         if (txtnom.getText().isEmpty() || imageSt.getText().isEmpty() || txtprix.getText().isEmpty() || txtquantite.getText().isEmpty() /*|| txtetat.getText().isEmpty()*/ ) {
                   String titre="Error";
 String message = "required fields are empty";
 TrayNotification tray = new TrayNotification();
@@ -317,22 +270,6 @@ tray.showAndDismiss(Duration.millis(3000));
 MainController.getINSTANCE().ajouterlistproduit();
 
     }
-           
-        /* else if ( txtnom.getText().matches(".*[0-9].*")|| txtnom.getText().matches(".*[%-@-.-/-!-;-,-_].*") ||
-               txtetat.getText().matches(".*[0-9].*")||txtetat.getText().matches(".*[%-@-.-/-!-;-,-_].*") ) {*/  
-        
-        /* else if ( txtnom.getText().matches(".*[0-9].*")||  txtetat.getText().matches(".*[0-9].*")) {
-                               String titre="Error";
-String message = "Please enter only letters";
-TrayNotification tray = new TrayNotification();
-AnimationType type = AnimationType.POPUP;
-tray.setAnimationType(type);
-tray.setTitle(titre);
-tray.setMessage(message);
-tray.setNotificationType(NotificationType.ERROR);
-tray.showAndDismiss(Duration.millis(3000));
-         
-        }*/
          else if ( txtprix.getText().matches(".*[a-z].*")||txtquantite.getText().matches(".*[a-z].*"))
             {
                  String titre="Error";
@@ -348,7 +285,7 @@ tray.showAndDismiss(Duration.millis(3000));
         }
         
        //controle de saisie 
-              if (txtnom.getText().isEmpty() || txtphoto.getText().isEmpty() || txtprix.getText().isEmpty() || txtquantite.getText().isEmpty() /*|| txtetat.getText().isEmpty()*/ ) {
+              if (txtnom.getText().isEmpty() || imageSt.getText().isEmpty() || txtprix.getText().isEmpty() || txtquantite.getText().isEmpty() /*|| txtetat.getText().isEmpty()*/ ) {
                   String titre="Error";
 String message = "required fields are empty";
 TrayNotification tray = new TrayNotification();
@@ -359,21 +296,6 @@ tray.setMessage(message);
 tray.setNotificationType(NotificationType.ERROR);
 tray.showAndDismiss(Duration.millis(3000));
     }
-             
-        
-         /*else if ( txtnom.getText().matches(".*[0-9].*")|| txtnom.getText().matches(".*[%-@-.-/-!-;-,-_].*") ||
-               txtetat.getText().matches(".*[0-9].*")||txtetat.getText().matches(".*[%-@-.-/-!-;-,-_].*") ) {
-                               String titre="Error";
-String message = "Please enter only letters";
-TrayNotification tray = new TrayNotification();
-AnimationType type = AnimationType.POPUP;
-tray.setAnimationType(type);
-tray.setTitle(titre);
-tray.setMessage(message);
-tray.setNotificationType(NotificationType.ERROR);
-tray.showAndDismiss(Duration.millis(3000));
-         
-        }*/
          else if ( txtprix.getText().matches(".*[a-z].*")||txtquantite.getText().matches(".*[a-z].*"))
             {
                  String titre="Error";
@@ -387,6 +309,19 @@ tray.setNotificationType(NotificationType.ERROR);
 tray.showAndDismiss(Duration.millis(3000));
 
         }
+            String  newFilePath="";
+              try {
+            
+       
+                 // save the image inside htdoc
+         String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
+ String newFileName = "image_" + System.currentTimeMillis() + extension;
+        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Files.copy(selectedFile.toPath(), destination);
+// Get the new file name
+ newFilePath = destination.toString();
+ } catch (Exception e) {
+        }
      
         //update
         System.out.println("starting");
@@ -395,13 +330,12 @@ tray.showAndDismiss(Duration.millis(3000));
         Produit e=new Produit(Integer.parseInt(
                txtid.getText()),
               txtnom.getText(),
-            txtphoto.getText(),
+            newFilePath,
              Double.parseDouble(txtprix.getText()),
           Integer.parseInt(txtquantite.getText()),
                 new Categorie(SC.getCategorieByName(combo.getValue())),
              Integer.parseInt(txtetat.getText()) 
-        );
-               
+        );    
         System.out.println("test");
         es.update(e);
            System.out.println("test2");
@@ -415,59 +349,39 @@ tray.setTitle(titre);
 tray.setMessage(message);
 tray.setNotificationType(NotificationType.SUCCESS);
 tray.showAndDismiss(Duration.millis(3000));
-         //JOptionPane.showMessageDialog(null, "Produit updated Successfully");  
-
-    }
+        }
 
     @FXML
     private void readAll(ActionEvent event) {
         List<Produit>  ProduitList=new ArrayList<>();
           ServiceProduit es=new ServiceProduit();
            ProduitList=es.readAll();
-           
-
-        
-            ObservableList<Produit> ez=FXCollections.observableArrayList(ProduitList);
+           ObservableList<Produit> ez=FXCollections.observableArrayList(ProduitList);
             System.out.println(ez);
                table.setItems(ez);
         
         
     }
-    
-    
-   /* @FXML
-    private void handleMouseAction(MouseEvent event) {
-         
-    Produit per = table.getSelectionModel().getSelectedItem();
-     idcolumn.setText(String.valueOf(per.getId()));
-    nomcolumn.setText(String.valueOf(per.getNom()));
-    photocolumn.setText(String.valueOf(per.getPhoto()));
-    prixcolumn.setText(String.valueOf(per.getPrix()));
-    quantitecolumn.setText(String.valueOf(per.getQuantite()));
-    etatcolumn.setText(String.valueOf(per.getEtat()));
-   
-        
-    }*/
+        private Stage primaryStage;
 
-    @FXML
-    private void insertImage(ActionEvent event) throws IOException {
-          FileChooser fileChooser = new FileChooser();
-
-        fileChooser.setTitle("Open Resource File");
-
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-        File selectedFile = fileChooser.showOpenDialog(null);
-       
-        if (selectedFile != null) {
-            BufferedImage bufferedImage = ImageIO.read(selectedFile);
-            WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
-            this.txtphoto.setText(selectedFile.toURI().toURL().toString());
-           photo.setImage(image);
+     @FXML
+void insertimage(ActionEvent event) {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Upload an image");
+    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files", "*.jpg", "*.jpeg", "*.png");
+    fileChooser.getExtensionFilters().add(extFilter);
+    selectedFile = fileChooser.showOpenDialog(primaryStage);
+    if (selectedFile != null)
+    {
+        imageSt.setText(selectedFile.getName());
+        try {
+            image_St.setImage(new javafx.scene.image.Image("file:" + selectedFile));
+        } catch (Exception e) {
+            System.out.println("error image");
         }
     }
-
-    @FXML
+}
+@FXML
     private void pdf(ActionEvent event) {
                          String titre="SUCCESS";
                 String message = "Pdf download successfully !";
@@ -543,7 +457,7 @@ tray.showAndDismiss(Duration.millis(3000));
          Produit per = table.getSelectionModel().getSelectedItem();
     txtid.setText(String.valueOf(per.getId()));
     txtnom.setText(String.valueOf(per.getNom()));
-    txtphoto.setText(String.valueOf(per.getPhoto()));
+    imageSt.setText(String.valueOf(per.getPhoto()));
     txtprix.setText(String.valueOf(per.getPrix()));
     txtquantite.setText(String.valueOf(per.getQuantite()));
     txtetat.setText(String.valueOf(per.getEtat()));

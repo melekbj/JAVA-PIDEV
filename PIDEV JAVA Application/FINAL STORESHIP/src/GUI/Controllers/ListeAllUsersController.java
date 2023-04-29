@@ -133,7 +133,7 @@ public class ListeAllUsersController implements Initializable {
           SMSService smsService = new SMSService();
           String recipientPhoneNumber = us.getPhone();
           System.out.println(us.getPhone());// replace with the desired phone number
-          smsService.sendSMS(recipientPhoneNumber,messageContent);
+      /*    smsService.sendSMS(recipientPhoneNumber,messageContent);*/
         
                             alert.setTitle("Information");
                             alert.setHeaderText(null);

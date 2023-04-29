@@ -57,7 +57,12 @@ public class ProduitController implements Initializable {
         prix.setText(String.valueOf(localproduit.getPrix()));
         quantite.setText(String.valueOf(localproduit.getQuantite()));
         categorie.setText(localproduit.getCategorie().getNom());
-        imageP.setImage(new Image( localproduit.getPhoto()));    
+        try {
+                    imageP.setImage(new Image( "file:///"+localproduit.getPhoto()));    
+
+        } catch (Exception e) {
+            System.out.println("error image");
+        }
     }
 
     @FXML

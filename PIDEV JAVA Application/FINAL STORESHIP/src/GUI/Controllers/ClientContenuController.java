@@ -124,7 +124,14 @@ public class ClientContenuController implements Initializable {
      
         pane4.setVisible(false);
    
-        re_img.setImage(new Image("file:" + ClientMainController.getInstance().getUser().getImage()));
+        try {
+            System.out.println("line 128 ClientCOntenuController");
+                    re_img.setImage(new Image("file:///"+ ClientMainController.getInstance().getUser().getImage()));
+
+        } catch (Exception e) {
+            System.out.println("error image ");
+        }
+            
         lab_name.setText(ClientMainController.getInstance().getUser().getNom()
                  +" "+ClientMainController.getInstance().getUser().getPrenom());
         

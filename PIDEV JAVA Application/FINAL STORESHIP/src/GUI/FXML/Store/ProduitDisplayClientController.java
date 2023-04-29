@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package GUI.Controllers.Commande;
+package GUI.FXML.Store;
 
+import GUI.Controllers.Commande.ShopController;
 import entity.Produit;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,36 +16,34 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
  *
  * @author Plop
  */
-public class ProduitController implements Initializable {
+public class ProduitDisplayClientController implements Initializable {
 
     @FXML
     private ImageView imageP;
+    @FXML
+    private TextField quantite;
     @FXML
     private Label nameP;
     @FXML
     private Label descP;
     @FXML
-    private TextField quantite;
+    private Label quantitedispo;
     @FXML
     private Label prix;
     @FXML
-    private Button btn_Stock;
-    @FXML
-    private Label quantitedispo;
-    @FXML
     private Label categorie;
     @FXML
-    private Button btn_link;
-    private Produit localproduit;
+    private Button btn_Stock;
+        private Produit localproduit;
 
-    /**
+    
+  /**
      * Initializes the controller class.
      */
     @Override
@@ -100,7 +99,6 @@ public class ProduitController implements Initializable {
         quantitedispo.setText(String.valueOf(p.getQuantite()));
         System.out.println("borkent 1");
         try {
-            System.out.println("Line 103 ProduitController");
                 imageP.setImage(new Image("file:///"+p.getPhoto()));
         } catch (Exception e) {
             System.out.println("error image");
@@ -108,7 +106,6 @@ public class ProduitController implements Initializable {
     
         System.out.println("borken 2");
         btn_Stock.setVisible(false);
-        btn_link.setVisible(false);
         quantite.setVisible(false);
         
     }

@@ -39,6 +39,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -59,7 +60,7 @@ public class DetailEventsController implements Initializable {
     private Text datefev;
     @FXML
     private Text nbrplev;
-    @FXML
+        @FXML
     private ImageView imgev;
     @FXML
     private AnchorPane root;
@@ -82,6 +83,10 @@ public class DetailEventsController implements Initializable {
      */
 
     Connection cnx = ConnexionSource.getInstance().getCnx();
+    @FXML
+    private VBox virtuelbox;
+    @FXML
+    private VBox virtuel2box;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -93,19 +98,23 @@ reserverpane.setVisible(false);
 //load data
     public void loadData(Evenement_entite ev) {
         localEvenement=ev;
-        Evenement_entite e = new Evenement_entite();
         Evenement_Service es = new Evenement_Service();
         titreev.setText(localEvenement.getTitreEvenement());
         lieuev.setText(localEvenement.getLieuEvenement());
         dtdbev.setText(localEvenement.getDate_debutEvenement().toString());
         datefev.setText(localEvenement.getDate_finEvenement().toString());
 
-        nbrplev.setText(String.valueOf(e.getNbMax_place()));
-        String path = "file:///C:/Users/asus/Desktop/StoreShip222/src/GUI/images/" + e.getImageEvenement();
+        nbrplev.setText(String.valueOf(localEvenement.getNbMax_place()));
+        String path = localEvenement.getImageEvenement();
+        System.out.println(localEvenement);
 
-        Image image = new Image(path);
-        System.out.println("detail" + path);
-        imgev.setImage(image);
+        try {
+                    Image image = new Image("file:///"+path);
+
+                    imgev.setImage(image);
+        } catch (Exception xxxe) {
+            xxxe.printStackTrace();
+        }
 
     }
 
@@ -115,10 +124,9 @@ reserverpane.setVisible(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("nbrPlacerserve.fxml"));
         try {
                   Node node=loader.load();
-                  
+               hideme(false);   
             reserverpane.setVisible(true);
             reserverpane.getChildren().add(node);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -132,9 +140,25 @@ reserverpane.setVisible(false);
   public void setEvenement(Evenement_entite ev){
       localEvenement=ev;
   }
+  public void hideme(Boolean myboolean){
+       virtuelbox.setVisible(myboolean);
+   
+   virtuel2box.setVisible(myboolean);
+  }
   
+    @FXML
   public void close(){
                   reserverpane.setVisible(false);
       AllEventController.getInstance().close();
+  }
+  public void closeNB(){
+      reserverpane.setVisible(false);
+      hideme(true);
+      
+  }
+  
+  public Pane getreserverpane(){
+      hideme(false);
+      return reserverpane;
   }
 }

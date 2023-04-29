@@ -4,15 +4,15 @@
  */
 package entity.Util;
 
-import com.twilio.Twilio;
+/*import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
-import com.twilio.type.PhoneNumber;
+import com.twilio.type.PhoneNumber;*/
 /**
  *
  * @author Bejaoui
  */
 public class SMSService {
-   // Twilio account SID and auth token, obtained from your Twilio account dashboard
+   /*// Twilio account SID and auth token, obtained from your Twilio account dashboard
     private final String ACCOUNT_SID = "ACa141e95e70a02a529768fb9df90ebcea";
     private final String AUTH_TOKEN = "e2267938830f700a0fa17739915be438";
     private final String FROM_PHONE_NUMBER = "+15076288954";
@@ -26,5 +26,5 @@ public class SMSService {
             messageContent
         ).create();
         System.out.println("Message sent: " + message.getSid());
-    }
+    }*/
 }

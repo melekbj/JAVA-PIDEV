@@ -77,7 +77,12 @@ public class PartnerContenuController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         instance = this;
         pane4.setVisible(false);
-        re_img.setImage(new Image("file:" + PartnerMainController.getInstance().getUser().getImage()));
+        try {
+                    re_img.setImage(new Image("file:///" + PartnerMainController.getInstance().getUser().getImage()));
+
+        } catch (Exception e) {
+            System.out.println("error image");
+        }
         lab_name.setText(PartnerMainController.getInstance().getUser().getNom()
                  +" "+PartnerMainController.getInstance().getUser().getPrenom());
         

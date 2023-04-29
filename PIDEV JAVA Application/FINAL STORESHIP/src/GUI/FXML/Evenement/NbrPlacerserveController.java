@@ -82,7 +82,7 @@ public class NbrPlacerserveController implements Initializable {
             Node node = loader.load();
             TicketController tickercontroller=loader.getController();
             tickercontroller.readByLastId();
-                      Ticketpane.getChildren().add(node);
+                      DetailEventsController.getInstance().getreserverpane().getChildren().add(node);
                     }
         catch(IOException ex){
             Logger.getLogger(NbrPlacerserveController.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,6 +98,6 @@ public class NbrPlacerserveController implements Initializable {
     
     public void close(){
                         Ticketpane.setVisible(false);
-        DetailEventsController.getInstance().close();
+        DetailEventsController.getInstance().closeNB();
     }
 }

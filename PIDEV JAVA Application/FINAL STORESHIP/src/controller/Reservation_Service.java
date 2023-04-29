@@ -35,6 +35,8 @@ public class Reservation_Service implements Iservice<Reservation_entite> {
 
     @Override
     public void insert(Reservation_entite t) {
+        if(checkifreservationexist(t))
+        {
         String req="INSERT INTO reservation (user_id,event_id,date,nb_places) VALUES (?,?,?,?)";
         try {
             PreparedStatement pst=conn.prepareStatement(req);
@@ -43,14 +45,36 @@ public class Reservation_Service implements Iservice<Reservation_entite> {
             pst.setDate(3, Date.valueOf(t.getDate()));
             pst.setInt(4, t.getNbr_place());
             pst.executeUpdate();
+            Evenement_Service ES=new Evenement_Service();
+            ES.updatePlaces(t);
             System.out.println("reservation ajoute");
     } catch (SQLException ex) {
         Logger.getLogger(Reservation_Service.class.getName()).log(Level.SEVERE, null, ex);
-        System.out.println("reservation non ajoute");
-    }           
+        System.out.println("reservation non ajoute LINE 51 Reservation Service");
+    }       
+        }else{
+            System.out.println("Reservation Exist Already");
+        }
+              
       
       
       
+    }
+    public boolean checkifreservationexist(Reservation_entite t)
+    {   int count=0;
+         String requete="select count(*) from reservation where  user_id='"
+                 + ""+t.getUser().getId()+"' AND event_id='"+t.getEv().getIdEvenement()+"'";
+        try {
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery(requete);
+            UserController us=new UserController();
+     if(rs.next())
+            count=rs.getInt(1);
+        }
+            catch(SQLException ex){
+                    System.out.println("error reading reservation from database  LINE 72 Reservation Service ");
+                    }
+        return (count==0);
     }
 
     @Override

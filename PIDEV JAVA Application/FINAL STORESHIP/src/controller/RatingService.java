@@ -45,6 +45,7 @@ public class RatingService {
 
   // Update a rating in the table by userID
   public void updateRating(int storeid, double rating,int userid) throws SQLException {
+     
     String sql = "UPDATE rating SET rate = ? WHERE store_id= ? and user_id=?";
     PreparedStatement stmt = conn.prepareStatement(sql);
     stmt.setDouble(1, rating);

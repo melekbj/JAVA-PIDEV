@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class ConnexionSource {
     
-    private String url="jdbc:mysql://localhost:3306/storeship";
+    private String url="jdbc:mysql://localhost:3306/storeship2";
     private String login="root";
     private String pwd="";
     private Connection cnx;

@@ -68,19 +68,25 @@ this.Evenement_entite=Evenement_entite;
         titleEvent.setText(Evenement_entite.getTitreEvenement());
 //get image from root directory and databse
         
-        String path = "file:///C:/Users/plop/Desktop/StoreShip222/src/GUI/images/"+Evenement_entite.getImageEvenement();
-        Image image = new Image(path);
+      
+
+                try {
+                      String path = Evenement_entite.getImageEvenement();
+        Image image = new Image("file:///"+path);
         System.out.println(path);
                 System.out.println(image);
+                    imgEvent.setImage(image);
 
-        imgEvent.setImage(image);
+        } catch (Exception e) {
+                    System.out.println("error image");
+        }
 
 
     }
 
     @FXML
     private void EventDetail(MouseEvent event) throws IOException {
-idEvent=Evenement_entite.getIdEvenement();
+        idEvent=Evenement_entite.getIdEvenement();
     AllEventController.getInstance().showreservation(Evenement_entite);
        
         

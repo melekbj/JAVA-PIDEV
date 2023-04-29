@@ -32,6 +32,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -196,7 +199,7 @@ public class AuthController implements Initializable {
                 if (BCrypt.checkpw(txt_pwd.getText(), hashedPassword)) {
                     // Passwords match, login successful
 
-                    if (type_in.getValue().equals("Admin")) {
+                    if (type_in.getValue().equals("ROLE_ADMIN")) {
                         switch (rs.getInt("etat")){
                             case 1:
                                 alert.setTitle("Information");
@@ -217,7 +220,7 @@ public class AuthController implements Initializable {
                             mainStage.setScene(scene);
                             mainStage.show();
                         }
-                    }else if(type_in.getValue().equals("Partenaire")) {
+                    }else if(type_in.getValue().equals("ROLE_PARTNER")) {
                         switch (rs.getInt("etat")) {
                             case 0:
                                 alert.setTitle("Information");
@@ -359,11 +362,19 @@ public class AuthController implements Initializable {
             }
             
             
+               // save the image inside htdoc
+         String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
+ String newFileName = "image_" + System.currentTimeMillis() + extension;
+            Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+            Files.copy(selectedFile.toPath(), destination);
+// Get the new file name
+String newFilePath = destination.toString();
+
             
 
             User u = new User(txt_email_up.getText(), type_up.getValue().toString(),
                     hashPassword(txt_password_up.getText()), txt_nom_up.getText(), txt_prenom_up.getText(),
-                    Integer.parseInt(txt_age_up.getText()), txt_adresse_up.getText()+" "+state.getValue().toString(), selectedFile.getAbsolutePath(),
+                    Integer.parseInt(txt_age_up.getText()), txt_adresse_up.getText()+" "+state.getValue().toString(), newFilePath,
                     txt_genre_up.getValue().toString(), txt_phone_up.getText());
 
             
@@ -438,8 +449,8 @@ public class AuthController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         pane_login.setVisible(true);
-        type_up.getItems().addAll("Client","Partenaire","Admin");
-        type_in.getItems().addAll("Admin","Client","Partenaire");
+        type_up.getItems().addAll("ROLE_CLIENT","ROLE_PARTNER","ROLE_ADMIN");
+        type_in.getItems().addAll("ROLE_ADMIN","ROLE_CLIENT","ROLE_PARTNER");
         txt_genre_up.getItems().addAll("Homme","Femme","Autre");
         
         String html = "<!DOCTYPE html>\n"
@@ -495,7 +506,12 @@ public class AuthController implements Initializable {
             if (selectedFile != null) 
             {
                 txt_image_up.setText(selectedFile.getName());
-                ImageView.setImage(new Image("file:" + selectedFile));
+                try {
+                                    ImageView.setImage(new Image("file:" + selectedFile));
+
+                } catch (Exception e) {
+                    System.out.println("error image Auth");
+                }
 
             }else{
                 txt_image_up.setText(selectedFile.getName());

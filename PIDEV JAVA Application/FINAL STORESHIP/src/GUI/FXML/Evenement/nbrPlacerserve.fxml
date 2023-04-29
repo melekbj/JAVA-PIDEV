@@ -2,37 +2,25 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="294.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Evenement.NbrPlacerserveController">
+<AnchorPane id="AnchorPane" prefHeight="223.0" prefWidth="347.0" style="-fx-background-color: #F2EDDC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Evenement.NbrPlacerserveController">
    <children>
-      <ImageView fitHeight="319.0" fitWidth="603.0" layoutX="-15.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/istockphoto-1138288771-612x612.jpg" />
-         </image>
-      </ImageView>
-      <TextField fx:id="nbrpl" layoutX="146.0" layoutY="133.0" prefHeight="42.0" prefWidth="256.0" />
-      <ImageView fitHeight="65.0" fitWidth="57.0" layoutX="31.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/preloader.gif" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="65.0" fitWidth="57.0" layoutX="473.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Images/preloader.gif" />
-         </image>
-      </ImageView>
-      <Button layoutX="215.0" layoutY="181.0" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="119.0" style="-fx-background-color: #A020F0;" text="Enregistrer" />
-      <Text fill="WHITE" layoutX="146.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombre de reservation?" wrappingWidth="316.0">
+      <TextField fx:id="nbrpl" layoutX="60.0" layoutY="82.0" prefHeight="42.0" prefWidth="256.0" />
+      <Button layoutX="129.0" layoutY="144.0" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="119.0" style="-fx-background-color: #A020F0;" text="Enregistrer" textFill="WHITE" />
+      <Text fill="#5b4949" layoutX="59.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombre de reservation?" wrappingWidth="316.0">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Text>
-      <Pane fx:id="Ticketpane" layoutX="106.0" layoutY="33.0" prefHeight="200.0" prefWidth="356.0" />
+      <Pane fx:id="Ticketpane" layoutY="3.0" prefHeight="200.0" prefWidth="356.0" />
+      <Button layoutX="352.0" layoutY="13.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #03A6A6;" text="Close" textFill="#5b0000">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

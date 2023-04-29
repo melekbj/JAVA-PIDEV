@@ -169,4 +169,18 @@ public class Evenement_Service implements Iservice<Evenement_entite> {
         return ee;
 
     }
+    
+     public void updatePlaces(Reservation_entite t) {
+    String req = "UPDATE evenement SET "
+            + "nb_places='" + t.getNbr_place() + "'"
+            + " WHERE `event_id`='" + t.getEv().getIdEvenement() + "'";
+    try {
+        PreparedStatement pst = cnx.prepareStatement(req);
+        pst.executeUpdate();
+        System.out.println("Places updated successfully");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+     }
+
 }

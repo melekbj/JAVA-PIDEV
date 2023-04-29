@@ -171,7 +171,7 @@ public class ServiceReclamation  {
 
    public List<Reclamation> readByUserId(int id) {
 		   List<Reclamation> list=new ArrayList<>();
-           String requete="select * from reclamation WHERE id_client="+id;
+           String requete="select * from reclamation WHERE client_id="+id;
        try {
            Statement st=conn.createStatement();
            ResultSet rs=st.executeQuery(requete);

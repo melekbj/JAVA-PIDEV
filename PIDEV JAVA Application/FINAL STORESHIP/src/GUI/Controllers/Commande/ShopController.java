@@ -6,6 +6,7 @@ package GUI.Controllers.Commande;
 
 import GUI.Controllers.ClientMainController;
 import GUI.FXML.Store.MainController;
+import GUI.FXML.Store.MainStoreClientController;
 import GUI.FXML.Store.StoreController;
 import controller.ProduitStoreService;
 import controller.ServiceProduit;
@@ -216,16 +217,18 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
     }
     
     
+    
     public void visitestore(Produit p)
     {
+        ShopController.getInstance().turnvisability(false);
         visiterstore.setVisible(true);
         visiterstore.getChildren().clear();
         
-          try {                 System.out.println("counter break");
-
-                FXMLLoader produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/Main.fxml"));
+        System.out.println("visiting store");
+          try {  
+              FXMLLoader produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/MainStoreClient.fxml"));
                 Node node = produitLoader.load();
-              MainController cc=produitLoader.getController();
+              MainStoreClientController cc=produitLoader.getController();
                     cc.ajouterStoreparProduit(p);
                       visiterstore.getChildren().add(node);
 
@@ -236,5 +239,13 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
     
     public void closestore(){
         visiterstore.setVisible(false);
+                ShopController.getInstance().turnvisability(true);
+
+    }
+    
+    private void turnvisability(Boolean visibility){
+        panierdisplay.setVisible(visibility);
+        shopproduit.setVisible(visibility);
+        shoppingdisplay.setVisible(visibility);
     }
 }
