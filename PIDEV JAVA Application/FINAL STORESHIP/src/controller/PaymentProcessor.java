@@ -29,8 +29,9 @@ import java.util.logging.Logger;
 public class PaymentProcessor {
     
     private static final String STRIPE_SECRET_KEY = "sk_test_51Mf0S6FwJ7wXIwXewSc2z6FyXoFWAJZFy0Iuk4OZxzTVzLENEvBnnqug21baEIiV0MEDXTYl0y4Ajnp2LDWRZtC300mrwZe2j2";
-    public boolean processPayment(String cardNumber, String expirationMonth, String expirationYear, String cvc,Commande commande) {
+    public Commande processPayment(String cardNumber, String expirationMonth, String expirationYear, String cvc,Commande commande) {
             boolean paymentstatus=false;
+            String chargeId="";
         try {
             // Set the API key
             Stripe.apiKey = STRIPE_SECRET_KEY;
@@ -153,14 +154,16 @@ public class PaymentProcessor {
         
             
             if (charge.getPaid()) {
-                paymentstatus=true;
+                chargeId=charge.getId();
             } 
         } catch (StripeException e) {
 
                         Logger.getLogger(PaymentProcessor.class.getName()).log(Level.SEVERE, null, e);
 
         }
-        return paymentstatus;
+                        commande.setPayment(chargeId);
+
+        return commande;
     }
 
 }

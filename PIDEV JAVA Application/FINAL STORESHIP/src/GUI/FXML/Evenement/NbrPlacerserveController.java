@@ -29,6 +29,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -74,6 +75,7 @@ public class NbrPlacerserveController implements Initializable {
 
 
         Reservation_Service sr = new Reservation_Service();
+        if (localEvenement.getNbMax_place()-Integer.parseInt(nbrpl.getText())>=0){
         sr.insert(new Reservation_entite(localUser, localEvenement, date, Integer.parseInt(nbrpl.getText()) ));
       
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Ticket.fxml"));
@@ -87,7 +89,15 @@ public class NbrPlacerserveController implements Initializable {
         catch(IOException ex){
             Logger.getLogger(NbrPlacerserveController.class.getName()).log(Level.SEVERE, null, ex);
         }
-                    
+        }
+        else {
+             Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error");
+    alert.setHeaderText(null);
+    alert.setContentText("Not enough seats available!");
+
+    alert.showAndWait();
+        }
        
         
     }

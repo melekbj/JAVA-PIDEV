@@ -195,7 +195,7 @@ public class ServiceProduit {
     }
      public List<Produit> readAllActive() {
              List<Produit> list=new ArrayList<>();
-            String requete="select * from produit where etat=1 ";
+            String requete="select * from produit where etat=1 and quantite > 0 ";
         try {
             Statement st=conn.createStatement();
             ResultSet rs=st.executeQuery(requete);
@@ -294,4 +294,27 @@ public class ServiceProduit {
 	            Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
 	        }
 	}
+     
+     public void updatequantity(Produit p, int quantity) {
+    try {
+        // Create the SQL update statement
+        String query = "UPDATE products SET quantite = ? WHERE id = ?";
+        
+        // Create a prepared statement
+        PreparedStatement preparedStatement = conn.prepareStatement(query);
+        
+        // Set the values of the parameters in the SQL statement
+        preparedStatement.setInt(1, p.getQuantite()-quantity);
+        preparedStatement.setInt(2, p.getId());
+        
+        // Execute the update statement
+        preparedStatement.executeUpdate();
+        
+        System.out.println("Product quantity updated successfully!");
+        
+    } catch (SQLException ex) {
+        Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+
 }

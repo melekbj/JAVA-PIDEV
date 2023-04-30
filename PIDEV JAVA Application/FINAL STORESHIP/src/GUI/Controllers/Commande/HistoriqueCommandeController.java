@@ -147,8 +147,9 @@ public class HistoriqueCommandeController implements Initializable {
           User u=ClientMainController.getInstance().getUser();
         
         Calendar cal = Calendar.getInstance();
+                        cal.add(Calendar.DATE, 1);
         Date date1 = cal.getTime(); 
-        cal.add(Calendar.DATE, -7);
+        cal.add(Calendar.DATE, -8);
         Date date2 = cal.getTime();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String dateStr1 = dateFormat.format(date1);
@@ -162,7 +163,7 @@ public class HistoriqueCommandeController implements Initializable {
     Service_Commande se=new Service_Commande();
                      
           User u=ClientMainController.getInstance().getUser();
-       locallist=se.readAll();
+       locallist=se.readAllByUser(u);
        return locallist;
     }
 
@@ -171,11 +172,15 @@ public class HistoriqueCommandeController implements Initializable {
       Service_Commande se=new Service_Commande();
           User u=ClientMainController.getInstance().getUser();
         
-        Calendar cal = Calendar.getInstance();
+          Calendar cal = Calendar.getInstance();
+                cal.add(Calendar.DATE, 1);
         Date date1 = cal.getTime(); 
+        cal.add(Calendar.DATE, -1);
+        Date date2 = cal.getTime();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String dateStr1 = dateFormat.format(date1);
-                       locallist=se.readAllBetweendate(u,dateStr1,dateStr1);
+        String dateStr2 = dateFormat.format(date2);
+                       locallist=se.readAllBetweendate(u,dateStr1,dateStr2);
        applypricefilter(); 
     }
 
@@ -185,6 +190,7 @@ public class HistoriqueCommandeController implements Initializable {
           User u=ClientMainController.getInstance().getUser();
         
         Calendar cal = Calendar.getInstance();
+                cal.add(Calendar.DATE, 1);
         Date date1 = cal.getTime(); 
         cal.add(Calendar.DATE, -30);
         Date date2 = cal.getTime();

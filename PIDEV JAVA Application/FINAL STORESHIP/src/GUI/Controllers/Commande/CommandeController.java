@@ -80,8 +80,9 @@ public class CommandeController implements Initializable {
 
     @FXML
     private void payer(ActionEvent event) {
-        
+        // must be switch to refund instead of payment
         HistoriqueCommandeController.getInstance().processpayment(commande);
+        
     }
     
 }

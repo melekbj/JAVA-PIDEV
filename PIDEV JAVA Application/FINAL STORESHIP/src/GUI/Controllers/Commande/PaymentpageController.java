@@ -4,11 +4,15 @@
  */
 package GUI.Controllers.Commande;
 
+import GUI.Controllers.ClientMainController;
 import controller.PaymentProcessor;
 import controller.Service_Commande;
 import controller.Service_Detail_Commande;
 import entity.Commande;
+import entity.Detail_Commande;
+import entity.User;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -68,6 +72,8 @@ public class PaymentpageController implements Initializable {
         cvcField.textProperty().addListener((observable, oldValue, newValue) -> {
             checkallfields();
         });
+        // get current commande
+        commande=ShopController.getInstance().getCommande();
         
     }
     private void getinformations(){
@@ -126,21 +132,58 @@ public class PaymentpageController implements Initializable {
         return status;
     }
     
-    public boolean payementmethod(){
+    public Commande payementmethod(){
         PaymentProcessor payement=new PaymentProcessor();
-        return payement.processPayment(
+        
+      Commande commandereturn= payement.processPayment(
                 cardNumberField.getText(),
                 expirationMonthField.getText(),
                 expirationYearField.getText(),
                 cvcField.getText(),commande
         );
+      List<Detail_Commande> paniercourrant=ShopController.getInstance().getPaniercourrant();
+            // reset the display
+    //   commandeContainer.getChildren().clear();
+       //setting the commande structure and initialising the services
+            Service_Commande sc=new Service_Commande();
+            Service_Detail_Commande sdc=new Service_Detail_Commande();
+          User user=ClientMainController.getInstance().getUser();
+       commandereturn.setUser(user);
+       commandereturn.setEtat("Pending");
+         commandereturn.setPrix(paniercourrant
+                .stream()
+                .map(e->e.getPrix_total())
+                .reduce(0.0f,Float::sum)
+        );
+       commandereturn=sc.insertCommande(commandereturn);
+     
+       // looping over paniercourrant to insert all detail_concerning them intoDB
+       for (Detail_Commande dc:paniercourrant)
+       {    
+           System.out.println("commande courrant a ainserer0"+commandereturn);
+           dc.setCommande(commandereturn);
+           dc.setEtat("Pending");
+           // calcule store depends du store    integre rayen
+           
+           sdc.insert(dc);
+       }
+       HistoriqueCommandeController.getInstance().updatedisplayhistorique();
+       // empty panier display inside the shopController
+       ShopController.getInstance().getPaniercourrante().getChildren().clear();
+       // reseting current panier inside the shopController
+       ShopController.getInstance().getPaniercourrant().clear();
+    
+        
+       
+         return commandereturn;
     }
 
     @FXML
     private void payment(ActionEvent event) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-       if ( payementmethod()){
+            commande=payementmethod();
+       if ( commande.getPayment().length()!=0){
+           
           alert.setTitle("Payment Status");
                             alert.setHeaderText(null);
                             alert.setContentText("Payment Successfully");
@@ -154,6 +197,7 @@ public class PaymentpageController implements Initializable {
                             alert.setContentText("Payment Failure");
                             alert.showAndWait(); 
                                     }
+       ShopController.getInstance().getPaniercourrante().setVisible(false);
     }
     
     public void getcommande(Commande c){

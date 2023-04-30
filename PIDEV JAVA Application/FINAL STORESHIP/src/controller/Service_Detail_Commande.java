@@ -66,6 +66,8 @@ public class Service_Detail_Commande {
         try {
             Statement st = connection.createStatement();
             st.executeUpdate(requete);
+            ServiceProduit SP=new ServiceProduit();
+            SP.updatequantity(detail_commande.getProduit(), detail_commande.getQuantite());
             System.out.println("Detail_Commande Ajouté avec Success");
         } catch (SQLException ex) {
                 System.out.println("Insertion Detail_Commande Failure");

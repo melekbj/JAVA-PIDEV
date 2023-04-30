@@ -51,6 +51,14 @@ public class ShopController implements Initializable {
        private static List<Detail_Commande> paniercourrant=new ArrayList<>();
     private Commande commande=new Commande();
 
+    public VBox getPaniercourrante() {
+        return Paniercourrante;
+    }
+
+    public void setPaniercourrante(VBox Paniercourrante) {
+        this.Paniercourrante = Paniercourrante;
+    }
+
     @FXML
     private ScrollPane panierdisplay;
     private static boolean  panierdisplaystate=false;
@@ -60,6 +68,8 @@ public class ShopController implements Initializable {
     }
     @FXML
     private Pane visiterstore;
+    @FXML
+    private Pane paymentpane;
     /**
      * Initializes the controller class.
      */
@@ -69,12 +79,30 @@ public class ShopController implements Initializable {
         instance=this;
         instance.panierdisplay.setVisible(panierdisplaystate);
         instance.visiterstore.setVisible(false);
+               paymentpane.setVisible(false);
+
     }    
 
     @FXML
     private void displaypanier(ActionEvent event) {
        instance.panierdisplay.setVisible(!panierdisplaystate);
        panierdisplaystate=!panierdisplaystate;
+    }
+
+    public static List<Detail_Commande> getPaniercourrant() {
+        return paniercourrant;
+    }
+
+    public static void setPaniercourrant(List<Detail_Commande> paniercourrant) {
+        ShopController.paniercourrant = paniercourrant;
+    }
+
+    public Commande getCommande() {
+        return commande;
+    }
+
+    public void setCommande(Commande commande) {
+        this.commande = commande;
     }
     
 public void ajouterproduitpanierlist(Produit p,int quantite){
@@ -144,6 +172,8 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
             }
     }
     }
+
+
             
      public void populateshop(){
         instance.shopproduit.getChildren().clear();
@@ -184,39 +214,39 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
         // must check if paniercourrant is empty or not
         if (!paniercourrant.isEmpty())
         {
-         // reset the display
-    //   commandeContainer.getChildren().clear();
-       //setting the commande structure and initialising the services
-            Service_Commande sc=new Service_Commande();
-            Service_Detail_Commande sdc=new Service_Detail_Commande();
-          User user=ClientMainController.getInstance().getUser();
-       commande.setUser(user);
+                      User user=ClientMainController.getInstance().getUser();
+            commande.setUser(user);
+       commande.setEtat("Pending");
          commande.setPrix(paniercourrant
                 .stream()
                 .map(e->e.getPrix_total())
                 .reduce(0.0f,Float::sum)
         );
-       commande=sc.insertCommande(commande);
-     
-       // looping over paniercourrant to insert all detail_concerning them intoDB
-       for (Detail_Commande dc:paniercourrant)
-       {    
-           System.out.println("commande courrant a ainserer0"+commande);
-           dc.setCommande(commande);
-           // calcule store depends du store    integre rayen
-           
-           sdc.insert(dc);
-       }
-      
-       HistoriqueCommandeController.getInstance().updatedisplayhistorique();
-       // empty panier display
-       Paniercourrante.getChildren().clear();
-       // reseting current panier
-       paniercourrant.clear();
-    }
+            processpayment(commande);
+        }
+        
+    
     }
     
-    
+     public void processpayment(Commande c){
+                FXMLLoader payementloader=new FXMLLoader(getClass().getResource("/GUI/FXML/Commande/paymentpage.fxml"));
+                
+                    
+        try {
+            Node node=payementloader.load();
+            PaymentpageController ppc=payementloader.getController();
+            ppc.getcommande(c);
+            paymentpane.setVisible(true);
+            paymentpane.getChildren().add(node);
+            
+                 
+
+        } catch (IOException ex) {
+            Logger.getLogger(HistoriqueCommandeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+    }
+
     
     public void visitestore(Produit p)
     {

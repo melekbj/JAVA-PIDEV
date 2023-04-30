@@ -50,4 +50,5 @@
          </Button>
          </children>
       </AnchorPane>
+   <Pane fx:id="paymentpane" layoutX="20.0" layoutY="90.0" prefHeight="416.0" prefWidth="514.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);" visible="false" />
 </AnchorPane>

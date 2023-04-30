@@ -171,8 +171,9 @@ public class Evenement_Service implements Iservice<Evenement_entite> {
     }
     
      public void updatePlaces(Reservation_entite t) {
+         int newMax = t.getEv().getNbMax_place()-t.getNbr_place();
     String req = "UPDATE evenement SET "
-            + "nb_places='" + t.getNbr_place() + "'"
+            + "nb_places='" + newMax + "'"
             + " WHERE `event_id`='" + t.getEv().getIdEvenement() + "'";
     try {
         PreparedStatement pst = cnx.prepareStatement(req);
@@ -182,5 +183,7 @@ public class Evenement_Service implements Iservice<Evenement_entite> {
         System.out.println(ex.getMessage());
     }
      }
+    
+    
 
 }

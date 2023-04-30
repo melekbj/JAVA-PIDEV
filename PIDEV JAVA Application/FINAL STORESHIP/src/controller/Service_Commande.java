@@ -215,6 +215,25 @@ public class Service_Commande  {
         }
         return list_commande;
     }
+    public List<Commande>  readAllByUser(User user){
+             List<Commande> list_commande=new ArrayList<Commande>();
+         String requete="select * from commande WHERE user_id='"+user.getId()+"'";
+        try {
+            Statement st=connection.createStatement();
+            ResultSet rs=st.executeQuery(requete);
+             while(rs.next()){
+                 Commande commande=new Commande(rs.getInt(1), user,
+                        rs.getString(3), rs.getFloat(4),
+                        rs.getString(5),rs.getDate(6));
+                list_commande.add(commande);
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list_commande;
+    }
+    
     public List<Commande> readAllByUserByDate(User user,Date date){
         /*Return the number of all commands
                                                                   By User By date
@@ -433,7 +452,7 @@ public class Service_Commande  {
             
             System.out.println("date1======="+date1);
              List<Commande> list_commande=new ArrayList<>();
-        String condition="date BETWEEN '"+date2+"' AND '"+date1+"'";
+        String condition="date BETWEEN Date('"+date2+"') AND Date('"+date1+"')";
         String requete="select * from commande where "+condition;
             System.out.println(requete);
         try {

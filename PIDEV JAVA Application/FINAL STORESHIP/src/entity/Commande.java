@@ -18,6 +18,7 @@ public class Commande {
     private float prix;
     private String etat;
     private Date date;
+    private String Payment;
     public Commande() {
     }
 
@@ -100,6 +101,14 @@ public class Commande {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getPayment() {
+        return Payment;
+    }
+
+    public void setPayment(String Payment) {
+        this.Payment = Payment;
     }
     
 
