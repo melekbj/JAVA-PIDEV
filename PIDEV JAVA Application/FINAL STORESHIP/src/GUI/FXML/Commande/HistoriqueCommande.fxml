@@ -107,5 +107,6 @@
             </Button>
          </children>
       </HBox>
+      <Pane fx:id="DestinationPane" layoutX="14.0" layoutY="66.0" prefHeight="593.0" prefWidth="648.0" />
    </children>
 </AnchorPane>

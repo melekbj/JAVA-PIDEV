@@ -172,7 +172,7 @@ public class PaymentpageController implements Initializable {
        ShopController.getInstance().getPaniercourrante().getChildren().clear();
        // reseting current panier inside the shopController
        ShopController.getInstance().getPaniercourrant().clear();
-    
+     ShopController.getInstance().closestore();
         
        
          return commandereturn;
@@ -209,13 +209,14 @@ public class PaymentpageController implements Initializable {
     
     private void updatecommande(){
         Service_Commande sc=new Service_Commande();
-        commande.setEtat("Payed");
+        commande.setEtat("Pending");
         sc.updateetat(commande);
         HistoriqueCommandeController.getInstance().updatedisplayhistorique();
+        
     }
 
     @FXML
     private void Cancel(ActionEvent event) {
-        HistoriqueCommandeController.getInstance().Cancel();
+        ShopController.getInstance().closestore();
     }
 }

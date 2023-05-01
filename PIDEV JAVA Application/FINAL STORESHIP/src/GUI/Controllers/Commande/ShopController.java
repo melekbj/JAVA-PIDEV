@@ -269,6 +269,7 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
     
     public void closestore(){
         visiterstore.setVisible(false);
+        paymentpane.setVisible(false);
                 ShopController.getInstance().turnvisability(true);
 
     }
@@ -278,4 +279,5 @@ public void updatepanierdisplay(List<Detail_Commande> paniercourrant){
         shopproduit.setVisible(visibility);
         shoppingdisplay.setVisible(visibility);
     }
+    
 }

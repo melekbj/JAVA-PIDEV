@@ -43,6 +43,8 @@ public class ProduitController implements Initializable {
     @FXML
     private Button btn_link;
     private Produit localproduit;
+    @FXML
+    private Button likebuttonId;
 
     /**
      * Initializes the controller class.
@@ -105,14 +107,19 @@ public class ProduitController implements Initializable {
         } catch (Exception e) {
             System.out.println("error image");
         }
-    
-        System.out.println("borken 2");
+        
+        
         btn_Stock.setVisible(false);
         btn_link.setVisible(false);
         quantite.setVisible(false);
         
     }
 
-  
+    @FXML
+    private void Likebutton(ActionEvent event) {
+    }
+
+  //style="-fx-background-color: #0077FF
+    // #FF42D6
     
 }

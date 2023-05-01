@@ -29,6 +29,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.util.Callback;
 
 /**
@@ -45,15 +48,9 @@ public class AdminReclamationController implements Initializable {
     private Button acceptButton;
     @FXML
     private Button refuseButton;
-    @FXML
-    private Button deleteButton;
     public Reclamation selectedr;
     @FXML
-    private TableColumn<Reclamation,Integer> idReclamation;
-    @FXML
     private TableColumn<Reclamation,Integer> IDClient;
-    @FXML
-    private TableColumn<Reclamation,Integer> IDCommande;
     @FXML
     private TableColumn<Reclamation,String> Etat;
     @FXML
@@ -67,6 +64,10 @@ public class AdminReclamationController implements Initializable {
     @FXML
     private TableView<Reclamation> TableView;
         private static User localadmin;
+    @FXML
+    private Pane Paneimage;
+    @FXML
+    private ImageView imageview;
 
     /**
      * Initializes the controller class.
@@ -93,8 +94,28 @@ TableView.setItems(list);
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-      displayData();
+        Paneimage.setVisible(false);
+        displayData();
 
+        // Set up the on click event for the TableView
+        TableView.setOnMouseClicked(event -> {
+            // Get the selected Reclamation object
+            Reclamation selectedReclamation = TableView.getSelectionModel().getSelectedItem();
+            System.out.println("Selected Reclamation "+selectedReclamation);
+            // Set the image to the ImageView
+            String imagePath = selectedReclamation.getImageString();
+
+// Create an Image object from the image file path
+         
+
+// Set the image to the ImageView
+
+System.out.println("Error on imagePath "+imagePath);
+            imageview.setImage(new Image("file:///" + imagePath));
+
+            // Set the visibility of the Pane to true
+            Paneimage.setVisible(true);
+        });
 
     }    
 
@@ -116,7 +137,6 @@ TableView.setItems(list);
         displayData();
     }
 
-    @FXML
     private void deleteReclamation(ActionEvent event) {
           System.out.println(selectedr);
         ServiceReclamation sr = new ServiceReclamation();
@@ -129,5 +149,11 @@ TableView.setItems(list);
     }
     public User getUser() {
         return localadmin;
+    }
+    
+
+    @FXML
+    private void close(ActionEvent event) {
+        Paneimage.setVisible(false);
     }
 }

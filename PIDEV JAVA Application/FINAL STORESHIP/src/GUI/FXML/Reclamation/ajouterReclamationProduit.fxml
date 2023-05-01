@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -11,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="637.0" style="-fx-background-color: #F2EDDC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Reclamation.ajouterReclamationProduitController">
    <children>
-      <TextArea fx:id="descriptionReclamation" layoutX="29.0" layoutY="164.0" prefHeight="181.0" prefWidth="294.0" style="-fx-border-radius: 50;" />
+      <TextArea fx:id="descriptionReclamation" layoutX="29.0" layoutY="164.0" prefHeight="110.0" prefWidth="294.0" style="-fx-border-radius: 50;" />
       <Text fill="#1b1b1b" layoutX="29.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Détailler votre réclamation ( 3 mots au minimum )" wrappingWidth="294.3999999999999">
          <font>
             <Font name="Noto Serif" size="13.0" />
@@ -80,5 +81,11 @@
          <font>
             <Font name="Noto Serif" size="13.0" />
          </font></Text>
+      <Button fx:id="imageSt" layoutX="87.0" layoutY="431.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #03A6A6;" text="Parcourir" textFill="#fcfafa">
+         <font>
+            <Font name="Noto Serif" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="image_St" fitHeight="120.0" fitWidth="150.0" layoutX="87.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

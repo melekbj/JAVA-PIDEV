@@ -14,6 +14,8 @@ import entity.Reclamation;
 import entity.User;
 import entity.Util.EmailService;
 import java.io.UnsupportedEncodingException;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 
 
 
@@ -26,12 +28,24 @@ public class ServiceReclamation  {
 
 	
 	public void insert(Reclamation t) {
-		 String requete = "INSERT INTO reclamation (client_id,commande_id,etat,date,description,produit_id,type_id) VALUES "
-	                + "(" + t.getIdUser().getId() + "," + t.getIdCommande().getId() + ",'pending', '" + LocalDate.now()+ "','"+t.getContenu()+ "'," + t.getIdProduit().getId()+",'" +t.getType().getId()+"' )";
-	        try {
-	        	System.out.println(requete);
-	            Statement st = conn.createStatement();
-	            st.executeUpdate(requete);
+//		 String requete21 = "INSERT INTO reclamation (client_id,commande_id,etat,date,description,produit_id,type_id,image) VALUES "
+//	                + "(" + t.getIdUser().getId() + "," + t.getIdCommande().getId() + ",'pending', '" + LocalDate.now()+ "','"+t.getContenu()+ "'," + t.getIdProduit().getId()+",'" +t.getType().getId()+"'"
+//                         + ",? )";
+t.setEtat("pending");
+                String requete = "INSERT INTO reclamation (client_id,commande_id,etat,date,description,produit_id,type_id,image) VALUES (?,?,?,?,?,?,?,?)";
+try {
+    System.out.println(" this is the insert image String " + t.getImageString());
+    System.out.println(requete);
+    PreparedStatement pst = conn.prepareStatement(requete);
+    pst.setInt(1, t.getIdUser().getId());
+    pst.setInt(2, t.getIdCommande().getId());
+    pst.setString(3, t.getEtat());
+    pst.setDate(4, java.sql.Date.valueOf(LocalDate.now()));
+    pst.setString(5, t.getContenu());
+    pst.setInt(6, t.getIdProduit().getId());
+    pst.setInt(7, t.getType().getId());
+    pst.setString(8, t.getImageString());
+    pst.executeUpdate(); // execute the prepared statement directly
 	        } catch (SQLException ex) {
 	            Logger.getLogger(ServiceReclamation.class.getName()).log(Level.SEVERE, null, ex);
 	        }
@@ -115,8 +129,10 @@ public class ServiceReclamation  {
                             ,rs.getString(8)
                            ,rs.getDate("date").toLocalDate()
                           ,rs.getString("etat")
-                         ,str.readById(rs.getInt(9)));
+                         ,str.readById(rs.getInt(9))
                           
+                   );
+                          r.setImageString(rs.getString("image"));
                           
                list.add(r);
               

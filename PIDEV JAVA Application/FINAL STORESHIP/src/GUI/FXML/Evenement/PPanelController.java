@@ -304,7 +304,7 @@ String newFilePath = destination.toString();
                 img_ev.setImage(new Image("file:///"+per.getImageEvenement()));
 
         } catch (Exception e) {
-            System.out.println("image");
+            System.out.println("image PPanel Controller Event FXML");
         }
     btnlieu.setText(String.valueOf(per.getLieuEvenement()));
     btntitre.setText(String.valueOf(per.getTitreEvenement()));

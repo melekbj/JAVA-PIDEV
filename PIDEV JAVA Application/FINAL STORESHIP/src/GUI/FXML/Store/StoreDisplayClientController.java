@@ -104,5 +104,4 @@ public class StoreDisplayClientController implements Initializable {
         {
             return localStore;
         }
-    
 }

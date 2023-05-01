@@ -14,8 +14,9 @@
          <columns>
             <TableColumn fx:id="commande" prefWidth="105.0" text="Commande" />
             <TableColumn fx:id="produit" prefWidth="105.0" text="Produit" />
-            <TableColumn fx:id="description" prefWidth="329.0" text="Desciption" />
-            <TableColumn fx:id="etat" minWidth="0.0" prefWidth="62.0" text="Etat" />
+            <TableColumn fx:id="description" prefWidth="162.0" text="Desciption" />
+            <TableColumn fx:id="date" prefWidth="159.0" text="Date" />
+            <TableColumn fx:id="etat" minWidth="0.0" prefWidth="71.0" text="Etat" />
          </columns>
       </TableView>
    </children>

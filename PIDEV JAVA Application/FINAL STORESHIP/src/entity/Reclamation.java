@@ -12,6 +12,15 @@ private String Contenu;
 private LocalDate Date;
 private String Etat;
 private TypeReclamation Type;
+private String imageString;
+
+    public String getImageString() {
+        return imageString;
+    }
+
+    public void setImageString(String imageString) {
+        this.imageString = imageString;
+    }
 
     public Reclamation(int IdReclamation, User IdAdmin, User IdUser, Produit IdProduit, Commande IdCommande, String Contenu, LocalDate Date, String Etat, TypeReclamation Type) {
         this.IdReclamation = IdReclamation;
@@ -47,6 +56,11 @@ private TypeReclamation Type;
         this.Contenu = Contenu;
         this.Etat = Etat;
         this.Type = Type;
+    }
+
+    @Override
+    public String toString() {
+        return "Reclamation{" + "IdReclamation=" + IdReclamation + ", IdAdmin=" + IdAdmin + ", IdUser=" + IdUser + ", IdProduit=" + IdProduit + ", IdCommande=" + IdCommande + ", Contenu=" + Contenu + ", Date=" + Date + ", Etat=" + Etat + ", Type=" + Type + ", imageString=" + imageString + '}';
     }
 
     public Reclamation(int IdReclamation, User IdUser, Produit IdProduit, Commande IdCommande, String Contenu, LocalDate Date, String Etat, TypeReclamation Type) {

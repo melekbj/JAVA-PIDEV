@@ -13,6 +13,7 @@ import entity.User;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -57,6 +58,8 @@ public class historiquereclamationController implements Initializable {
     private TableColumn<Reclamation, String> description;
     @FXML
     private TableColumn<Reclamation, Integer> etat;
+    @FXML
+    private TableColumn<Reclamation,String> date;
     
 
     
@@ -80,9 +83,15 @@ tv_Users.setItems(reclamationList);
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       //  commande.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getIdCommande().getId()));
-        produit.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getIdProduit().getId())));
-description.setCellValueFactory(cellData -> new SimpleStringProperty("Contenu"));
+     //   produit.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getIdProduit().getId())));
+//description.setCellValueFactory(cellData -> new SimpleStringProperty("Contenu"));
+//etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
+commande.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getIdCommande().getId()).asString());
+produit.setCellValueFactory(cellData -> new SimpleStringProperty(String.valueOf(cellData.getValue().getIdProduit().getId())));
+description.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getContenu()));
+date.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDate().toString()));
 etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
+
 
         showAllUsers();
     }    

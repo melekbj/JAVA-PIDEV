@@ -61,6 +61,8 @@ public class HistoriqueCommandeController implements Initializable {
     private Pane Paymentholder;
     @FXML
     private Pane reclamationpane;
+    @FXML
+    private Pane DestinationPane;
     /**
      * Initializes the controller class.
      */
@@ -70,6 +72,7 @@ public class HistoriqueCommandeController implements Initializable {
                 instance=this;
                 addCommandeNodes(getfromdataall());
                 reclamationpane.setVisible(false);
+                DestinationPane.setVisible(false);
     }    
 
     public void updatedisplayhistorique(){
