@@ -57,7 +57,7 @@
                <font>
                   <Font name="Noto Serif" size="14.0" />
                </font></Label>
-            <Button fx:id="imageSt" layoutX="122.0" layoutY="196.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #03A6A6;" text="Parcourir" textFill="#fcfafa">
+            <Button fx:id="imageSt" layoutX="122.0" layoutY="196.0" mnemonicParsing="false" onAction="#insertimage" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: #03A6A6;" text="Parcourir" textFill="#fcfafa">
                <font>
                   <Font name="Noto Serif" size="15.0" />
                </font></Button>

@@ -37,6 +37,7 @@ public class NavPController implements Initializable {
     @FXML
     private void loadPane1(ActionEvent event) {
          PartnerContenuController p = new PartnerContenuController();
+         
          p.setPane1();
     }
 

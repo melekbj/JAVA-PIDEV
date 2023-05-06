@@ -92,7 +92,7 @@ public class UIpdateProduitController implements Initializable {
            // save the image inside htdoc
          String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
  String newFileName = "image_" + System.currentTimeMillis() + extension;
-        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Path destination = Paths.get("C:\\xampp\\htdocs\\ImagePidev\\", newFileName);
         Files.copy(selectedFile.toPath(), destination);
 // Get the new file name
  newFilePath = destination.toString();

@@ -68,11 +68,8 @@ public class historiquereclamationController implements Initializable {
         User u=ClientMainController.getInstance().getUser();
         ServiceReclamation sr=new ServiceReclamation();
         ObservableList<Reclamation> reclamationList =FXCollections.observableArrayList(sr.readByUserId(u.getId()));
-        
-
 tv_Users.setItems(reclamationList);
 
-        
     }
     
     

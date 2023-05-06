@@ -111,5 +111,15 @@
             <Label layoutX="312.0" layoutY="283.0" text="wachene" />
          </children>
       </Pane>
+      <Pane fx:id="pane41" layoutX="8.0" layoutY="8.0" prefHeight="600.0" prefWidth="670.0" visible="false">
+         <children>
+            <Label layoutX="312.0" layoutY="283.0" text="wachene" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane42" layoutX="8.0" layoutY="8.0" prefHeight="600.0" prefWidth="670.0" visible="false">
+         <children>
+            <Label layoutX="312.0" layoutY="283.0" text="wachene" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

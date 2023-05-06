@@ -7,6 +7,7 @@ package GUI.Controllers;
 import GUI.Controllers.Commande.HistoriqueCommandeController;
 import GUI.Controllers.Commande.ShopController;
 import GUI.FXML.Evenement.AllEventController;
+import GUI.FXML.Evenement.historiquereservationController;
 import GUI.FXML.Reclamation.historiquereclamationController;
 import controller.UserController;
 import entity.User;
@@ -92,6 +93,10 @@ public class ClientContenuController implements Initializable {
     private Pane pane31;
     @FXML
     private TextField tf_num;
+    @FXML
+    private Pane pane41;
+    @FXML
+    private Pane pane42;
    
     
     
@@ -156,6 +161,8 @@ public class ClientContenuController implements Initializable {
                 instance.pane2.setVisible(false);
         instance.pane3.setVisible(false);
            instance.pane4.setVisible(false);
+             instance.pane41.setVisible(false);
+                      instance.pane42.setVisible(false);
         instance.pane5.setVisible(false);
         
         openshop();
@@ -166,6 +173,8 @@ public class ClientContenuController implements Initializable {
         instance.pane2.setVisible(true);
         instance.pane3.setVisible(false);
         instance.pane4.setVisible(false);
+          instance.pane41.setVisible(false);
+                      instance.pane42.setVisible(false);
         instance.pane5.setVisible(false);
 
     }
@@ -174,6 +183,8 @@ public class ClientContenuController implements Initializable {
         instance.pane2.setVisible(false);
         instance.pane3.setVisible(true);
            instance.pane4.setVisible(false);
+             instance.pane41.setVisible(false);
+                      instance.pane42.setVisible(false);
         instance.pane5.setVisible(false);
       
         // Generate the QR code image using the QRCodeGenerator utility class
@@ -185,17 +196,41 @@ public class ClientContenuController implements Initializable {
         instance.pane2.setVisible(false);
         instance.pane3.setVisible(false);
            instance.pane4.setVisible(true);
+             instance.pane41.setVisible(false);
+                      instance.pane42.setVisible(false);
         instance.pane5.setVisible(false);
 loadhistoriquereclamation();
     }
-        public void   setPane5(){
+         public void   setPane5(){
         instance.pane1.setVisible(false);
         instance.pane2.setVisible(false);
         instance.pane3.setVisible(false);
            instance.pane4.setVisible(false);
+           instance.pane41.setVisible(false);
+                      instance.pane42.setVisible(false);
         instance.pane5.setVisible(true);
 
+    } public void   setPane41(){
+        instance.pane1.setVisible(false);
+        instance.pane2.setVisible(false);
+        instance.pane3.setVisible(false);
+           instance.pane4.setVisible(false);
+           instance.pane41.setVisible(true);
+                      instance.pane42.setVisible(false);
+        instance.pane5.setVisible(false);
+loadlistReservation();
     }
+        public void   setPane42(){
+        instance.pane1.setVisible(false);
+        instance.pane2.setVisible(false);
+        instance.pane3.setVisible(false);
+           instance.pane4.setVisible(false);
+           instance.pane41.setVisible(false);
+                      instance.pane42.setVisible(true);
+        instance.pane5.setVisible(false);
+
+    }
+        
         
         
         public void setPane31(){
@@ -295,5 +330,17 @@ loadhistoriquereclamation();
          catch (IOException ex) {
                 System.out.println(ex);
             }
+    }
+    
+    public void loadlistReservation(){
+        instance.pane41.getChildren().clear();
+        FXMLLoader ReservationLoader=new FXMLLoader(getClass().getResource("/GUI/FXML/Evenement/historiquereservation.fxml"));
+        try {
+            Node node=ReservationLoader.load();
+            historiquereservationController ReservationController=new historiquereservationController();
+            instance.pane41.getChildren().add(node);
+        } catch (Exception e) {
+                            System.out.println(e);
+        }
     }
 }

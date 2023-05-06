@@ -158,6 +158,40 @@ public class Reservation_Service implements Iservice<Reservation_entite> {
         return list;     
     }
 
+    public List<Reservation_entite> readByUser(User u) {
+            User user=new User();
+         Evenement_entite ev=new Evenement_entite();
+        
+                List<Reservation_entite> list=new ArrayList<>();
+            String requete="select * from reservation where user_id='"+u.getId()+"'";
+        try {
+            Statement st=conn.createStatement();
+            ResultSet rs=st.executeQuery(requete);
+            while(rs.next()){
+                 ev.setIdEvenement(rs.getInt(3));
+               Reservation_entite re=new Reservation_entite(
+                      // rs.getInt("id_reservation"),
+                        // rs.setId_user(rs.getInt("id_user")),
+                      // rs.getInt("id_user"),
+                    //  rs.getInt("id_evenement"),
+                       // rs.getDate("date").toLocalDate(),
+                       // rs.getInt("nbr_place"));
+                        rs.getInt(1),user,ev,   rs.getDate("date").toLocalDate(),
+                        rs.getInt("nb_places"));
+                
+                      
+
+                         
+                 
+   list.add(re);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Reservation_Service.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;     
+    }
+
     
     @Override
     public Reservation_entite readById(int id) {

@@ -21,6 +21,7 @@ import entity.Categorie;
 import entity.Produit;
 import entity.ProduitStore;
 import entity.Store;
+import entity.User;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -75,7 +76,7 @@ public class PPanelController implements Initializable {
     private Label fxprix;
     @FXML
     private Label fxquantite;
-    private TextField txtid;
+    private int txtid;
     @FXML
     private TextField txtnom;
      @FXML
@@ -84,7 +85,7 @@ public class PPanelController implements Initializable {
     private TextField txtprix;
     @FXML
     private TextField txtquantite;
-    private TextField txtetat;
+    private int txtetat;
     @FXML
     private TableView<Produit> table;
     private TableColumn<Produit, Integer> idcolumn;
@@ -159,7 +160,7 @@ public class PPanelController implements Initializable {
         
         //controle de saisie
  
-         if (txtnom.getText().isEmpty() || imageSt.getText().isEmpty() || txtprix.getText().isEmpty() || txtquantite.getText().isEmpty() || txtetat.getText().isEmpty() ) {
+         if (txtnom.getText().isEmpty() || imageSt.getText().isEmpty() || txtprix.getText().isEmpty() || txtquantite.getText().isEmpty()  ) {
                   String titre="Error";
 String message = "required fields are empty";
 TrayNotification tray = new TrayNotification();
@@ -173,18 +174,6 @@ tray.showAndDismiss(Duration.millis(3000));
          else if ( txtnom.getText().matches(".*[0-9].*")) {
                                String titre="Error";
 String message = "Please enter only letters";
-TrayNotification tray = new TrayNotification();
-AnimationType type = AnimationType.POPUP;
-tray.setAnimationType(type);
-tray.setTitle(titre);
-tray.setMessage(message);
-tray.setNotificationType(NotificationType.ERROR);
-tray.showAndDismiss(Duration.millis(3000));
-        }
-        else if ( txtprix.getText().matches(".*[a-z].*")||txtquantite.getText().matches(".*[a-z].*")||  txtetat.getText().matches(".*[a-z].*"))
-            {
-                 String titre="Error";
-                String message = "Please enter only Numbers !";
 TrayNotification tray = new TrayNotification();
 AnimationType type = AnimationType.POPUP;
 tray.setAnimationType(type);
@@ -211,7 +200,7 @@ tray.showAndDismiss(Duration.millis(3000));}
            // save the image inside htdoc
          String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
  String newFileName = "image_" + System.currentTimeMillis() + extension;
-        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Path destination = Paths.get("C:\\xampp\\htdocs\\ImagePidev\\", newFileName);
         Files.copy(selectedFile.toPath(), destination);
 // Get the new file name
  newFilePath = destination.toString();
@@ -221,8 +210,8 @@ tray.showAndDismiss(Duration.millis(3000));}
                 txtnom.getText(),
                 newFilePath,
                  Double.parseDouble(txtprix.getText()),
-                Integer.parseInt(txtquantite.getText()),
-                 Integer.parseInt(txtetat.getText()) 
+                Integer.parseInt(txtquantite.getText())
+           
                  );
         //el i_cat te5ou el
         Categorie c=new Categorie();
@@ -238,9 +227,9 @@ MainController.getINSTANCE().ajouterlistproduit();
 
     @FXML
     private void delete(ActionEvent event) {
-        int n=Integer.parseInt(txtid.getText());
+        int n=txtid;
         ServiceProduit  es=new ServiceProduit ();
-        Produit e=new Produit(Integer.parseInt(txtid.getText()));
+        Produit e=new Produit(txtid);
         es.delete(e);
                String titre="SUCCESS";
 String message ="Produit deleted Successfully";
@@ -316,7 +305,7 @@ tray.showAndDismiss(Duration.millis(3000));
                  // save the image inside htdoc
          String extension = selectedFile.getName().substring(selectedFile.getName().lastIndexOf("."));
  String newFileName = "image_" + System.currentTimeMillis() + extension;
-        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Path destination = Paths.get("C:\\xampp\\htdocs\\ImagePidev\\", newFileName);
         Files.copy(selectedFile.toPath(), destination);
 // Get the new file name
  newFilePath = destination.toString();
@@ -327,14 +316,14 @@ tray.showAndDismiss(Duration.millis(3000));
         System.out.println("starting");
         ServiceProduit es=new ServiceProduit();
         ServiceCategorie SC=new ServiceCategorie();
-        Produit e=new Produit(Integer.parseInt(
-               txtid.getText()),
+        Produit e=new Produit(
+               txtid,
               txtnom.getText(),
             newFilePath,
              Double.parseDouble(txtprix.getText()),
           Integer.parseInt(txtquantite.getText()),
-                new Categorie(SC.getCategorieByName(combo.getValue())),
-             Integer.parseInt(txtetat.getText()) 
+                new Categorie(SC.getCategorieByName(combo.getValue()))
+            
         );    
         System.out.println("test");
         es.update(e);
@@ -355,7 +344,10 @@ tray.showAndDismiss(Duration.millis(3000));
     private void readAll(ActionEvent event) {
         List<Produit>  ProduitList=new ArrayList<>();
           ServiceProduit es=new ServiceProduit();
-           ProduitList=es.readAll();
+          Store store=MainController.getINSTANCE().getStore();
+          System.out.println("afficher this store"+store);
+          ProduitStoreService pss=new ProduitStoreService();
+           ProduitList=pss.readProduitbyStore(store);
            ObservableList<Produit> ez=FXCollections.observableArrayList(ProduitList);
             System.out.println(ez);
                table.setItems(ez);
@@ -364,8 +356,8 @@ tray.showAndDismiss(Duration.millis(3000));
     }
         private Stage primaryStage;
 
-     @FXML
-void insertimage(ActionEvent event) {
+    @FXML
+     void insertimage(ActionEvent event) {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Upload an image");
     FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image files", "*.jpg", "*.jpeg", "*.png");
@@ -455,13 +447,12 @@ tray.showAndDismiss(Duration.millis(3000));
     @FXML
     private void handleMouseAction(MouseEvent event) {
          Produit per = table.getSelectionModel().getSelectedItem();
-    txtid.setText(String.valueOf(per.getId()));
+    txtid=per.getId();
     txtnom.setText(String.valueOf(per.getNom()));
     imageSt.setText(String.valueOf(per.getPhoto()));
     txtprix.setText(String.valueOf(per.getPrix()));
     txtquantite.setText(String.valueOf(per.getQuantite()));
-    txtetat.setText(String.valueOf(per.getEtat()));
-   
+   txtetat=per.getEtat();
     }
 
     @FXML
@@ -481,7 +472,12 @@ tray.showAndDismiss(Duration.millis(3000));
     
     MainController LPC=new MainController();
         LPC.noupdateinfoStore();
-    }}
+                MainController.getINSTANCE().ajouterlistproduit();
+
+    }
+
+   
+}
     
 
 

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="207.0" style="-fx-background-color: #F2EDDC;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.ProduitController">
+<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="207.0" style="-fx-background-color: #F2EDDC; -fx-border-color: black;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.ProduitController">
    <children>
       <VBox fx:id="produit" prefHeight="303.0" prefWidth="221.0">
          <children>

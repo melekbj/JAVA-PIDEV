@@ -85,47 +85,42 @@ private static MainController instance;
         UserController userC = new UserController();
         setLocaluser(PartnerMainController.getInstance().getUser());
         localStore = store.readById(localuser.getId());
+                instance.localStore = store.readById(localuser.getId());
+        System.out.println("LocalUser Connecting to Store "+localuser);
         System.out.println("localStore   a============" + localStore);
         try {
             FXMLLoader storeLoader;
             if (localStore == null) {
                 AjoutStore();
             } else {
-                if (getlocaluser().getRoles().equals("ROLE_PARTNER") || getlocaluser().getRoles().equals("ROLE_ADMIN")) {
                     System.out.println("role is Partenaire ou ADMIN ");
                     storeLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/StorePartenaire.fxml"));
                     Node storeNode = storeLoader.load();
                     StoreController storeController = storeLoader.getController();
                     storeController.setLocalstore(localStore);
                     instance.STORE.getChildren().add(storeNode);
-                } else {
-                    storeLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/StoreClient.fxml"));
-                    Node storeNode = storeLoader.load();
-                    StoreController storeController = storeLoader.getController();
-                    storeController.setLocalstore(localStore);
-                    instance.STORE.getChildren().add(storeNode);
-
-                }
+             
 
             }
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
+          ajouterlistproduit();
     }
 
     public void ajouterStoreparProduit(Produit p) {
         ProduitStoreService PSS = new ProduitStoreService();
         UserController userC = new UserController();
         User usr = ClientMainController.getInstance().getUser();
+        
+        System.out.println("THis is the Connectec Partner;;;;;;; "+usr);
         setLocaluser(userC.readById(usr.getId()), p);
         localStore = PSS.readStoreById(p);
+        System.out.println("this is the Local Store ;;;;;;;;;" + localStore);
         try {
-            FXMLLoader storeLoader;
-            if (getlocaluser().getRoles().equals("ROLE_PARTNER") || getlocaluser().getRoles().equals("ROLE_ADMIN")) {
+            FXMLLoader storeLoader; System.out.println("Loading AjouterStoreParProduit Line 123");
                 storeLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/StorePartenaire.fxml"));
-            } else {
-                storeLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/StoreClient.fxml"));
-            }
+          
             Node storeNode = storeLoader.load();
             StoreController storeController = storeLoader.getController();
             storeController.setLocalstore(localStore);
@@ -155,8 +150,11 @@ private static MainController instance;
 
 //load des produit tout en depant de user role
     public void ajouterlistproduit() {
-
+          StoreService store = new StoreService();
         UserController userC = new UserController();
+        setLocaluser(PartnerMainController.getInstance().getUser());
+        localStore = store.readById(localuser.getId());
+  System.out.println("trying to Load List Produit");
         User user = null;
         ClientMainController clientController = ClientMainController.getInstance();
         if (clientController != null) {
@@ -195,16 +193,9 @@ private static MainController instance;
 
             }
             try {
-                System.out.println(getlocaluser());
-                if (getlocaluser().getRoles().equals("ROLE_PARTNER")) {
+              
                     produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/Produit.fxml"));
-                } else if (getlocaluser().getRoles().equals("ROLE_ADMIN")) {
-                    produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/ProduitAdmin.fxml"));
-                } else {
-                    produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Commande/Produit.fxml"));
-                    parteneroradmin = false;
-                    System.out.println("doing this");
-                }
+              
 
                 Node node = produitLoader.load();
                 if (parteneroradmin) {
@@ -247,6 +238,8 @@ private static MainController instance;
 
     @FXML
     private void go_back(ActionEvent event) {
+                ajouterlistproduit();
+
     }
 
     public void updateinfoStore() throws IOException {
@@ -256,6 +249,8 @@ private static MainController instance;
         FXMLLoader root = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/UpdateStore.fxml"));
         Node node = root.load();
         instance.APANE.getChildren().add(node);
+                ajouterlistproduit();
+
     }
 
     public void AjoutStore() {
@@ -317,6 +312,8 @@ private static MainController instance;
         alert.setContentText("this product has been updated!");
         alert.showAndWait();
         Pane1.setVisible(false);
+                ajouterlistproduit();
+
 
     }
 
@@ -324,9 +321,11 @@ private static MainController instance;
         instance.APANE.getChildren().clear();
         instance.SplitPane.setVisible(false);
         instance.APANE.setVisible(true);
-        FXMLLoader root = new FXMLLoader(getClass().getResource("/GUI/FXML/.fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource("/GUI/FXML/PPanel.fxml"));
         Node node = root.load();
         instance.APANE.getChildren().add(node);
+                ajouterlistproduit();
+
     }
 
     public void updateinfoStock(Produit p) {
@@ -342,12 +341,16 @@ private static MainController instance;
         } catch (Exception e) {
             System.out.println("error image");
         }
-        Pane1.setVisible(true);
+        Pane1.setVisible(true);        ajouterlistproduit();
+
+        
     }
 
     @FXML
     private void cancelupdate(ActionEvent event) {
         Pane1.setVisible(false);
+                ajouterlistproduit();
+
     }
 
     // a wael pour terminer

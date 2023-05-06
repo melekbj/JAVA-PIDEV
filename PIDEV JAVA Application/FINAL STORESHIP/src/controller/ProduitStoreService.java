@@ -184,6 +184,31 @@ public Store readStoreById(Produit produit) {
     
     return store;
 }
+
+public List<Produit> readProduitbyStore(Store store) {
+    List<Produit> listproduit=new ArrayList<>();
+    System.out.println("ent er" + store);
+    String query = "SELECT  * FROM `store_produit` WHERE `store_id` = ?";
+    ServiceProduit produitService = new ServiceProduit();
+    Produit produit = null;
+    try {
+            
+            PreparedStatement stmt = conn.prepareStatement(query);
+
+        stmt.setInt(1, store.getId());
+        ResultSet rs = stmt.executeQuery();
+             while (rs.next()) {
+                int produitid = rs.getInt("produit_id");
+                produit = produitService.readById(produitid);
+                listproduit.add(produit);
+                System.out.println("base de donne"+store);
+            }
+                    } catch (SQLException ex) {
+                Logger.getLogger(ProduitStoreService.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    
+    return listproduit;
+}
  /*public Map<Store, List<Produit>> getAllProduitsByStore() throws SQLException {
    // Build the query to retrieve all Produit objects for each Store
     String sql = "SELECT s.*, p.* FROM Store s JOIN store_produit ps ON s.id_store = ps.id_store JOIN Produit p ON ps.id_produit = p.id_produit";

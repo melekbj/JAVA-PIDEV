@@ -259,6 +259,7 @@ public class HistoriqueCommandeController implements Initializable {
          System.out.println("historique detail_commande "+p);
         try {    
             reclamationpane.getChildren().clear();
+            reclamationpane.toFront();
          reclamationpane.setVisible(true);         
          FXMLLoader loadreclamation=new FXMLLoader(getClass().getResource("/GUI/FXML/Reclamation/ajouterReclamationProduit.fxml"));
           Node  node = loadreclamation.load();
@@ -275,5 +276,7 @@ public class HistoriqueCommandeController implements Initializable {
      
      public void closereclamation(){
          reclamationpane.setVisible(false);
+                     reclamationpane.toBack();
+
      }
 }

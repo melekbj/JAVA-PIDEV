@@ -107,7 +107,7 @@ public class ajouterReclamationProduitController implements Initializable {
          
          
 String newFileName = "image_" + System.currentTimeMillis() + extension;
-        Path destination = Paths.get("C:/xampp/htdocs/ImagePidev/", newFileName);
+        Path destination = Paths.get("C:\\xampp\\htdocs\\ImagePidev\\", newFileName);
             System.out.println("Destination image Path == "+destination);
         Files.copy(selectedFile.toPath(), destination);
 

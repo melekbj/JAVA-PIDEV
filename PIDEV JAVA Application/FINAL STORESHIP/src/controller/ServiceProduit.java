@@ -193,6 +193,8 @@ public class ServiceProduit {
         return list;     
        
     }
+    
+   
      public List<Produit> readAllActive() {
              List<Produit> list=new ArrayList<>();
             String requete="select * from produit where etat=1 and quantite > 0 ";

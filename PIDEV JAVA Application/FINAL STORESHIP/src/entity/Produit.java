@@ -27,7 +27,6 @@ public class Produit {
  public  Produit() {
     }
 
-
     public Produit(int id, String nom, String photo, double prix, int quantite, Categorie categorie, int etat) {
         this.id = id;
         this.nom = nom;
@@ -36,6 +35,17 @@ public class Produit {
         this.quantite = quantite;
         this.categorie = categorie;
         this.etat = etat;
+    }
+
+
+    public Produit(int id, String nom, String photo, double prix, int quantite, Categorie categorie) {
+        this.id = id;
+        this.nom = nom;
+        this.photo = photo;
+        this.prix = prix;
+        this.quantite = quantite;
+        this.categorie = categorie;
+     
        // this.user = user;
     }
     public Produit(int id,String nom, String photo, double prix, int quantite,int etat) {
@@ -63,8 +73,14 @@ public class Produit {
         this.prix = prix;
         this.quantite = quantite;
         this.categorie = categorie;
-        this.etat = etat;
         //this.user = user;
+    }
+
+    public Produit(String nom, String photo, double prix, int quantite) {
+        this.nom = nom;
+        this.photo = photo;
+        this.prix = prix;
+        this.quantite = quantite;
     }
 
     public Produit(String nom, String photo, double prix, int quantite, int etat) {

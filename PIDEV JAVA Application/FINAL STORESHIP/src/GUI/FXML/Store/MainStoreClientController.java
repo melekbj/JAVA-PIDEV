@@ -158,8 +158,16 @@ APANE.setVisible(false);
             try {
                 System.out.println(getlocaluser());
                
-                    produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/ProduitDisplayClient.fxml"));
+                  if (getlocaluser().getRoles().equals("ROLE_PARTNER")) {
+                    produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/Produit.fxml"));
+                } else if (getlocaluser().getRoles().equals("ROLE_ADMIN")) {
+                    produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/ProduitAdmin.fxml"));
+                } else {
+                   produitLoader = new FXMLLoader(getClass().getResource("/GUI/FXML/Store/ProduitDisplayClient.fxml"));
                     parteneroradmin = false;
+                    System.out.println("doing this");
+                }
+                    
                     System.out.println("doing this");
                
 

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="478.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 0%, #99ccff 100%);;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Commande.PaymentpageController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="478.0" style="-fx-background-color: linear-gradient(to bottom,  #F2EDDC 80%,  #03A6A6 0%);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controllers.Commande.PaymentpageController">
      <children>
         <Label layoutX="20.0" layoutY="28.0" text="Card Number" />
         <TextField fx:id="cardNumberField" layoutX="20.0" layoutY="48.0" prefWidth="260.0" />
