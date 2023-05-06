@@ -185,11 +185,12 @@ private static MainController instance;
         FXMLLoader produitLoader = null;
         for (Produit p : list) {
             if (counter == 3) {
-                listp.getChildren().add(hbox);
+                instance.listp.getChildren().add(hbox);
                 counter = 0;
                 hbox = new HBox();
-                hbox.setPrefWidth(300);
-                hbox.setPrefHeight(50);
+                hbox.setSpacing(10);
+        hbox.setPrefWidth(400);
+        hbox.setPrefHeight(50);
 
             }
             try {

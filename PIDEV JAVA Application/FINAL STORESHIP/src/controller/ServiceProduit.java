@@ -48,22 +48,24 @@ public class ServiceProduit {
 
         t.setEtat(1);
         //       String requete = "insert into produit(nom,photo,prix,quantite,categorie_id,etat,user_id)VALUES ('"+t.getNom()+"','"+t.getPhoto()+"','"+t.getPrix()+"', '"+t.getQuantite()+"','"+t.getCategorie().getId()+"', '"+t.getEtat()+"','"+t.getUser().getId()+"')";
-               String requete = "insert into produit("
+              String requete = "insert into produit("
                        + "nom,"
                        + "photo,"
                        + "prix,"
                        + "quantite,"
                        + "categorie_id,"
-                       + "etat)VALUES ('"
-                       + ""+t.getNom()+"',"
-                       + "'"+t.getPhoto()+"',"
-                       + "'"+t.getPrix()+"',"
-                       + " '"+t.getQuantite()+"',"
-                       + ""+t.getCategorie().getId()+", "
-                       + "'"+t.getEtat()+"')";
+                       + "etat)VALUES (?,?,?,?,?,?)";
         try {
             PreparedStatement pst = conn.prepareStatement(requete,Statement.RETURN_GENERATED_KEYS);
-        
+            pst.setString(1, t.getNom());
+                        pst.setString(2, t.getPhoto());
+                                    pst.setDouble(3, t.getPrix());
+                                                pst.setInt(4, t.getQuantite());
+                                                            pst.setInt(5, t.getCategorie().getId());
+pst.setInt(6, 0);
+
+
+
             pst.executeUpdate();
                ResultSet rs = pst.getGeneratedKeys();
     if (rs.next()) {

@@ -15,22 +15,22 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F2EDDC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML.Store.MainController">
    <children>
-      <SplitPane fx:id="SplitPane" dividerPositions="0.8262295081967214" layoutX="-3.0" layoutY="-1.0" prefHeight="752.0" prefWidth="917.0">
+      <SplitPane fx:id="SplitPane" dividerPositions="0.8262295081967214" layoutX="-3.0" layoutY="-1.0" prefHeight="611.0" prefWidth="917.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="753.0">
+          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="605.0" prefWidth="753.0">
                <children>
-                  <SplitPane dividerPositions="0.3626666666666667" orientation="VERTICAL" prefHeight="752.0" prefWidth="753.0">
+                  <SplitPane dividerPositions="0.4925373134328358" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="605.0" prefWidth="753.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="269.0" prefWidth="662.0">
                            <children>
                               <Pane fx:id="STORE" layoutX="2.0" prefHeight="269.0" prefWidth="753.0" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="334.0" prefWidth="751.0">
                            <children>
-                              <ScrollPane prefHeight="475.0" prefWidth="751.0">
+                              <ScrollPane prefHeight="335.0" prefWidth="751.0">
                                  <content>
-                                    <VBox fx:id="listp" prefHeight="473.0" prefWidth="746.0" />
+                                    <VBox fx:id="listp" prefHeight="321.0" prefWidth="746.0" />
                                  </content></ScrollPane>
                            </children>
                         </AnchorPane>
@@ -38,11 +38,11 @@
                   </SplitPane>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="607.0" prefWidth="150.0">
                <children>
-                  <ScrollPane prefHeight="750.0" prefWidth="231.0">
+                  <ScrollPane prefHeight="614.0" prefWidth="231.0">
                      <content>
-                        <VBox fx:id="ListC" prefHeight="748.0" prefWidth="229.0" />
+                        <VBox fx:id="ListC" prefHeight="600.0" prefWidth="229.0" />
                      </content>
                   </ScrollPane>
                </children>
@@ -54,9 +54,9 @@
             <Button fx:id="retour" layoutX="548.0" layoutY="364.0" mnemonicParsing="false" onAction="#go_back" text="return" />
          </children>
       </AnchorPane>
-      <Pane fx:id="Pane1" layoutX="214.0" layoutY="161.0" prefHeight="428.0" prefWidth="483.0" style="-fx-background-color: linear-gradient(to bottom, #99ffcc 0%, #99ff66 100%);;">
+      <Pane fx:id="Pane1" layoutX="90.0" layoutY="90.0" prefHeight="428.0" prefWidth="357.0" style="-fx-background-color: linear-gradient(to bottom, #99ffcc 0%,  #F2EDDC 100%);">
          <children>
-            <AnchorPane id="AnchorPane" layoutY="-3.0" prefHeight="435.0" prefWidth="483.0" styleClass="mainFxmlClass">
+            <AnchorPane id="AnchorPane" layoutY="-3.0" prefHeight="435.0" prefWidth="357.0" styleClass="mainFxmlClass">
                <children>
                   <ImageView fx:id="imageP" fitHeight="152.0" fitWidth="221.0" layoutX="32.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
                   <HBox layoutX="43.0" layoutY="177.0" prefHeight="41.0" prefWidth="200.0">
